@@ -1,0 +1,34 @@
+{
+  "root": "libs/api/config/docker",
+  "sourceRoot": "libs/api/config/docker/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/config/docker",
+        "tsConfig": "libs/api/config/docker/tsconfig.lib.json",
+        "packageJson": "libs/api/config/docker/package.json",
+        "main": "libs/api/config/docker/src/index.ts",
+        "assets": ["libs/api/config/docker/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/config/docker/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/config/docker"],
+      "options": {
+        "jestConfig": "libs/api/config/docker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:config"]
+}

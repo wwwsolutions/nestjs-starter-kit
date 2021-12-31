@@ -1,0 +1,34 @@
+{
+  "root": "libs/api/config/codegen",
+  "sourceRoot": "libs/api/config/codegen/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/config/codegen",
+        "tsConfig": "libs/api/config/codegen/tsconfig.lib.json",
+        "packageJson": "libs/api/config/codegen/package.json",
+        "main": "libs/api/config/codegen/src/index.ts",
+        "assets": ["libs/api/config/codegen/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/config/codegen/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/config/codegen"],
+      "options": {
+        "jestConfig": "libs/api/config/codegen/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:config"]
+}
