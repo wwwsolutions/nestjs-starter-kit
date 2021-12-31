@@ -1,0 +1,5 @@
+node_modules
+libs/api/graphql/data-access/prisma/src/lib
+libs/api/graphql/data-access/models/src/lib
+
+libs/api/rest/data-access/api/src/lib

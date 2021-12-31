@@ -1,0 +1,14 @@
+.docker/
+.husky/
+.angular/
+node_modules
+coverage
+docker
+tools
+Dockerfile*
+README.md
+LICENSE
+.vscode
+.dockerignore
+.git
+.gitignore
