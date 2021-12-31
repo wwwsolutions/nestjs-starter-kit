@@ -37,7 +37,8 @@
       ],
       "@wwwsolutions/api/config/features": [
         "libs/api/config/features/src/index.ts"
-      ]
+      ],
+      "@wwwsolutions/api/core": ["libs/api/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

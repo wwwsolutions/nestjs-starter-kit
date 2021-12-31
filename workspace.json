@@ -5,6 +5,7 @@
     "api-config-app": "libs/api/config/app",
     "api-config-codegen": "libs/api/config/codegen",
     "api-config-docker": "libs/api/config/docker",
-    "api-config-features": "libs/api/config/features"
+    "api-config-features": "libs/api/config/features",
+    "api-core": "libs/api/core"
   }
 }
