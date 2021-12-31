@@ -1,55 +1,84 @@
-# `api-config-app`
+# `api-core`
 
-Implement and utilize Nest `ConfigService` with validation.
+Implement and utilize api-core lib.
 
 ## Features
 
-- validation
-- injectable
-
-### Install
-
-```bash
-yarn add @nestjs/config joi
-```
+- api integrations
 
 ### Generate
 
 ```bash
-// generate config lib
-yarn nx generate @nrwl/nest:library --name=app --directory=api/config --buildable --standaloneConfig --strict --tags=type:config --no-interactive
+// generate lib
+yarn nx generate @nrwl/nest:library --name=core --directory=api --buildable --standaloneConfig --strict --tags=type:config --no-interactive --service
 ```
 
 ### Create
 
-#### `app.configuration.ts`
+#### `api-core-module.ts`
+
+- integration module registration
+- feature modules registration
 
 ```typescript
-// libs/api/config/app/src/lib/configs/app.configuration.ts
+// libs/api/core/src/lib/api-core.module.ts
 
-import { Inject } from '@nestjs/common';
-import { ConfigType, registerAs } from '@nestjs/config';
+import { Module } from '@nestjs/common';
 
-export const appConfiguration = registerAs('app', () => ({
-  type: process.env.API_TYPE,
-  protocol: process.env.API_PROTOCOL,
-  host: process.env.API_HOST,
-  port: Number(process.env.API_PORT),
-  prefix: process.env.API_PREFIX,
-  integration: process.env.API_INTEGRATION,
-
-  get domain(): string {
-    return `${this.protocol}://${this.host}:${this.port}`;
-  },
-
-  get path(): string {
-    return `${this.prefix}`;
-  },
-}));
-
-export type AppConfiguration = ConfigType<typeof appConfiguration>;
-
-export const InjectAppConfig = () => Inject(appConfiguration.KEY);
+@Module({
+  imports: [
+    /* <REQUIRED>
+     *
+     * REGISTER SINGLE INTEGRATION MODULE DEPENDING ON
+     * WHICH API IMPLEMENTATION YOU WANT TO UTILIZE
+     *
+     * <various integrations>
+     *
+     *    ApiGraphqlPrismaIntegrationModule
+     *    ApiRestPrismaIntegrationModule
+     *    ApiRestMongooseIntegrationModule
+     *    ApiRestTypeormIntegrationModule
+     *
+     */
+    // ApiGraphqlPrismaIntegrationModule,
+    /* <OPTIONAL>
+     *
+     * REGISTER DOMAIN FEATURE MODULES
+     * THESE MODULES HOLD BUSINESS LOGIC
+     *
+     * <examples>
+     *
+     *    ApiGraphqlUsersFeatureModule,
+     *    ApiGraphqlAuthenticationFeatureModule,
+     *    ApiGraphqlRolesFeatureModule,
+     *
+     */
+    // ApiGraphqlUsersFeatureModule,
+  ],
+  providers: [
+    /* <OPTIONAL>
+     *
+     * IN CASE OF GRAPHQL INTEGRATION REGISTER RESOLVERS
+     *
+     * <examples>
+     *
+     *    ApiCoreResolver,
+     */
+    // ApiCoreResolver,
+  ],
+  controllers: [
+    /* <OPTIONAL>
+     *
+     * IN CASE OF REST INTEGRATION REGISTER CONTROLLERS
+     *
+     * <examples>
+     *
+     *    ApiCoreController,
+     */
+    // ApiCoreController,
+  ],
+})
+export class ApiCoreModule {}
 ```
 
 #### `environment.configuration.ts`
