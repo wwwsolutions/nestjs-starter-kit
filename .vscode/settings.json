@@ -1,7 +1,34 @@
 {
+  "files.eol": "\n",
   "workbench.colorCustomizations": {
-    "activityBar.background": "#4A1754",
-    "titleBar.activeBackground": "#672075",
-    "titleBar.activeForeground": "#FEFBFE"
-  }
+    "activityBar.background": "#212B55",
+    "titleBar.activeBackground": "#2E3C76",
+    "titleBar.activeForeground": "#FBFBFD"
+  },
+  "vsicons.presets.nestjs": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
+  "markdownlint.config": {
+    "default": true,
+    "MD024": { "siblings_only": true },
+    "MD004": { "style": "consistent" },
+    "MD040": false
+  },
+  "cSpell.words": [
+    "BEEMAN",
+    "demodb",
+    "devdependencies",
+    "extendmerge",
+    "Hackathon",
+    "rootpassword"
+  ]
 }
