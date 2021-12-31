@@ -1,6 +1,6 @@
 import * as Joi from 'joi';
 
-import { Env } from './environment.constants';
+import { Env } from './constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
@@ -21,13 +21,6 @@ export const validationSchema = Joi.object({
   api/config/app/src/lib/configs/app.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
-  API_INTEGRATION: Joi.string()
-    .valid('ApiGraphqlPrismaIntegration', 'ApiRestPrismaIntegration')
-    .required()
-    // .default('ApiGraphqlPrismaIntegration')
-    .description('API integration'),
-
   // OPTIONAL
   API_TYPE: Joi.string()
     .valid('GraphqlApi', 'RestApi')
@@ -45,18 +38,4 @@ export const validationSchema = Joi.object({
     .valid('graphql', 'rest')
     .default('graphql')
     .description('API prefix'),
-
-  /* --------------------------------------------------------------
-  ADMIN
-  api/config/app/src/lib/configs/admin.configuration.ts
-  --------------------------------------------------------------- */
-
-  // REQUIRED
-  ADMIN_EMAIL: Joi.string()
-    .email()
-    .default('admin@example.com')
-    .description('API default admin email'),
-  ADMIN_PASSWORD: Joi.string()
-    .default('password')
-    .description('API default admin password'),
 });

@@ -1,11 +1,8 @@
-// https://docs.nestjs.com/techniques/configuration
-
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { environmentConfiguration } from './configs/environment.configuration';
 import { appConfiguration } from './configs/app.configuration';
-import { adminConfiguration } from './configs/admin.configuration';
 
 import { validationSchema } from './validation.schema';
 
@@ -18,7 +15,7 @@ import { validationSchema } from './validation.schema';
         `apps/api/.env.${process.env['NODE' + '_ENV']}`,
       ],
       validationSchema,
-      load: [environmentConfiguration, appConfiguration, adminConfiguration],
+      load: [environmentConfiguration, appConfiguration],
     }),
   ],
 })
