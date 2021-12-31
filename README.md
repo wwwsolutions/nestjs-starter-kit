@@ -19,7 +19,7 @@ Install and configure Winston as a custom logger.
 
 ```bash
 // install winston
-yarn add --save nest-winston@^1.6.2 winston@^3.3.3
+yarn add nest-winston@^1.6.2 winston@^3.3.3
 ```
 
 ### Implement config service
