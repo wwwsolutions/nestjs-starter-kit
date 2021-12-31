@@ -874,7 +874,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/config@npm:^1.1.5":
+"@nestjs/config@npm:^1.1.0":
   version: 1.1.5
   resolution: "@nestjs/config@npm:1.1.5"
   dependencies:
@@ -8917,7 +8917,7 @@ __metadata:
   dependencies:
     "@angular/cli": ^13.1.2
     "@nestjs/common": ^8.2.0
-    "@nestjs/config": ^1.1.5
+    "@nestjs/config": ^1.1.0
     "@nestjs/core": ^8.2.0
     "@nestjs/platform-express": ^8.2.0
     "@nestjs/schematics": ^8.0.4

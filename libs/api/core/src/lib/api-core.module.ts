@@ -1,56 +1,19 @@
 import { Module } from '@nestjs/common';
 
+import { ApiConfigAppModule } from '@wwwsolutions/api/config/app';
+
+import { integrationConfiguration } from './configuration/integration.configuration';
+import { domainsConfiguration } from './configuration/domains.configuration';
+import { resolversConfiguration } from './configuration/resolvers.configuration';
+import { controllersConfiguration } from './configuration/controllers.configuration';
+
 @Module({
   imports: [
-    /* <REQUIRED>
-     *
-     * REGISTER SINGLE INTEGRATION MODULE DEPENDING ON
-     * WHICH API IMPLEMENTATION YOU WANT TO UTILIZE
-     *
-     * <various integrations>
-     *
-     *    ApiGraphqlPrismaIntegrationModule
-     *    ApiRestPrismaIntegrationModule
-     *    ApiRestMongooseIntegrationModule
-     *    ApiRestTypeormIntegrationModule
-     *
-     */
-    // ApiGraphqlPrismaIntegrationModule,
-    /* <OPTIONAL>
-     *
-     * REGISTER DOMAIN FEATURE MODULES
-     * THESE MODULES HOLD BUSINESS LOGIC
-     *
-     * <examples>
-     *
-     *    ApiGraphqlUsersFeatureModule,
-     *    ApiGraphqlAuthenticationFeatureModule,
-     *    ApiGraphqlRolesFeatureModule,
-     *
-     */
-    // ApiGraphqlUsersFeatureModule,
+    ApiConfigAppModule,
+    ...integrationConfiguration,
+    ...domainsConfiguration,
   ],
-  providers: [
-    /* <OPTIONAL>
-     *
-     * IN CASE OF GRAPHQL INTEGRATION REGISTER RESOLVERS
-     *
-     * <examples>
-     *
-     *    ApiCoreResolver,
-     */
-    // ApiCoreResolver,
-  ],
-  controllers: [
-    /* <OPTIONAL>
-     *
-     * IN CASE OF REST INTEGRATION REGISTER CONTROLLERS
-     *
-     * <examples>
-     *
-     *    ApiCoreController,
-     */
-    // ApiCoreController,
-  ],
+  providers: resolversConfiguration,
+  controllers: controllersConfiguration,
 })
 export class ApiCoreModule {}
