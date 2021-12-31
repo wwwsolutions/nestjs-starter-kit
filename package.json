@@ -44,6 +44,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "@angular/cli": "^13.1.2",
     "@nestjs/schematics": "^8.0.4",
     "@nestjs/testing": "^8.2.0",
     "@nrwl/cli": "13.4.1",
