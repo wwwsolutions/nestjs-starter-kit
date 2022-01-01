@@ -1,9 +1,9 @@
 {
   "files.eol": "\n",
   "workbench.colorCustomizations": {
-    "activityBar.background": "#212B55",
-    "titleBar.activeBackground": "#2E3C76",
-    "titleBar.activeForeground": "#FBFBFD"
+    "activityBar.background": "#4A1359",
+    "titleBar.activeBackground": "#681B7D",
+    "titleBar.activeForeground": "#FDFBFE"
   },
   "vsicons.presets.nestjs": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",

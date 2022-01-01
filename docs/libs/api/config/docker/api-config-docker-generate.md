@@ -1,19 +1,6 @@
 # `api-config-docker`
 
-Utilize Nest config service with validation.
-
-## Features
-
-- validation
-- injectable
-
-### Install
-
-```bash
-yarn add @nestjs/config joi
-```
-
-### Generate
+## Generate
 
 ```bash
 // generate config lib

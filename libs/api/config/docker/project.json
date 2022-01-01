@@ -28,6 +28,96 @@
         "jestConfig": "libs/api/config/docker/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "compose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "libs/api/config/docker/src",
+        "commands": [
+          "docker-compose --project-name nest-api-{args.mode} --verbose --env-file ../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../.docker/generated/docker-compose-stack.{args.mode}.yaml"
+        ]
+      }
+    },
+    "up": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up -d"
+        ]
+      }
+    },
+    "down": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
+        ]
+      }
+    },
+    "clean": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx rimraf -lf .docker/generated/docker-compose-stack.{args.mode}.yaml",
+          "npx rimraf .docker/generated/volumes"
+        ]
+      }
+    },
+    "config": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose -f .docker/generated/docker-compose-stack.{args.mode}.yaml config"
+        ]
+      }
+    },
+    "logs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose  -f .docker/generated/docker-compose-stack.{args.mode}.yaml logs -f -t --tail 30"
+        ]
+      }
+    },
+    "logs-save": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose -f .docker/generated/docker-compose-stack.{args.mode}.yaml logs -f -t >> .docker/logs/myDockerCompose.log"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx build api",
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up -d"
+        ]
+      }
+    },
+    "list-of-all-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-graphql-config-docker:compose --mode=development",
+          "nx run api-graphql-config-docker:up --mode=development",
+          "nx run api-graphql-config-docker:down --mode=development",
+          "nx run api-graphql-config-docker:clean --mode=development",
+          "nx run api-graphql-config-docker:config --mode=development",
+          "nx run api-graphql-config-docker:logs --mode=development",
+          "nx run api-graphql-config-docker:logs-save --mode=development"
+        ]
+      }
     }
   },
   "tags": ["type:config"]
