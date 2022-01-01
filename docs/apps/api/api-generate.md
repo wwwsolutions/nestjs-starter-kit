@@ -1,6 +1,6 @@
 # `api`
 
-Implement and utilize api app.
+Implement and utilize app.
 
 ## Features
 
