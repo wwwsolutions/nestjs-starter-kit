@@ -1,42 +1,28 @@
-import * as path from 'path';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {
   EnvironmentConfiguration,
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  configureApiGraphqlPrismaIntegration,
+  // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
+import { configureApiGraphqlPrismaIntegration } from '@wwwsolutions/api/core';
+
+import { DebugUtils } from '@wwwsolutions/shared/utils';
+
 // DEBUG ENV VARIABLES
-const envLocalPath = path.resolve('apps/api/.env.local');
-const envDevelopmentPath = path.resolve('apps/api/.env.development');
+// const envLocalPath = path.resolve('apps/api/.env.local');
+// const envDevelopmentPath = path.resolve('apps/api/.env.development');
 
 async function bootstrap() {
   // DEBUG ENV VARIABLES
-  Logger.log(envLocalPath, bootstrap.name);
-  Logger.log(
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('dotenv').config({
-      debug: true,
-      path: envLocalPath,
-    }),
-    bootstrap.name
-  );
-  Logger.log(envDevelopmentPath, bootstrap.name);
-  Logger.log(
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('dotenv').config({
-      debug: true,
-      path: envDevelopmentPath,
-    }),
-    bootstrap.name
-  );
+  DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
+  DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
