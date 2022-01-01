@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  postgres:
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - postgresql-bin:/usr/lib/postgresql
+      - ../../../../../../.docker/generated/volumes/files:/files
+
+  pgadmin:
+    volumes:
+      - postgresql-bin:/usr/lib/postgresql
+      - pgadmin-root-prefs:/root/.pgadmin
+
+volumes:
+  pg-data:
+    driver: local
+  postgresql-bin:
+    driver: local
+  pgadmin-root-prefs:
+    driver: local

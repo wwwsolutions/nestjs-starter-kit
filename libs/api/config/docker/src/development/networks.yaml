@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  postgres:
+    networks:
+      - devnet
+
+  pgadmin:
+    networks:
+      - devnet
+
+networks:
+  devnet:
+    driver: bridge
