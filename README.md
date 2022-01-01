@@ -1,60 +1,20 @@
-# nx-nestjs-integrations-template
+# NestJS Starter Kit
 
-## Features
+<p align="center">
+<img src="https://avatars1.githubusercontent.com/u/43827489?s=400&u=45ac0ac47d40b6d8f277c96bdf00244c10508aef&v=4"/>
+<img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="150">
+</p>
 
-- custom logger - "nest-winston": "^1.6.2", "winston": "^3.3.3"
-- config service - @nestjs/config
+Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrations.
 
-### Generate App
+<!-- https://github.com/dwyl/repo-badges/blob/main/README.md -->
 
-```bash
-yarn add -D @nrwl/nest
-# yarn nx generate @nrwl/nest:application --name=api --standaloneConfig --tags=scope:graphql,type:api --no-interactive
-yarn nx generate @nrwl/nest:application --name=api --standaloneConfig --tags=scope:type:api --no-interactive
-```
+[<img alt="Node.js" src="https://img.shields.io/badge/node-v16+-brightgreen?logo=node.js&style=flat" />](https://nodejs.org/en/)
+[<img alt="TypeScript" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/dev/typescript?logo=typescript&style=flat&color=3178c6" />](https://www.typescriptlang.org/)
+[<img alt="GraphQL" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/graphql?logo=graphql&style=flat&color=e10098" />](https://graphql.org/)
+[<img alt="Nest.js" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/@nestjs/core?logo=nestjs&style=flat&color=ea2845" />](https://nestjs.com/)
+[<img alt="Prisma" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/@prisma/client?logo=prisma&style=flat&color=38a169" />](https://www.prisma.io/)
+[<img alt="Socket.io" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/socket.io?logo=socket.io&style=flat&color=25c2a0" />]()
+[<img alt="ioredis" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/ioredis?logo=redis&style=flat&color=a51f17" />](https://github.com/luin/ioredis)
 
-### Implement custom logger
-
-Install and configure Winston as a custom logger.
-
-```bash
-// install winston
-yarn add nest-winston winston
-```
-
-### Implement config service
-
-Install and configure Nest config service with validation.
-
-```bash
-// install nest config
-yarn add @nestjs/config joi
-```
-
-#### `api-config-app`
-
-```bash
-// generate config lib
-yarn nx generate @nrwl/nest:library --name=app --directory=api/config --buildable --standaloneConfig --strict --tags=type:config --no-interactive
-```
-
-#### `api-config-features`
-
-```bash
-// generate config lib
-yarn nx generate @nrwl/nest:library --name=features --directory=api/config --buildable --standaloneConfig --strict --tags=type:config --no-interactive
-```
-
-#### `api-config-docker`
-
-```bash
-// generate config lib
-yarn nx generate @nrwl/nest:library --name=docker --directory=api/config --buildable --standaloneConfig --strict --tags=type:config --no-interactive
-```
-
-#### `api-config-codegen`
-
-```bash
-// generate config lib
-yarn nx generate @nrwl/nest:library --name=codegen --directory=api/config --buildable --standaloneConfig --strict --tags=type:config --no-interactive
-```
+**See [wiki](xyz) for detailed docs.**

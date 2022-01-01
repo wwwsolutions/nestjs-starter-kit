@@ -1,4 +1,4 @@
-# API starter kit
+# NestJS starter kit
 
 ## Features
 
