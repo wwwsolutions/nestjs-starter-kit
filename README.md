@@ -17,4 +17,4 @@ Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrat
 [<img alt="Socket.io" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/socket.io?logo=socket.io&style=flat&color=25c2a0" />]()
 [<img alt="ioredis" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/ioredis?logo=redis&style=flat&color=a51f17" />](https://github.com/luin/ioredis)
 
-**See [wiki](xyz) for detailed docs.**
+**See [wiki](https://github.com/wwwsolutions/nestjs-starter-kit/wiki) for details.**
