@@ -38,4 +38,26 @@ export const validationSchema = Joi.object({
     .valid('graphql', 'rest')
     .default('graphql')
     .description('API prefix'),
+
+  /* --------------------------------------------------------------
+  WINSTON
+  api/config/app/src/lib/configs/winston.configuration.ts
+  --------------------------------------------------------------- */
+
+  // REQUIRED
+  WINSTON_LEVEL_CONSOLE: Joi.string()
+    .required()
+    .valid('error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly')
+    .description('WINSTON console level'),
+  WINSTON_PRETTY_PRINT: Joi.boolean()
+    .required()
+    .description('WINSTON pretty print'),
+  WINSTON_LEVEL_FILE: Joi.string()
+    .required()
+    .valid('error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly')
+    .description('WINSTON file level'),
+  WINSTON_FILE_PATH: Joi.string()
+    .required()
+    .valid('logs/app.log')
+    .description('WINSTON file path'),
 });

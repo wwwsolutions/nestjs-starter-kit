@@ -10,7 +10,9 @@ Utilize Nest config service with validation.
 ### Install
 
 ```bash
-yarn add @nestjs/config joi
+yarn add @nestjs/config@^1.1.0
+yarn add joi@^17.4.2
+yarn add @nestjs/jwt@8.0.0
 ```
 
 ### Generate

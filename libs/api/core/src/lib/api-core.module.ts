@@ -1,15 +1,26 @@
 import { Module } from '@nestjs/common';
+import { WinstonModule } from 'nest-winston';
 
-import { ApiConfigAppModule } from '@wwwsolutions/api/config/app';
+import {
+  ApiConfigAppModule,
+  winstonConfiguration,
+  WinstonConfiguration,
+} from '@wwwsolutions/api/config/app';
 
-import { integrationConfiguration } from './configuration/integration.configuration';
-import { domainsConfiguration } from './configuration/domains.configuration';
-import { resolversConfiguration } from './configuration/resolvers.configuration';
-import { controllersConfiguration } from './configuration/controllers.configuration';
+import { integrationConfiguration } from './configs/integration.configuration';
+import { domainsConfiguration } from './configs/domains.configuration';
+import { resolversConfiguration } from './configs/resolvers.configuration';
+import { controllersConfiguration } from './configs/controllers.configuration';
 
 @Module({
   imports: [
     ApiConfigAppModule,
+    WinstonModule.forRootAsync({
+      useFactory: async (winstonConfiguration: WinstonConfiguration) => ({
+        ...winstonConfiguration.options,
+      }),
+      inject: [winstonConfiguration.KEY],
+    }),
     ...integrationConfiguration,
     ...domainsConfiguration,
   ],

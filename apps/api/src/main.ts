@@ -10,6 +10,7 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
+  configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
 // DEBUG ENV VARIABLES
@@ -54,7 +55,7 @@ async function bootstrap() {
   app.enableCors();
 
   // INTEGRATIONS
-  // configureApiGraphqlPrismaIntegration(app, integration as string);
+  configureApiGraphqlPrismaIntegration(app, integration as string);
 
   // SERVER
   await app.listen(port, () => {
