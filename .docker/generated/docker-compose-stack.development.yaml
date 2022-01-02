@@ -2,76 +2,76 @@ services:
   pgadmin:
     container_name: pgadmin
     environment:
-      PGADMIN_CONFIG_SERVER_MODE: ""
-      PGADMIN_DEFAULT_EMAIL: ""
-      PGADMIN_DEFAULT_PASSWORD: ""
-      PGADMIN_LISTEN_PORT: ""
+      PGADMIN_CONFIG_SERVER_MODE: ''
+      PGADMIN_DEFAULT_EMAIL: ''
+      PGADMIN_DEFAULT_PASSWORD: ''
+      PGADMIN_LISTEN_PORT: ''
     image: dpage/pgadmin4
     networks:
       devnet: null
     ports:
-    - mode: ingress
-      target: 5050
-      protocol: tcp
+      - mode: ingress
+        target: 5050
+        protocol: tcp
     volumes:
-    - type: volume
-      source: pgadmin-root-prefs
-      target: /root/.pgadmin
-      volume: {}
-    - type: volume
-      source: postgresql-bin
-      target: /usr/lib/postgresql
-      volume: {}
+      - type: volume
+        source: pgadmin-root-prefs
+        target: /root/.pgadmin
+        volume: {}
+      - type: volume
+        source: postgresql-bin
+        target: /usr/lib/postgresql
+        volume: {}
   postgres:
     build:
       context: ../../libs/api/config/docker/src/development/seeds/postgres
       dockerfile: ./demo/Dockerfile.demo
     container_name: postgresdev
     environment:
-      DATABASE_HOST: ""
-      POSTGRES_DB: ""
-      POSTGRES_PASSWORD: ""
-      POSTGRES_USER: ""
+      DATABASE_HOST: ''
+      POSTGRES_DB: ''
+      POSTGRES_PASSWORD: ''
+      POSTGRES_USER: ''
     healthcheck:
       test:
-      - CMD
-      - pg_isready
-      - -q
-      - -d
-      - postgres
-      - -U
-      - root
+        - CMD
+        - pg_isready
+        - -q
+        - -d
+        - postgres
+        - -U
+        - root
       timeout: 45s
       interval: 10s
       retries: 10
     networks:
       devnet: null
     ports:
-    - mode: ingress
-      target: 5432
-      protocol: tcp
+      - mode: ingress
+        target: 5432
+        protocol: tcp
     restart: always
     volumes:
-    - type: bind
-      source: E:\INTEGRATIONS\nestjs-starter-kit\.docker\generated\volumes\files
-      target: /files
-      bind:
-        create_host_path: true
-    - type: volume
-      source: postgresql-bin
-      target: /usr/lib/postgresql
-      volume: {}
-    - type: volume
-      source: pg-data
-      target: /var/lib/postgresql/data
-      volume: {}
+      - type: bind
+        source: E:\INTEGRATIONS\nestjs-starter-kit\.docker\generated\volumes\files
+        target: /files
+        bind:
+          create_host_path: true
+      - type: volume
+        source: postgresql-bin
+        target: /usr/lib/postgresql
+        volume: {}
+      - type: volume
+        source: pg-data
+        target: /var/lib/postgresql/data
+        volume: {}
   redis:
     container_name: redisdev
     image: redis:alpine
     ports:
-    - mode: ingress
-      target: 6379
-      protocol: tcp
+      - mode: ingress
+        target: 6379
+        protocol: tcp
 networks:
   devnet:
     driver: bridge

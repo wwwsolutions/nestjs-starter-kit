@@ -94,7 +94,7 @@
         ]
       }
     },
-    "prune": {
+    "system-prune": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
@@ -113,7 +113,7 @@
           "nx run api-graphql-config-docker:config --mode=development",
           "nx run api-graphql-config-docker:logs --mode=development",
           "nx run api-graphql-config-docker:logs-save --mode=development",
-          "nx run api-graphql-config-docker:prune"
+          "nx run api-graphql-config-docker:system-prune"
         ]
       }
     }
