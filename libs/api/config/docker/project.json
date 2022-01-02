@@ -94,14 +94,11 @@
         ]
       }
     },
-    "deploy": {
+    "prune": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "commands": [
-          "nx build api",
-          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up -d"
-        ]
+        "commands": ["docker system prune -a -f"]
       }
     },
     "list-of-all-commands": {
@@ -115,7 +112,8 @@
           "nx run api-graphql-config-docker:clean --mode=development",
           "nx run api-graphql-config-docker:config --mode=development",
           "nx run api-graphql-config-docker:logs --mode=development",
-          "nx run api-graphql-config-docker:logs-save --mode=development"
+          "nx run api-graphql-config-docker:logs-save --mode=development",
+          "nx run api-graphql-config-docker:prune"
         ]
       }
     }
