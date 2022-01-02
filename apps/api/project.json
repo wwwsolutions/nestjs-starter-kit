@@ -5,6 +5,12 @@
   "targets": {
     "build": {
       "executor": "@nrwl/node:build",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/api",
@@ -30,6 +36,13 @@
       "executor": "@nrwl/node:execute",
       "options": {
         "buildTarget": "api:build"
+      }
+    },
+    "serve-production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": ["node ./dist/apps/api/main.js"]
       }
     },
     "lint": {

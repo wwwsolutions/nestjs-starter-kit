@@ -44,7 +44,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up -d"
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up --build -d"
         ]
       }
     },
@@ -98,7 +98,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "commands": ["docker system prune -a -f"]
+        "commands": ["docker system prune -a --volumes -f"]
       }
     },
     "list-of-all-commands": {

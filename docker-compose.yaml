@@ -1,0 +1,20 @@
+# https://youtu.be/QeQ2MH5f_BE?t=652
+
+version: '3.8'
+services:
+  app:
+    # image: node:lts-alpine
+    # command: sh -c "npm install && npx nx run api:serve"
+    # working_dir: /app
+    build:
+      context: .
+      dockerfile: ./Dockerfile.multistage
+      target: backend-dev
+    volumes:
+      - nodemodules:/app/node_modules
+      - ./:/app
+    ports:
+      - 3000:3000
+
+volumes:
+  nodemodules:

@@ -26,7 +26,10 @@
     "clean:dist": "rm -rf dist",
     "clean:temp": "rm -rf temp",
     "clean:node_modules": "rm -rf node_modules",
-    "clean": "yarn clean:node_modules && yarn clean:dist && yarn clean:temp && yarn clean:logs"
+    "clean": "yarn clean:node_modules && yarn clean:dist && yarn clean:temp && yarn clean:logs",
+    "dev": "nx run api:serve",
+    "prod": "nx run api:build",
+    "prod:serve": "nx run api:serve-production"
   },
   "dependencies": {
     "@nestjs/common": "^8.2.0",
