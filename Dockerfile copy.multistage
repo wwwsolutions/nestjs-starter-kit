@@ -1,0 +1,148 @@
+# # Temporary (partially cached) build image
+# # base
+# FROM node:14.18.0-alpine AS base
+# WORKDIR /app
+# COPY package.json yarn.lock ./
+
+
+# # #####################################
+# # #        BACKEND ENVIRONMENT        #
+# # #####################################
+
+# # backend-base
+# FROM base AS backend-base
+# RUN yarn install && yarn cache clean
+
+# # backend-dev
+# FROM backend-base AS backend-dev
+# COPY . .
+# CMD ["yarn", "dev"]
+
+# # # backend-prod
+# # FROM backend-base AS backend-prod
+# # COPY dist/apps/api .
+# # CMD ["yarn", "prod"]
+
+
+# # # #####################################
+# # # #       FRONTEND ENVIRONMENT        #
+# # # #####################################
+
+# # # # FROM base AS frontend-base
+# # # # COPY frontend/package.json frontend/yarn.lock ./
+# # # # RUN yarn install && yarn cache clean
+# # # # CMD ["yarn", "start"]
+# # # FROM base AS frontend-base
+# # # COPY ./dist/apps/html .
+# # # ENV PORT=3334
+# # # EXPOSE ${PORT}
+# # # RUN npm install --production
+# # # RUN npm install reflect-metadata tslib rxjs hbs
+# # # CMD node ./main.js
+
+# # FROM base AS frontend-base
+# # RUN yarn install && yarn cache clean
+# # CMD ["yarn", "start:dev"]
+
+
+# # # # FROM frontend-base AS frontend-final
+# # # # COPY frontend/public ./public
+# # # # COPY frontend/src ./src
+# # # # RUN yarn build
+
+# # # #####################################
+# # # #       COMBINED ENVIRONMENT        #
+# # # #####################################
+
+# # # # FROM backend-base AS final
+# # # # RUN yarn install --production && yarn cache clean
+# # # # COPY backend/src ./src
+# # # # COPY --from=frontend-final /app/build /app/src/static
+# # # # CMD ["node", "/app/src/index.js"]
+
+# FROM backend-base AS final
+
+
+# ### NESTJS https://www.youtube.com/watch?v=NG2GPsxN3Ec
+
+# # FROM node:14.18.0-alpine AS development
+
+# # WORKDIR /usr/src/app
+
+# # COPY package*.json ./
+
+# # RUN npm install
+
+# # COPY . .
+
+# # RUN npm run build
+
+# # FROM node:14.18.0-alpine as production
+
+# # ARG NODE_ENV=production
+# # ENV NODE_ENV=${NODE_ENV}
+
+# # WORKDIR /usr/src/app
+
+# # COPY package*.json ./
+
+# # RUN npm install --only=production
+
+# # COPY . .
+
+# # COPY --from=development /usr/src/app/dist ./dist
+
+# # CMD ["yarn", "start:prod"]
+
+
+##################################################################################
+
+# https://iws.io/2020/multi-stage-node-buid-with-react-client
+
+FROM node:14-alpine AS base
+# Setup a home directory and file permissions
+RUN mkdir -p /home/node/app
+RUN chown -R node:node /home/node/app && chmod -R 770 /home/node/app
+WORKDIR /home/node/app
+
+FROM base AS builder-server
+WORKDIR /home/node/app
+
+# Copy in just our package requirements to install npm production modules.
+COPY --chown=node:node ./package.json ./package.json
+COPY --chown=node:node ./yarn.lock ./yarn.lock
+COPY --chown=node:node ./.yarn ./.yarn/
+COPY --chown=node:node ./.yarnrc.yml ./.yarnrc.yml
+USER node
+# Install/build Node Production dependencies.
+RUN NODE_ENV=production yarn install
+
+FROM builder-server AS builder-client
+WORKDIR /home/node/app
+# Copy the rest of our sources from the host to the container
+COPY --chown=node:node . ./
+USER node
+# Full npm install here. The build command runs `webpack -p` for production client-side build.
+RUN NODE_ENV=production yarn install && yarn build
+EXPOSE 3000
+# Set the default command to our file watcher/dev runtime (since this is our dev target).
+CMD ["npm", "run", "dev"]
+
+# FROM base AS production
+# WORKDIR /home/node/app
+# USER node
+# # Copy client-side build
+# COPY --chown=node:node --from=builder-client /home/node/app/dist ./dist/
+# # Copy server-side runtime npm modules
+# COPY --chown=node:node --from=builder-server /home/node/app/node_modules ./node_modules
+# # Copy everything else we need to run.
+# COPY --chown=node:node ./package.json ./package.json
+# COPY --chown=node:node ./package-lock.json ./package-lock.json
+# COPY --chown=node:node ./assets ./assets
+# COPY --chown=node:node ./bin ./bin
+# COPY --chown=node:node ./src ./src
+# EXPOSE 3000
+# # Override the default command for production mode.
+# CMD ["npm", "start"]
+
+

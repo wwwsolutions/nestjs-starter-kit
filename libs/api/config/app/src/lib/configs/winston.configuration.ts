@@ -17,10 +17,11 @@ export const winstonConfiguration = registerAs('winston', () => ({
   get options(): LoggerOptions {
     return {
       transports: [
-        new winston.transports.File({
-          level: this.levelFile,
-          filename: `${process.cwd()}/${this.filePath}`,
-        }),
+        // According to 'The Twelve-Factor App' for distributed apps methodology - DO NOT USE FILE LOGS
+        // new winston.transports.File({
+        //   level: this.levelFile,
+        //   filename: `${process.cwd()}/${this.filePath}`,
+        // }),
         new winston.transports.Console({
           level: this.levelConsole,
           format: winston.format.combine(

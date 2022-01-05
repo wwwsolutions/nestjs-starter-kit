@@ -1,20 +1,109 @@
-# https://youtu.be/QeQ2MH5f_BE?t=652
+# https://medium.com/swlh/nx-nestjs-react-docker-deploys-928a55fc19fd
+
+# version: '3.8'
+
+# services:
+#   api:
+#     container_name: api
+#     build:
+#       context: ./
+#       # dockerfile: ./Dockerfile.multistage
+#       cache_from:
+#         - my-base-image:nx-base
+#       dockerfile: ./apps/api/Dockerfile.api
+#       args:
+#         NODE_ENV: 'development'
+#         BUILD_FLAG: ''
+#     image: api:nx-dev
+#     ports:
+#       - 3000:3000
+#     environment:
+#       NODE_ENV: 'development'
+#       PORT: 3000
+#     networks:
+#       - corp
+#     restart: on-failure
+
+#   # react-client:
+#   #   container_name: react-client
+#   #   build:
+#   #     context: ./
+#   #     cache_from:
+#   #       - nginx:1.19.2
+#   #     dockerfile: ./apps/react-client/Dockerfile
+#   #     args:
+#   #       NODE_ENV: "development"
+#   #       BUILD_FLAG: ""
+#   #   image: react-client:nx-dev
+#   #   ports:
+#   #     - 4900:80
+#   #   environment:
+#   #     NODE_ENV: "development"
+#   #     PORT: 4900
+#   #   networks:
+#   #     - corp
+#   #   restart: on-failure
+
+# networks:
+#   corp:
+#     driver: bridge
+
+##############################################################################
+##############################################################################
+##############################################################################
 
 version: '3.8'
 services:
+  proxy:
+    image: traefik:2.2
+    command: --providers.docker
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   app:
-    # image: node:lts-alpine
-    # command: sh -c "npm install && npx nx run api:serve"
-    # working_dir: /app
     build:
       context: .
       dockerfile: ./Dockerfile.multistage
       target: backend-dev
     volumes:
       - nodemodules:/app/node_modules
-      - ./:/app
-    ports:
-      - 3000:3000
+      - ./apps/api:/app
+      # - ./config:/config
+    # environment:
+    #   MYSQL_HOST: mysql
+    #   MYSQL_USER_FILE: /config/MYSQL_USER
+    #   MYSQL_PASSWORD_FILE: /config/MYSQL_PASSWORD
+    #   MYSQL_DB_FILE: /config/MYSQL_DB
+    labels:
+      traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/items`)
+      traefik.http.services.backend.loadbalancer.server.port: 3000
+
+  # frontend:
+  #   build:
+  #     context: .
+  #     target: frontend-base
+  #   stdin_open: true
+  #   volumes:
+  #     - nodemodules-frontend:/app/node_modules
+  #     - ./frontend:/app
+  #   labels:
+  #     traefik.http.routers.frontend.rule: Host(`localhost`)
+  #     traefik.http.services.frontend.loadbalancer.server.port: 3000
+
+  # mysql:
+  #   image: mysql:5.7
+  #   volumes:
+  #     - ./config:/config
+  #     - mysql-data:/var/lib/mysql
+  #   environment:
+  #     MYSQL_USER_FILE: /config/MYSQL_USER
+  #     MYSQL_PASSWORD_FILE: /config/MYSQL_PASSWORD
+  #     MYSQL_DATABASE_FILE: /config/MYSQL_DB
+  #     MYSQL_RANDOM_ROOT_PASSWORD: "true"
 
 volumes:
   nodemodules:
+  # nodemodules-frontend:
+  # mysql-data:
