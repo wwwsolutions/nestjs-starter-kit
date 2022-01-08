@@ -1,15 +1,13 @@
-.docker/
 .husky/
-.angular/
-node_modules
-coverage
-docker
-tools
+.docker/
+node_modules/
+coverage/
+tools/
 Dockerfile*
-README.md
-LICENSE
 .vscode
 .dockerignore
 .git
 .gitignore
+README.md
+LICENSE
 
