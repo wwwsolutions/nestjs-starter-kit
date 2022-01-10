@@ -1,72 +1,72 @@
 ### Bret Fisher - Docker for Node.js Projects From a Docker Captain [Udemy 2020]
 
 #####################################
-#           BASE IMAGE              #
+#           STAGE 1
+#           PRODUCTION BASE              #
+# This gets our dependencies installed and out of the way
 #####################################
 
 # Temporary (partially cached) build image
 FROM node:14.18.0-alpine AS base
-WORKDIR /app
+EXPOSE 3000
+ENV NODE_ENV=production
+WORKDIR /opt
 COPY package*.json ./
+RUN npm config list \
+    && npm install --only=production --no-optional \
+    && npm cache clean --force
+
+#####################################
+#           STAGE 2
+#        STAGE DEVELOPMENT        #
+# we don't COPY in this stage because for dev you'll bind-mount anyway
+# this saves time when building locally for dev via docker-compose
+# if buildkit is enabled and used with a supporting version of docker-compose
+#####################################
+FROM base as dev
+ENV NODE_ENV=development
+ENV PATH=/opt/node_modules/.bin:$PATH
+WORKDIR /opt
+RUN npm config list \
+    && npm install --only=development --no-optional \
+    && npm cache clean --force
+WORKDIR /opt/app
+# CMD ["npm", "dev"]
+CMD ["npx", "nx", "run", "api:serve"]
+
+#####################################
+#           STAGE 3
+#       STAGE INTERMEDIATE        #
+# This gets our source code into builder for use in next two stages
+# It gets its own stage so we don't have to copy twice
+#####################################
+FROM base as interm
+WORKDIR /opt/app
+COPY . .
 
 
 #####################################
-#        BACKEND ENVIRONMENT        #
+#             STAGE 4
+#       TESTING        #
+# use this in automated CI
+# it has prod and dev npm dependencies
+# In 18.09 or older builder, this will always run
+# In BuildKit, this will be skipped by default 
 #####################################
-
-# # backend-base
-# FROM base AS backend-base
-# RUN yarn install && yarn cache clean
-
-# # backend-dev
-# FROM backend-base AS backend-dev
-# COPY . .
-# CMD ["yarn", "dev"]
-
-# # # backend-prod
-# # FROM backend-base AS backend-prod
-# # COPY dist/apps/api .
-# # CMD ["yarn", "prod"]
+FROM interm as test
+CMD ["npm", "test"]
 
 
 #####################################
-#       FRONTEND ENVIRONMENT        #
+#             STAGE 4
+#       PRODUCTION, DEFAULT        #
+# this will run by default if you don't include a target (BuildKit)
+# it has prod-only dependencies
+# In BuildKit, this is skipped for local dev
+# you could run tini here, but zombie reaping isn't usually 
+# an issue with node, and as long as you handle signals in code
+# you don't need tini
 #####################################
-
-# FROM base AS frontend-base
-# COPY frontend/package.json frontend/yarn.lock ./
-# RUN yarn install && yarn cache clean
-# CMD ["yarn", "start"]
-# FROM base AS frontend-base
-# COPY ./dist/apps/html .
-# ENV PORT=3334
-# EXPOSE ${PORT}
-# RUN npm install --production
-# RUN npm install reflect-metadata tslib rxjs hbs
-# CMD node ./main.js
-
-# FROM base AS frontend-base
-# RUN yarn install && yarn cache clean
-# CMD ["yarn", "start:dev"]
-
-
-# FROM frontend-base AS frontend-final
-# COPY frontend/public ./public
-# COPY frontend/src ./src
-# RUN yarn build
-
-#####################################
-#       COMBINED ENVIRONMENT        #
-#####################################
-
-# FROM backend-base AS final
-# RUN yarn install --production && yarn cache clean
-# COPY backend/src ./src
-# COPY --from=frontend-final /app/build /app/src/static
-# CMD ["node", "/app/src/index.js"]
-
-# FROM backend-base AS final
-
-
-
+FROM interm as prod
+CMD ["node", "./dist/apps/api/main.js"]
 

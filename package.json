@@ -26,10 +26,12 @@
     "clean:dist": "rm -rf dist",
     "clean:temp": "rm -rf temp",
     "clean:node_modules": "rm -rf node_modules",
-    "clean": "yarn clean:node_modules && yarn clean:dist && yarn clean:temp && yarn clean:logs",
+    "clean": "npm run clean:node_modules && npm run clean:dist && npm run clean:temp && npm run clean:logs",
     "dev": "nx run api:serve",
-    "prod": "nx run api:build",
-    "prod:serve": "nx run api:serve-production"
+    "api:build:production": "npx nx build api --prod",
+    "api:serve:production": "cross-env NODE_ENV=production WINSTON_LEVEL_CONSOLE=verbose WINSTON_PRETTY_PRINT=true WINSTON_LEVEL_FILE=silly WINSTON_FILE_PATH=logs/app.log API_INTEGRATION=ApiGraphqlPrismaIntegration node ./dist/apps/api/main.js",
+    "docker:build": "docker build . -t courses/api",
+    "docker:run": "docker run -it -p 8000:3000 courses/api"
   },
   "dependencies": {
     "@nestjs/common": "^8.2.0",
@@ -42,6 +44,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.2",
+    "cross-env": "^7.0.3",
     "dotenv-cli": "^4.1.1",
     "joi": "^17.5.0",
     "nest-winston": "^1.6.2",
@@ -83,6 +86,5 @@
       "npm run affected:lint --uncommitted",
       "npm run format --uncommitted"
     ]
-  },
-  "packageManager": "yarn@3.1.1"
+  }
 }
