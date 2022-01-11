@@ -11,7 +11,7 @@ import {
   // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
-import { configureApiGraphqlPrismaIntegration } from '@wwwsolutions/api/core';
+import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
 
@@ -40,8 +40,8 @@ async function bootstrap() {
 
   app.enableCors();
 
-  // INTEGRATIONS
-  configureApiGraphqlPrismaIntegration(app, integration as string);
+  // ENABLE/CONFIGURE API INTEGRATION
+  // configureApiIntegrationGraphqlPrisma(app, integration as string);
 
   // SERVER
   await app.listen(port, () => {

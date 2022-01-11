@@ -2,7 +2,7 @@
 .vscode
 .docker
 .yarn
-dist
+# dist
 tmp
 tools
 coverage

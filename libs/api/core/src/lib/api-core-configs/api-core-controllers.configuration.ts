@@ -8,6 +8,7 @@ import { NestControllersType } from '../types';
  *
  *    ApiCoreController,
  */
-// ApiCoreController,
+
+// export const controllersConfiguration: NestControllersType = [ApiCoreController];
 
 export const controllersConfiguration: NestControllersType = [];

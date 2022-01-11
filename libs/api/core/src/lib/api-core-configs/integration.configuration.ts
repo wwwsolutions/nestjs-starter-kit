@@ -14,4 +14,8 @@ import { NestImportsType } from '../types';
  *
  */
 
+// export const integrationConfiguration: NestImportsType = [ApiGraphqlPrismaIntegrationModule];
+// or
+// export const integrationConfiguration: NestImportsType = [ApiRestMongooseIntegrationModule];
+
 export const integrationConfiguration: NestImportsType = [];
