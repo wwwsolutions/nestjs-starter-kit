@@ -10,4 +10,5 @@ import { NestControllersType } from '../types';
  */
 
 // export const controllersConfiguration: NestControllersType = [ApiCoreController];
+
 export const controllersConfiguration: NestControllersType = [];

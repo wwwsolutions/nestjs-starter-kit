@@ -7,6 +7,7 @@
     "api-config-docker": "libs/api/config/docker",
     "api-config-features": "libs/api/config/features",
     "api-core": "libs/api/core",
+    "api-integration-graphql-prisma": "libs/api/integration/graphql-prisma",
     "shared-utils": "libs/shared/utils"
   }
 }
