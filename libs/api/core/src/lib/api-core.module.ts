@@ -7,10 +7,12 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { integrationConfiguration } from './configs/integration.configuration';
-import { domainsConfiguration } from './configs/domains.configuration';
-import { resolversConfiguration } from './configs/resolvers.configuration';
-import { controllersConfiguration } from './configs/controllers.configuration';
+import {
+  integrationConfiguration,
+  domainsConfiguration,
+  resolversConfiguration,
+  controllersConfiguration,
+} from './configs';
 
 @Module({
   imports: [

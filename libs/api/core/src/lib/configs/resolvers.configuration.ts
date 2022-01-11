@@ -9,4 +9,6 @@ import { NestProvidersType } from '../types';
  *    ApiCoreResolver,
  */
 
+// export const resolversConfiguration: NestProvidersType = [ApiCoreResolver];
+
 export const resolversConfiguration: NestProvidersType = [];

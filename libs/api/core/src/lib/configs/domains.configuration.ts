@@ -13,4 +13,10 @@ import { NestImportsType } from '../types';
  *
  */
 
+// export const domainsConfiguration: NestImportsType = [
+//      ApiGraphqlUsersFeatureModule,
+//      ApiGraphqlAuthenticationFeatureModule,
+//      ApiGraphqlRolesFeatureModule,
+// ];
+
 export const domainsConfiguration: NestImportsType = [];
