@@ -5,7 +5,7 @@ import { AllExceptionsFilter } from '@wwwsolutions/shared/utils';
 import { HttpAdapterHost } from '@nestjs/core';
 
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
-export function configureApiGraphqlPrismaIntegration(
+export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
   integration: string
 ) {
@@ -14,12 +14,12 @@ export function configureApiGraphqlPrismaIntegration(
 
   Logger.log(
     `🔒 ${integration} start`,
-    configureApiGraphqlPrismaIntegration.name
+    configureApiIntegrationGraphqlPrisma.name
   );
 
   Logger.log(
     `🔒 app.useLogger implemented`,
-    configureApiGraphqlPrismaIntegration.name
+    configureApiIntegrationGraphqlPrisma.name
   );
 
   // CUSTOM GLOBAL ERROR HANDLING
@@ -27,7 +27,7 @@ export function configureApiGraphqlPrismaIntegration(
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
   Logger.log(
     `🔒 app.useGlobalFilters implemented`,
-    configureApiGraphqlPrismaIntegration.name
+    configureApiIntegrationGraphqlPrisma.name
   );
 
   // CUSTOM GLOBAL PIPES // TODO: fix
@@ -35,6 +35,6 @@ export function configureApiGraphqlPrismaIntegration(
 
   Logger.log(
     `🔒 ${integration} done`,
-    configureApiGraphqlPrismaIntegration.name
+    configureApiIntegrationGraphqlPrisma.name
   );
 }

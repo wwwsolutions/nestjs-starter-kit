@@ -30,5 +30,5 @@
       }
     }
   },
-  "tags": ["type:config"]
+  "tags": ["type:config", "scope:api"]
 }

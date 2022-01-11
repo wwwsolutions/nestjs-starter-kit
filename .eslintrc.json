@@ -17,26 +17,27 @@
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
-                "sourceTag": "scope:graphql",
-                "onlyDependOnLibsWithTags": ["scope:shared", "scope:graphql"]
+                "sourceTag": "scope:api",
+                "onlyDependOnLibsWithTags": ["scope:api", "scope:shared"]
               },
               {
-                "sourceTag": "scope:rest",
-                "onlyDependOnLibsWithTags": ["scope:shared", "scope:rest"]
-              },
-              {
-                "sourceTag": "type:api",
+                "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": [
                   "type:core",
                   "type:config",
                   "type:data-access",
                   "type:feature",
-                  "type:util"
+                  "type:util",
+                  "type:integration"
                 ]
               },
               {
                 "sourceTag": "type:core",
-                "onlyDependOnLibsWithTags": ["type:config", "type:feature"]
+                "onlyDependOnLibsWithTags": [
+                  "type:config",
+                  "type:integration",
+                  "type:feature"
+                ]
               },
               {
                 "sourceTag": "type:config",

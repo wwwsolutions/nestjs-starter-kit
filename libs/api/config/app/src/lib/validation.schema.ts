@@ -35,7 +35,7 @@ export const validationSchema = Joi.object({
   API_PORT: Joi.number().port().default(3000).description('API port'),
   API_PREFIX: Joi.string()
     .case('lower')
-    .valid('graphql', 'rest')
+    .valid('graphql', 'api')
     .default('graphql')
     .description('API prefix'),
 
