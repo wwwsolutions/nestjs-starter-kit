@@ -94,17 +94,17 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
-  // OPTIONAL
+  // REQUIRED
   PRISMA_DATASOURCE_PROVIDER: Joi.string()
-    .required()
     .valid('sqlite', 'postgresql', 'mysql', 'sqlserver', 'mongodb')
+    .default('postgresql')
     .description('PRISMA: Describes which data source connectors to use.'),
 
-  PRISMA_DATASOURCE_URL: Joi.string()
-    .required()
-    .description(
-      'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'
-    ),
+  // PRISMA_DATASOURCE_URL: Joi.string()
+  //   .required()
+  //   .description(
+  //     'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'
+  //   ),
 
   PRISMA_DATASOURCE_SHADOW_URL: Joi.string()
     .description(
@@ -141,11 +141,13 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/jwt.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
-  JWT_SECRET: Joi.string().required().description('JWT secret'),
+  // OPTIONAL
+  JWT_SECRET: Joi.string()
+    .default('my$deepest$secret#123456789')
+    .description('JWT secret'),
   JWT_SIGN_OPTIONS_EXPIRES_IN: Joi.number()
-    .required()
     .positive()
+    .default(3600)
     .description('JWT sign options expires'),
 
   /* --------------------------------------------------------------
@@ -161,8 +163,8 @@ export const validationSchema = Joi.object({
   CACHE
   api/config/features/src/lib/configs/cache.configuration.ts
   --------------------------------------------------------------- */
-  CACHE_DRIVER: Joi.string().default('in-memory').description('CACHE driver'),
-  CACHE_HOST: Joi.string().required().description('CACHE host'),
-  CACHE_PORT: Joi.number().port().required().description('CACHE port'),
-  CACHE_TTL: Joi.number().required().description('CACHE ttl'),
+  // CACHE_DRIVER: Joi.string().default('in-memory').description('CACHE driver'),
+  // CACHE_HOST: Joi.string().required().description('CACHE host'),
+  // CACHE_PORT: Joi.number().port().required().description('CACHE port'),
+  // CACHE_TTL: Joi.number().required().description('CACHE ttl'),
 });
