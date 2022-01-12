@@ -50,9 +50,8 @@ export class PrismaDataService
     readonly environmentConfiguration: EnvironmentConfiguration,
 
     @InjectPrismaConfig()
-    readonly prismaConfiguration: PrismaConfiguration // @InjectAdminConfig()
-  ) // private readonly adminConfiguration: AdminConfiguration
-  {
+    readonly prismaConfiguration: PrismaConfiguration // private readonly adminConfiguration: AdminConfiguration // @InjectAdminConfig()
+  ) {
     super({
       datasources: prismaConfiguration.schemaDatasourcesUrlOverride,
       log:

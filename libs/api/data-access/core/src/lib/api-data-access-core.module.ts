@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 
+import { PrismaDataService } from './prisma-data.service';
+
 @Module({
-  controllers: [],
-  providers: [],
-  exports: [],
+  providers: [PrismaDataService],
+  exports: [PrismaDataService],
 })
 export class ApiDataAccessCoreModule {}

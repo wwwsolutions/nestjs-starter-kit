@@ -7,12 +7,10 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import {
-  integrationConfiguration,
-  domainsConfiguration,
-  resolversConfiguration,
-  controllersConfiguration,
-} from './api-core-configs';
+import { controllersConfiguration } from './controllers/api-core-controllers.configuration';
+import { resolversConfiguration } from './resolvers/api-core-resolvers.configuration';
+import { domainsConfiguration } from './domains/api-core-domains.configuration';
+import { integrationConfiguration } from './integration.configuration';
 
 @Module({
   // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY

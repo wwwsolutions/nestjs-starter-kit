@@ -1,1 +1,2 @@
-export * from './lib/api-data-access-models.module';
+export * from './lib/generated';
+export * from './lib/variants';
