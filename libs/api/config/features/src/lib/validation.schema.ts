@@ -32,7 +32,7 @@ export const validationSchema = Joi.object({
   GRAPHQL_DEBUG: Joi.boolean().default(false).description('GRAPHQL debug'),
 
   GRAPHQL_INTROSPECTION: Joi.boolean()
-    .default(false)
+    .default(true)
     .description('GRAPHQL introspection'),
 
   /* --------------------------------------------------------------

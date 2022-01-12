@@ -1,8 +1,8 @@
-import { NestControllersType } from '../types';
+import { NestControllersType } from './nest.types';
 
 /* <OPTIONAL>
  *
- * IN CASE OF REST INTEGRATION REGISTER CONTROLLERS
+ * IN CASE OF REST INTEGRATION, REGISTER CONTROLLERS
  *
  * <examples>
  *

@@ -1,4 +1,4 @@
-import { NestImportsType } from '../types';
+import { NestImportsType } from './nest.types';
 
 /* BUSINESS LOGIC
  *
