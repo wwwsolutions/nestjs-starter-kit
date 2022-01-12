@@ -1,0 +1,34 @@
+{
+  "root": "libs/api/data-access/prisma",
+  "sourceRoot": "libs/api/data-access/prisma/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/data-access/prisma",
+        "tsConfig": "libs/api/data-access/prisma/tsconfig.lib.json",
+        "packageJson": "libs/api/data-access/prisma/package.json",
+        "main": "libs/api/data-access/prisma/src/index.ts",
+        "assets": ["libs/api/data-access/prisma/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/data-access/prisma/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/data-access/prisma"],
+      "options": {
+        "jestConfig": "libs/api/data-access/prisma/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:api"]
+}

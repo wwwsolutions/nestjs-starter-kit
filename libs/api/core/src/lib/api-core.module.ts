@@ -15,19 +15,16 @@ import {
 } from './api-core-configs';
 
 @Module({
+  // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY
   imports: [
-    // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY
     ApiConfigAppModule,
-    // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY
     WinstonModule.forRootAsync({
       useFactory: async (winstonConfiguration: WinstonConfiguration) => ({
         ...winstonConfiguration.options,
       }),
       inject: [winstonConfiguration.KEY],
     }),
-    // INTEGRATIONS
     ...integrationConfiguration,
-    // DOMAINS/FEATURES/BUSINESS LOGIC
     ...domainsConfiguration,
   ],
   providers: resolversConfiguration,
