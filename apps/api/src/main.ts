@@ -41,7 +41,7 @@ async function bootstrap() {
   app.enableCors();
 
   // ENABLE/CONFIGURE API INTEGRATION
-  // configureApiIntegrationGraphqlPrisma(app, integration as string);
+  configureApiIntegrationGraphqlPrisma(app, integration as string);
 
   // SERVER
   await app.listen(port, () => {

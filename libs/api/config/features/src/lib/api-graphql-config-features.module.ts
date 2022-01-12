@@ -23,7 +23,7 @@ import { validationSchema } from './validation.schema';
         graphqlConfiguration,
         prismaConfiguration,
         postgresConfiguration,
-        jwtConfiguration,
+        // jwtConfiguration,
       ],
     }),
   ],

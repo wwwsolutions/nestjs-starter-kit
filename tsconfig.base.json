@@ -39,6 +39,15 @@
         "libs/api/config/features/src/index.ts"
       ],
       "@wwwsolutions/api/core": ["libs/api/core/src/index.ts"],
+      "@wwwsolutions/api/data-access/core": [
+        "libs/api/data-access/core/src/index.ts"
+      ],
+      "@wwwsolutions/api/data-access/models": [
+        "libs/api/data-access/models/src/index.ts"
+      ],
+      "@wwwsolutions/api/data-access/prisma": [
+        "libs/api/data-access/prisma/src/index.ts"
+      ],
       "@wwwsolutions/api/integration/graphql-prisma": [
         "libs/api/integration/graphql-prisma/src/index.ts"
       ],

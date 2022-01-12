@@ -1,0 +1,207 @@
+{
+  "root": "libs/api/data-access/prisma",
+  "sourceRoot": "libs/api/data-access/prisma/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/data-access/prisma",
+        "tsConfig": "libs/api/data-access/prisma/tsconfig.lib.json",
+        "packageJson": "libs/api/data-access/prisma/package.json",
+        "main": "libs/api/data-access/prisma/src/index.ts",
+        "assets": ["libs/api/data-access/prisma/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/data-access/prisma/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/data-access/prisma"],
+      "options": {
+        "jestConfig": "libs/api/data-access/prisma/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": ["npx prisma version -- --verbose"]
+      }
+    },
+    "migrate-dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma migrate dev'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma migrate dev --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma --name={args.name}",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "migrate-dev-no-seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma migrate dev --skip-seed'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma migrate dev --skip-seed --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma --name={args.name}",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "migrate-reset": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma migrate reset'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma migrate reset --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma --force",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "migrate-reset-no-seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma migrate reset --skip-seed'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma migrate reset --skip-seed --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma --force",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "migrate-status": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma migrate status'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma migrate status --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma db seed'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma db seed",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma generate'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma generate --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "generate-watch": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma generate --watch'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma generate --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma --watch",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "format": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "libs/api/graphql/data-access/prisma/src/lib/schema",
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma format'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma format",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "studio": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma studio'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma studio --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "introspect": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma db pull'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma db pull --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "db-push": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING COMMAND 'prisma db push'",
+          "dotenv -e ./apps/api/.env.{args.env} -- npx prisma db push --schema=libs/api/graphql/data-access/prisma/src/lib/schema/schema.prisma",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "apply": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "echo EXECUTING CUSTOM COMMAND 'apply'",
+          "nx run api-graphql-data-access-prisma:migrate-dev-no-seed --env={args.env} --name={args.name}",
+          "nx run api-graphql-data-access-prisma:generate --env={args.env}",
+          "echo COMMAND EXECUTION END"
+        ]
+      }
+    },
+    "list-of-all-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-graphql-data-access-prisma:migrate-dev --env=development --name=my_migration_name",
+          "nx run api-graphql-data-access-prisma:migrate-dev-no-seed --env=development --name=my_migration_name",
+          "nx run api-graphql-data-access-prisma:migrate-reset --env=development",
+          "nx run api-graphql-data-access-prisma:migrate-reset-no-seed --env=development",
+          "nx run api-graphql-data-access-prisma:migrate-status --env=development",
+          "nx run api-graphql-data-access-prisma:seed --env=development",
+          "nx run api-graphql-data-access-prisma:version",
+          "nx run api-graphql-data-access-prisma:generate --env=development",
+          "nx run api-graphql-data-access-prisma:generate-watch --env=development",
+          "nx run api-graphql-data-access-prisma:format --env=development",
+          "nx run api-graphql-data-access-prisma:studio --env=development",
+          "nx run api-graphql-data-access-prisma:introspect --env=development",
+          "nx run api-graphql-data-access-prisma:apply --env=development --name=my_migration_name"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:api"]
+}
