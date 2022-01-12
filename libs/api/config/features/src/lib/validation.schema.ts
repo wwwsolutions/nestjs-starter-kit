@@ -19,9 +19,7 @@ export const validationSchema = Joi.object({
         /^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\/[a-z0-9]([a-z0-9-]*[a-z0-9])?)*(\/[a-z0-9]([a-z0-9-.]*[a-z0-9])?)?$/s
       )
     )
-    .default(
-      'libs/api/graphql/data-access/models/src/lib/generated/schema.graphql'
-    )
+    .default('libs/api/data-access/models/src/lib/generated/schema.graphql')
     .description('GRAPHQL auto schema file value'),
 
   // true (default playground) | false (Apollo Sandbox)

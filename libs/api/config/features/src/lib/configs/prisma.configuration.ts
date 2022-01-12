@@ -27,12 +27,7 @@ const composeDatabaseConnectionUrl = (
       return 'sqlite connection string'; // TODO: create connection string
 
     case PrismaProvider.POSTGRESQL: {
-      const postgresConnectionStringUrl = `${PrismaProvider.POSTGRESQL}://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOSTNAME}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB_NAME}`;
-      console.log(
-        postgresConnectionStringUrl,
-        typeof postgresConnectionStringUrl
-      );
-      return postgresConnectionStringUrl;
+      return `${PrismaProvider.POSTGRESQL}://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOSTNAME}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB_NAME}`;
     }
 
     case PrismaProvider.MYSQL:
