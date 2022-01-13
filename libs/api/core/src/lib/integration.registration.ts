@@ -11,7 +11,6 @@ import { NestImportsType } from './nest.types';
  *
  */
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 
 export const integrationConfiguration: NestImportsType = [

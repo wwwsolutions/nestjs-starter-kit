@@ -14,8 +14,7 @@ import { integrationConfiguration } from './integration.registration';
 
 /* <DO NOT CHANGE>
  *
- *
- *
+ * To register controllers, resolvers, domains and integration use corresponding `*.registration.ts` files.
  *
  */
 
