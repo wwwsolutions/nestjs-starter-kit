@@ -5,7 +5,7 @@ generator client {
 
 generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
-  output                 = "../../../../../../../libs/api/graphql/data-access/models/src/lib/generated"
+  output                 = "../../../../../../../libs/api/data-access/models/src/lib/generated"
   reExport               = "All"
   fields_Validator_from  = "class-validator"
   fields_Validator_input = true

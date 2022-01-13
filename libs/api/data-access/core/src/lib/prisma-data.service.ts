@@ -46,11 +46,14 @@ export class PrismaDataService
   // private readonly defaultAdmin: UserCreateInput | undefined;
 
   constructor(
+    //  @InjectAdminConfig()
+    //  private readonly adminConfiguration: AdminConfiguration
+
     @InjectEnvironmentConfig()
     readonly environmentConfiguration: EnvironmentConfiguration,
 
     @InjectPrismaConfig()
-    readonly prismaConfiguration: PrismaConfiguration // private readonly adminConfiguration: AdminConfiguration // @InjectAdminConfig()
+    readonly prismaConfiguration: PrismaConfiguration
   ) {
     super({
       datasources: prismaConfiguration.schemaDatasourcesUrlOverride,
@@ -67,6 +70,8 @@ export class PrismaDataService
     // this.logger.log(
     //   `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
     // );
+
+    this.logger.log(this.prismaConfiguration.schemaDatasourcesUrlOverride);
   }
 
   /**

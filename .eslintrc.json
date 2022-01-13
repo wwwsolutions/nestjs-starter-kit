@@ -44,7 +44,8 @@
                 "onlyDependOnLibsWithTags": [
                   "type:config",
                   "type:data-access",
-                  "type:util"
+                  "type:util",
+                  "type:integration"
                 ]
               },
               {

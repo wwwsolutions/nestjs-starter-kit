@@ -19,6 +19,7 @@
   },
   "markdownlint.config": {
     "default": true,
+    "MD001": false,
     "MD024": { "siblings_only": true },
     "MD004": { "style": "consistent" },
     "MD040": false

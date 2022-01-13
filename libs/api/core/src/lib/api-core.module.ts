@@ -7,10 +7,16 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { controllersConfiguration } from './controllers/api-core-controllers.configuration';
-import { resolversConfiguration } from './resolvers/api-core-resolvers.configuration';
-import { domainsConfiguration } from './domains/api-core-domains.configuration';
-import { integrationConfiguration } from './integration.configuration';
+import { controllersConfiguration } from './controllers.registration';
+import { resolversConfiguration } from './resolvers.registration';
+import { domainsConfiguration } from './domains.registration';
+import { integrationConfiguration } from './integration.registration';
+
+/* <DO NOT CHANGE>
+ *
+ * To register controllers, resolvers, domains and integration use corresponding `*.registration.ts` files.
+ *
+ */
 
 @Module({
   // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY

@@ -6,7 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { graphqlConfiguration } from './configs/graphql.configuration';
 import { prismaConfiguration } from './configs/prisma.configuration';
 import { postgresConfiguration } from './configs/postgresql.configuration';
-import { jwtConfiguration } from './configs/jwt.configuration';
+// import { jwtConfiguration } from './configs/jwt.configuration';
 
 import { validationSchema } from './validation.schema';
 
