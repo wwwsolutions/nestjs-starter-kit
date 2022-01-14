@@ -1,4 +1,6 @@
-import { NestImportsType } from './nest.types';
+import { NestImportsType } from '../nest.types';
+
+import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 
 /* <REQUIRED>
  *
@@ -10,8 +12,6 @@ import { NestImportsType } from './nest.types';
  *    ApiIntegrationGraphqlPrismaModule
  *
  */
-
-import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 
 export const integrationConfiguration: NestImportsType = [
   ApiIntegrationGraphqlPrismaModule,

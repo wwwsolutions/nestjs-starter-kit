@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 
 import { Env } from './constants/env.constants';
-import { ApiType } from './constants/api.constants';
+import { ApiType, ApiIntegrationType } from './constants/api.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
@@ -18,15 +18,24 @@ export const validationSchema = Joi.object({
     .required()
     .description('api: NODE_ENV'),
 
+  /* --------------------------------------------------------------
+  APP/API
+  api/config/app/src/lib/configs/app.configuration.ts
+  --------------------------------------------------------------- */
+
+  // REQUIRED
   API_TYPE: Joi.string()
     .valid(ApiType.GRAPHQL_API, ApiType.REST_API)
     .required()
     .description('API type'),
 
-  /* --------------------------------------------------------------
-  APP/API
-  api/config/app/src/lib/configs/app.configuration.ts
-  --------------------------------------------------------------- */
+  API_INTEGRATION_TYPE: Joi.string()
+    .valid(
+      ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION,
+      ApiIntegrationType.REST_MONGOOSE_INTEGRATION
+    )
+    .required()
+    .description('API type'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()

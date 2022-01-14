@@ -1,4 +1,5 @@
-import { NestProvidersType } from './nest.types';
+import { NestProvidersType } from '../nest.types';
+import { ApiCoreResolver } from '../api-core.resolver';
 
 /* <REQUIRED>
  *
@@ -8,7 +9,5 @@ import { NestProvidersType } from './nest.types';
  * Without it, the apollo-server package will throw an exception and the server will fail to start.
  *
  */
-
-import { ApiCoreResolver } from './resolvers/api-core.resolver';
 
 export const resolversConfiguration: NestProvidersType = [ApiCoreResolver];

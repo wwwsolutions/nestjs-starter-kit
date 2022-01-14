@@ -7,7 +7,8 @@ const generateGlobalPrefix = (apiType: string): GlobalPrefix =>
 
 export const appConfiguration = registerAs('app', () => ({
   type: process.env.API_TYPE,
-  integration: process.env.API_INTEGRATION,
+  integrationType: process.env.API_INTEGRATION_TYPE,
+
   protocol: process.env.API_PROTOCOL,
   host: process.env.API_HOST,
   port: Number(process.env.API_PORT),

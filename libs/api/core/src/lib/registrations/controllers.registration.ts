@@ -1,4 +1,6 @@
-import { NestControllersType } from './nest.types';
+import { NestControllersType } from '../nest.types';
+
+// export const controllersConfiguration: NestControllersType = [ApiCoreController];
 
 /* <OPTIONAL>
  *
@@ -8,7 +10,5 @@ import { NestControllersType } from './nest.types';
  *
  *    ApiCoreController,
  */
-
-// export const controllersConfiguration: NestControllersType = [ApiCoreController];
 
 export const controllersConfiguration: NestControllersType = [];

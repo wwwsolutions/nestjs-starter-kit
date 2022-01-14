@@ -29,7 +29,7 @@
     "clean": "npm run clean:node_modules && npm run clean:dist && npm run clean:temp && npm run clean:logs",
     "dev": "nx run api:serve",
     "api:build:production": "npx nx build api --prod",
-    "api:serve:production": "cross-env NODE_ENV=production WINSTON_LEVEL_CONSOLE=verbose WINSTON_PRETTY_PRINT=true WINSTON_LEVEL_FILE=silly WINSTON_FILE_PATH=logs/app.log API_INTEGRATION=ApiIntegrationGraphqlPrisma node ./dist/apps/api/main.js",
+    "api:serve:production": "cross-env NODE_ENV=production WINSTON_LEVEL_CONSOLE=verbose WINSTON_PRETTY_PRINT=true WINSTON_LEVEL_FILE=silly WINSTON_FILE_PATH=logs/app.log API_INTEGRATION_TYPE=ApiIntegrationGraphqlPrisma node ./dist/apps/api/main.js",
     "docker:build": "docker build . -t courses/api",
     "docker:run": "docker run -it -p 8000:3000 courses/api",
     "api:deploy": "nx deploy api"
