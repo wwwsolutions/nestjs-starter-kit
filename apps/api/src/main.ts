@@ -16,12 +16,12 @@ import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integrat
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
 
-// DEBUG ENV VARIABLES
+// HELPER --> DEBUG ENV VARIABLES
 // const envLocalPath = path.resolve('apps/api/.env.local');
 // const envDevelopmentPath = path.resolve('apps/api/.env.development');
 
 async function bootstrap() {
-  // DEBUG ENV VARIABLES
+  // HELPER --> DEBUG ENV VARIABLES
   DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
   DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 

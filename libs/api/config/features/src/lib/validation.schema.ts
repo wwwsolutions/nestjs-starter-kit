@@ -1,5 +1,6 @@
 import * as Joi from 'joi';
-import { PrismaProvider } from '..';
+
+import { PrismaProvider } from './constants/prisma.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
