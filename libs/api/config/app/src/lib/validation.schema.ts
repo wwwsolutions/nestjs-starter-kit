@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 
-import { Env } from './constants/env.constants';
-import { ApiType, ApiIntegrationType } from './constants/api.constants';
+import { Env } from './constants/environment.constants';
+import { ApiType, ApiIntegrationType } from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE

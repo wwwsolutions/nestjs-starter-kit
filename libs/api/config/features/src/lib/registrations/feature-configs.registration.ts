@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { jwtConfiguration } from './configs/jwt.configuration';
+import { jwtConfiguration } from '../configs/jwt.configuration';
 
 /* <OPTIONAL>
  *

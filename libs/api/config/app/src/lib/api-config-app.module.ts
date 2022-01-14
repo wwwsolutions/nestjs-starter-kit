@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigFactory, ConfigModule, ConfigObject } from '@nestjs/config';
 
-import { environmentConfiguration } from './configs/environment.configuration';
-import { winstonConfiguration } from './configs/winston.configuration';
-import { appConfiguration } from './configs/app.configuration';
+import { appConfigsObjects } from './registrations/app-configs.registration';
 
 import { validationSchema } from './validation.schema';
+
+const load: ConfigFactory<ConfigObject>[] | undefined = [...appConfigsObjects];
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { validationSchema } from './validation.schema';
         `apps/api/.env.${process.env['NODE' + '_ENV']}`,
       ],
       validationSchema,
-      load: [environmentConfiguration, winstonConfiguration, appConfiguration],
+      load,
     }),
   ],
 })
