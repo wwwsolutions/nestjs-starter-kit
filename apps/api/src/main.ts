@@ -8,6 +8,7 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
+  Env,
   // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
@@ -27,30 +28,35 @@ async function bootstrap() {
   // APPLICATION
   const app = await NestFactory.create(AppModule);
 
-  // APPLICATION CONFIGURATION
+  // ENVIRONMENT CONFIGURATION
   const { env: environment } = app.get<EnvironmentConfiguration>(
     environmentConfiguration.KEY
   );
 
+  // APPLICATION CONFIGURATION
   const { integration, type, domain, path, prefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   // MIDDLEWARE
-  app.setGlobalPrefix(prefix as string);
 
-  app.enableCors();
+  // ENABLE CORS
+  environment && app.enableCors();
+
+  // SET GLOBAL PREFIX
+  prefix && app.setGlobalPrefix(prefix);
 
   // ENABLE/CONFIGURE API INTEGRATION
-  configureApiIntegrationGraphqlPrisma(app, integration as string);
+  integration && configureApiIntegrationGraphqlPrisma(app, integration);
 
-  // SERVER
-  await app.listen(port, () => {
-    Logger.log(`🚀 Server ready at: ${domain}/${path}`, bootstrap.name);
-    Logger.log(
-      `🚀 Running ${type} API, in ${environment} mode`,
-      bootstrap.name
-    );
-  });
+  // PRODUCTION SERVER
+  environment &&
+    (await app.listen(port, () => {
+      Logger.log(`🚀 Server ready at: ${domain}/${path}`, bootstrap.name);
+      Logger.log(
+        `🚀 Running ${type} API, in ${environment} mode`,
+        bootstrap.name
+      );
+    }));
 }
 
 bootstrap();

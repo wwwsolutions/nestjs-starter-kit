@@ -8,17 +8,17 @@ import {
 } from '@wwwsolutions/api/config/app';
 
 import {
-  ApiGraphqlConfigFeaturesModule,
+  ApiConfigFeaturesModule,
   GraphqlConfiguration,
   graphqlConfiguration,
 } from '@wwwsolutions/api/config/features';
 
 @Module({
   imports: [
-    // API CONFIGURATIONS
-    // ApiGraphqlConfigAppModule,
-    ApiGraphqlConfigFeaturesModule,
-    // GRAPHQL CONFIGURATION
+    // APP CONFIG
+    ApiConfigFeaturesModule,
+
+    // GRAPHQL CONFIG
     GraphQLModule.forRootAsync({
       useFactory: async (
         environmentConfiguration: EnvironmentConfiguration,
@@ -32,8 +32,8 @@ import {
       inject: [environmentConfiguration.KEY, graphqlConfiguration.KEY],
     }),
 
-    // DATA-LAYER CONFIGURATION
-    // Prisma as data layer --> api-data-access-prisma
+    // DATA LAYER CONFIG
+    // `api-data-access-prisma`
     // libs/api/data-access/core/src/lib/prisma-data.service.ts
   ],
 })
