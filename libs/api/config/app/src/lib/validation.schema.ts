@@ -1,6 +1,7 @@
 import * as Joi from 'joi';
 
-import { Env } from './constants';
+import { Env } from './constants/env.constants';
+import { ApiType, GlobalPrefix } from './constants/api.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
@@ -12,9 +13,14 @@ export const validationSchema = Joi.object({
 
   // REQUIRED
   NODE_ENV: Joi.string()
-    .valid(Env.DEVELOPMENT, Env.PRODUCTION, Env.STAGING, Env.TESTING)
+    .valid(Env.DEVELOPMENT, Env.PRODUCTION, Env.STAGING, Env.TEST)
     .required()
     .description('api: NODE_ENV'),
+
+  API_TYPE: Joi.string()
+    .valid(ApiType.GRAPHQL_API, ApiType.REST_API)
+    .required()
+    .description('API type'),
 
   /* --------------------------------------------------------------
   APP/API
@@ -22,10 +28,6 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // OPTIONAL
-  API_TYPE: Joi.string()
-    .valid('GraphqlApi', 'RestApi')
-    .default('GraphqlApi')
-    .description('API type'),
   API_PROTOCOL: Joi.string()
     .lowercase()
     .valid('http', 'https')
@@ -33,11 +35,6 @@ export const validationSchema = Joi.object({
     .description('API protocol'),
   API_HOST: Joi.string().default('localhost').description('API host'),
   API_PORT: Joi.number().port().default(3000).description('API port'),
-  API_PREFIX: Joi.string()
-    .case('lower')
-    .valid('graphql', 'api')
-    .default('graphql')
-    .description('API prefix'),
 
   /* --------------------------------------------------------------
   WINSTON
