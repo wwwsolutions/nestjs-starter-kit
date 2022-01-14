@@ -1,13 +1,29 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
-import { ApiType, GlobalPrefix } from '../constants/api.constants';
+import {
+  ApiType,
+  GlobalPrefix,
+  ApiIntegrationType,
+  ApiIntegrationTypeLabel,
+} from '../constants/app.constants';
 
 const generateGlobalPrefix = (apiType: string): GlobalPrefix =>
   apiType === ApiType.REST_API ? GlobalPrefix.API : GlobalPrefix.GRAPHQL;
 
+export const generateApiIntegrationTypeLabel = (
+  apiIntegrationType: string | undefined
+): string => {
+  if (!apiIntegrationType) throw 'apiIntegrationType is undefined';
+  return apiIntegrationType
+    .split('-')
+    .map((word: string) => word.charAt(0))
+    .join('');
+};
+
 export const appConfiguration = registerAs('app', () => ({
   type: process.env.API_TYPE,
-  integration: process.env.API_INTEGRATION,
+  integrationType: process.env.API_INTEGRATION_TYPE,
+
   protocol: process.env.API_PROTOCOL,
   host: process.env.API_HOST,
   port: Number(process.env.API_PORT),

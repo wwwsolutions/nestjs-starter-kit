@@ -34,7 +34,7 @@ async function bootstrap() {
   );
 
   // APPLICATION CONFIGURATION
-  const { integration, type, domain, path, prefix, port } =
+  const { integrationType, type, domain, path, prefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   // MIDDLEWARE
@@ -46,7 +46,7 @@ async function bootstrap() {
   prefix && app.setGlobalPrefix(prefix);
 
   // ENABLE/CONFIGURE API INTEGRATION
-  integration && configureApiIntegrationGraphqlPrisma(app, integration);
+  integrationType && configureApiIntegrationGraphqlPrisma(app, integrationType);
 
   // PRODUCTION SERVER
   environment &&

@@ -103,14 +103,8 @@ export const validationSchema = Joi.object({
       PrismaProvider.SQLSERVER,
       PrismaProvider.MONGODB
     )
-    .default('postgresql')
+    .default(PrismaProvider.POSTGRESQL)
     .description('PRISMA: Describes which data source connectors to use.'),
-
-  // PRISMA_DATASOURCE_URL: Joi.string()
-  //   .required()
-  //   .description(
-  //     'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'
-  //   ),
 
   PRISMA_DATASOURCE_SHADOW_URL: Joi.string()
     .description(

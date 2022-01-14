@@ -1,4 +1,10 @@
-import { NestImportsType } from './nest.types';
+import { NestImportsType } from '../nest.types';
+
+// export const domainsConfiguration: NestImportsType = [
+//      ApiGraphqlUsersFeatureModule,
+//      ApiGraphqlAuthenticationFeatureModule,
+//      ApiGraphqlRolesFeatureModule,
+// ];
 
 /* BUSINESS LOGIC
  *
@@ -12,11 +18,5 @@ import { NestImportsType } from './nest.types';
  *    ApiGraphqlRolesFeatureModule,
  *
  */
-
-// export const domainsConfiguration: NestImportsType = [
-//      ApiGraphqlUsersFeatureModule,
-//      ApiGraphqlAuthenticationFeatureModule,
-//      ApiGraphqlRolesFeatureModule,
-// ];
 
 export const domainsConfiguration: NestImportsType = [];

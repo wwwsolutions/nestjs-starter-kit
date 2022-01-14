@@ -33,10 +33,9 @@ import { PrismaClient } from '@wwwsolutions/api/data-access/prisma';
 // } from '@wwwsolutions/api/data-access/models';
 
 /**
-   
-  Service extends `PrismaClient` with additional custom logic
-   
-  */
+ * Service extends `PrismaClient` with additional custom logic
+ * Import it into other services.
+ */
 @Injectable()
 export class PrismaDataService
   extends PrismaClient

@@ -7,10 +7,10 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { controllersConfiguration } from './controllers.registration';
-import { resolversConfiguration } from './resolvers.registration';
-import { domainsConfiguration } from './domains.registration';
-import { integrationConfiguration } from './integration.registration';
+import { controllersConfiguration } from './registrations/controllers.registration';
+import { resolversConfiguration } from './registrations/resolvers.registration';
+import { domainsConfiguration } from './registrations/domains.registration';
+import { integrationConfiguration } from './registrations/integration.registration';
 
 /* <DO NOT CHANGE>
  *

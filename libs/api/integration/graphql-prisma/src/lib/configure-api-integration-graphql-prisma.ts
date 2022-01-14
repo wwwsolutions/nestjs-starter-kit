@@ -7,13 +7,13 @@ import { HttpAdapterHost } from '@nestjs/core';
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
 export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
-  integration: string
+  integrationType: string
 ) {
   // CUSTOM LOGGER
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    `🔒 ${integration} start`,
+    `🔒 ${integrationType} start`,
     configureApiIntegrationGraphqlPrisma.name
   );
 
@@ -34,7 +34,7 @@ export function configureApiIntegrationGraphqlPrisma(
   app.useGlobalPipes(new ValidationPipe());
 
   Logger.log(
-    `🔒 ${integration} done`,
+    `🔒 ${integrationType} done`,
     configureApiIntegrationGraphqlPrisma.name
   );
 }

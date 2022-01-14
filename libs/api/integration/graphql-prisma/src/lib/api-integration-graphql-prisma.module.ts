@@ -33,7 +33,7 @@ import {
     }),
 
     // DATA LAYER CONFIG
-    // `api-data-access-prisma`
+    // `api-data-access-prisma` project
     // libs/api/data-access/core/src/lib/prisma-data.service.ts
   ],
 })

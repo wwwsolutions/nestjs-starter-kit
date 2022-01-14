@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { graphqlConfiguration } from './configs/graphql.configuration';
-import { prismaConfiguration } from './configs/prisma.configuration';
-import { postgresConfiguration } from './configs/postgresql.configuration';
+import { graphqlConfiguration } from '../configs/graphql.configuration';
+import { prismaConfiguration } from '../configs/prisma.configuration';
+import { postgresConfiguration } from '../configs/postgresql.configuration';
 
 /* <OPTIONAL>
  *
