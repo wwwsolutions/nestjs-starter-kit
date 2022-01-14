@@ -1,7 +1,8 @@
 import * as Joi from 'joi';
 
 import { Env } from './constants/env.constants';
-import { ApiType, GlobalPrefix } from './constants/api.constants';
+import { ApiType } from './constants/api.constants';
+import { WinstonConsoleLevel } from './constants/winston.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
@@ -44,14 +45,30 @@ export const validationSchema = Joi.object({
   // REQUIRED
   WINSTON_LEVEL_CONSOLE: Joi.string()
     .required()
-    .valid('error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly')
+    .valid(
+      WinstonConsoleLevel.ERROR,
+      WinstonConsoleLevel.WARN,
+      WinstonConsoleLevel.INFO,
+      WinstonConsoleLevel.HTTP,
+      WinstonConsoleLevel.VERBOSE,
+      WinstonConsoleLevel.DEBUG,
+      WinstonConsoleLevel.SILLY
+    )
     .description('WINSTON console level'),
   WINSTON_PRETTY_PRINT: Joi.boolean()
     .required()
     .description('WINSTON pretty print'),
   WINSTON_LEVEL_FILE: Joi.string()
     .required()
-    .valid('error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly')
+    .valid(
+      WinstonConsoleLevel.ERROR,
+      WinstonConsoleLevel.WARN,
+      WinstonConsoleLevel.INFO,
+      WinstonConsoleLevel.HTTP,
+      WinstonConsoleLevel.VERBOSE,
+      WinstonConsoleLevel.DEBUG,
+      WinstonConsoleLevel.SILLY
+    )
     .description('WINSTON file level'),
   WINSTON_FILE_PATH: Joi.string()
     .required()

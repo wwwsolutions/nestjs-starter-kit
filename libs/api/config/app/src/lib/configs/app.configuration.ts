@@ -2,11 +2,6 @@ import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 import { ApiType, GlobalPrefix } from '../constants/api.constants';
 
-// const generateGlobalPrefix = (apiType: string): GlobalPrefix => {
-//   if (apiType === ApiType.REST_API) return GlobalPrefix.API;
-//   return GlobalPrefix.GRAPHQL;
-// };
-
 const generateGlobalPrefix = (apiType: string): GlobalPrefix =>
   apiType === ApiType.REST_API ? GlobalPrefix.API : GlobalPrefix.GRAPHQL;
 
@@ -26,7 +21,7 @@ export const appConfiguration = registerAs('app', () => ({
   },
 
   get path(): string {
-    return `${this.prefix}`;
+    return this.prefix;
   },
 }));
 
