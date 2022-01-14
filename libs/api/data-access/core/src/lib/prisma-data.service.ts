@@ -20,6 +20,7 @@ import {
 import {
   InjectPrismaConfig,
   PrismaConfiguration,
+  PrismaLogLevel,
 } from '@wwwsolutions/api/config/features';
 
 import { PrismaClient } from '@wwwsolutions/api/data-access/prisma';
@@ -59,8 +60,8 @@ export class PrismaDataService
       datasources: prismaConfiguration.schemaDatasourcesUrlOverride,
       log:
         environmentConfiguration.env === Env.DEVELOPMENT
-          ? ['query', 'error', 'warn']
-          : ['error'],
+          ? [PrismaLogLevel.QUERY, PrismaLogLevel.ERROR, PrismaLogLevel.WARN]
+          : [PrismaLogLevel.ERROR],
       errorFormat:
         environmentConfiguration.env === Env.DEVELOPMENT ? 'pretty' : 'minimal',
     });

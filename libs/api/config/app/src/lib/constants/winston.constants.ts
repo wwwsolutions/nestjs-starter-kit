@@ -1,4 +1,4 @@
-export enum WinstonConsoleLevel {
+export enum WinstonLogLevel {
   ERROR = 'error',
   WARN = 'warn',
   INFO = 'info',
