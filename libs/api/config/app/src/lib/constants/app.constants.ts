@@ -12,3 +12,8 @@ export enum ApiIntegrationType {
   GRAPHQL_PRISMA_INTEGRATION = 'Graphql-Prisma-Integration',
   REST_MONGOOSE_INTEGRATION = 'Rest-Mongoose-Integration',
 }
+
+export enum ApiIntegrationTypeLabel {
+  GPI = 'GPI',
+  RMI = 'RMI',
+}

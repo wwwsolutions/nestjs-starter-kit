@@ -79,8 +79,4 @@ export const validationSchema = Joi.object({
       WinstonLogLevel.SILLY
     )
     .description('WINSTON file level'),
-  WINSTON_FILE_PATH: Joi.string()
-    .required()
-    .valid('logs/app.log')
-    .description('WINSTON file path'),
 });
