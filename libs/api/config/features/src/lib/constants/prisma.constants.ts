@@ -4,3 +4,11 @@ export enum PrismaLogLevel {
   INFO = 'info',
   QUERY = 'query',
 }
+
+export enum PrismaProvider {
+  SQLITE = 'sqlite',
+  POSTGRESQL = 'postgresql',
+  MYSQL = 'mysql',
+  SQLSERVER = 'sqlserver',
+  MONGODB = 'mongodb',
+}

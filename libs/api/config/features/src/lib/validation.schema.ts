@@ -1,4 +1,5 @@
 import * as Joi from 'joi';
+import { PrismaProvider } from '..';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
@@ -94,7 +95,13 @@ export const validationSchema = Joi.object({
 
   // REQUIRED
   PRISMA_DATASOURCE_PROVIDER: Joi.string()
-    .valid('sqlite', 'postgresql', 'mysql', 'sqlserver', 'mongodb')
+    .valid(
+      PrismaProvider.SQLITE,
+      PrismaProvider.POSTGRESQL,
+      PrismaProvider.MYSQL,
+      PrismaProvider.SQLSERVER,
+      PrismaProvider.MONGODB
+    )
     .default('postgresql')
     .description('PRISMA: Describes which data source connectors to use.'),
 

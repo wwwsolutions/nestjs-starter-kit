@@ -2,20 +2,7 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 
-enum PrismaProvider {
-  SQLITE = 'sqlite',
-  POSTGRESQL = 'postgresql',
-  MYSQL = 'mysql',
-  SQLSERVER = 'sqlserver',
-  MONGODB = 'mongodb',
-}
-// interface OptionRequirement {
-//   provider: string;
-// }
-
-// type OptionRequirements = {
-//   [key in Options]: OptionRequirement; // Note that "key in".
-// };
+import { PrismaProvider } from '../constants/prisma.constants';
 
 const composeDatabaseConnectionUrl = (
   prismaProvider: PrismaProvider
