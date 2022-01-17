@@ -161,6 +161,13 @@ export const validationSchema = Joi.object({
     .description('PGADMIN listen port'),
 
   /* --------------------------------------------------------------
+  REDIS
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  REDIS_PORT: Joi.number().default(6379).port().description('REDIS port'),
+
+  /* --------------------------------------------------------------
   JWT
   api/config/features/src/lib/configs/jwt.configuration.ts
   --------------------------------------------------------------- */
