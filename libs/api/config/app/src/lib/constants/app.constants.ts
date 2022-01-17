@@ -17,3 +17,8 @@ export enum ApiIntegrationTypeLabel {
   GPI = 'GPI',
   RMI = 'RMI',
 }
+
+export enum ApiProtocols {
+  HTTP = 'http',
+  HTTPS = 'https',
+}
