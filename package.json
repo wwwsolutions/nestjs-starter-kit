@@ -50,6 +50,7 @@
     "graphql": "^15.8.0",
     "graphql-type-json": "^0.3.2",
     "joi": "^17.5.0",
+    "joi-password": "^2.0.3",
     "nest-winston": "^1.6.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",

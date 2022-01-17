@@ -1,7 +1,12 @@
 import * as Joi from 'joi';
 
 import { Env } from './constants/environment.constants';
-import { ApiType, ApiIntegrationType } from './constants/app.constants';
+import {
+  ApiType,
+  ApiIntegrationType,
+  ApiProtocols,
+  ApiHostname,
+} from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
@@ -25,25 +30,28 @@ export const validationSchema = Joi.object({
 
   // REQUIRED
   API_TYPE: Joi.string()
-    .valid(ApiType.GRAPHQL_API, ApiType.REST_API)
     .required()
+    .valid(ApiType.GRAPHQL_API, ApiType.REST_API)
     .description('API type'),
-
   API_INTEGRATION_TYPE: Joi.string()
+    .required()
     .valid(
       ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION,
       ApiIntegrationType.REST_MONGOOSE_INTEGRATION
     )
-    .required()
     .description('API type'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()
     .lowercase()
-    .valid('http', 'https')
-    .default('http')
+    .valid(ApiProtocols.HTTP, ApiProtocols.HTTPS)
+    .default(ApiProtocols.HTTP)
     .description('API protocol'),
-  API_HOST: Joi.string().default('localhost').description('API host'),
+  API_HOSTNAME: Joi.string()
+    .hostname()
+    .default(ApiHostname.LOCALHOST)
+    .description('API host'),
+
   API_PORT: Joi.number().port().default(3000).description('API port'),
 
   /* --------------------------------------------------------------
@@ -53,7 +61,7 @@ export const validationSchema = Joi.object({
 
   // REQUIRED
   WINSTON_LEVEL_CONSOLE: Joi.string()
-    .required()
+    .lowercase()
     .valid(
       WinstonLogLevel.ERROR,
       WinstonLogLevel.WARN,
@@ -63,12 +71,13 @@ export const validationSchema = Joi.object({
       WinstonLogLevel.DEBUG,
       WinstonLogLevel.SILLY
     )
+    .default(WinstonLogLevel.VERBOSE)
     .description('WINSTON console level'),
   WINSTON_PRETTY_PRINT: Joi.boolean()
-    .required()
+    .default(true)
     .description('WINSTON pretty print'),
   WINSTON_LEVEL_FILE: Joi.string()
-    .required()
+    .lowercase()
     .valid(
       WinstonLogLevel.ERROR,
       WinstonLogLevel.WARN,
@@ -78,5 +87,6 @@ export const validationSchema = Joi.object({
       WinstonLogLevel.DEBUG,
       WinstonLogLevel.SILLY
     )
+    .default(WinstonLogLevel.SILLY)
     .description('WINSTON file level'),
 });

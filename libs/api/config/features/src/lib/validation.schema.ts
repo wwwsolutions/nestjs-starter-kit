@@ -1,4 +1,7 @@
 import * as Joi from 'joi';
+import joiPassword from 'joi-password';
+
+import { ApiHostname } from '@wwwsolutions/api/config/app';
 
 import { PrismaProvider } from './constants/prisma.constants';
 
@@ -94,8 +97,9 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
+  // OPTIONAL
   PRISMA_DATASOURCE_PROVIDER: Joi.string()
+    .lowercase()
     .valid(
       PrismaProvider.SQLITE,
       PrismaProvider.POSTGRESQL,
@@ -105,36 +109,62 @@ export const validationSchema = Joi.object({
     )
     .default(PrismaProvider.POSTGRESQL)
     .description('PRISMA: Describes which data source connectors to use.'),
-
   PRISMA_DATASOURCE_SHADOW_URL: Joi.string()
     .description(
       'PRISMA: Connection URL to the shadow database used by Prisma Migrate. Allows you to use a cloud-hosted database as the shadow database.'
     )
     .empty(),
-
   PRISMA_DATASOURCE_REF_INTEGRITY: Joi.string()
     .description('PRISMA: Allows setting the referential integrity.')
     .empty(),
-
-  // PRISMA_DATASOURCE_SHADOW_URL,
-  // PRISMA_DATASOURCE_REF_INTEGRITY,
 
   /* --------------------------------------------------------------
   POSTGRES
   api/config/features/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
-  POSTGRES_USER: Joi.string().required().description('POSTGRES user'),
-  POSTGRES_PASSWORD: Joi.string().required().description('POSTGRES password'),
+  // OPTIONAL
+  POSTGRES_USER: Joi.string().default('root').description('POSTGRES user'),
+  POSTGRES_PASSWORD: joiPassword
+    .string()
+    .noWhiteSpaces()
+    .default('root')
+    .description('POSTGRES password'),
   POSTGRES_DB_NAME: Joi.string()
-    .required()
+    .default('demo')
     .description('POSTGRES database name'),
   POSTGRES_HOSTNAME: Joi.string()
     .hostname()
-    .required()
+    .default(ApiHostname.LOOPBACK)
     .description('POSTGRES database hostname'),
-  POSTGRES_PORT: Joi.number().required().port().description('POSTGRES port'),
+  POSTGRES_PORT: Joi.number().default(5432).port().description('POSTGRES port'),
+
+  /* --------------------------------------------------------------
+  PGADMIN
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  PGADMIN_CONFIG_SERVER_MODE: Joi.string()
+    .default('False')
+    .description('PGADMIN server mode'),
+  PGADMIN_DEFAULT_EMAIL: Joi.string()
+    .email()
+    .default('pgadmin4@pgadmin.org')
+    .description('PGADMIN default email'),
+  PGADMIN_DEFAULT_PASSWORD: Joi.string()
+    .default('postgres')
+    .description('PGADMIN default password'),
+  PGADMIN_LISTEN_PORT: Joi.number()
+    .default(5050)
+    .port()
+    .description('PGADMIN listen port'),
+
+  /* --------------------------------------------------------------
+  REDIS
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  REDIS_PORT: Joi.number().default(6379).port().description('REDIS port'),
 
   /* --------------------------------------------------------------
   JWT
@@ -142,8 +172,14 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // OPTIONAL
-  JWT_SECRET: Joi.string()
-    .default('my$deepest$secret#123456789')
+  JWT_SECRET: joiPassword
+    .string()
+    .minOfSpecialCharacters(2)
+    .minOfLowercase(2)
+    .minOfUppercase(2)
+    .minOfNumeric(2)
+    .noWhiteSpaces()
+    .default('My$deepest$Secret#123456789')
     .description('JWT secret'),
   JWT_SIGN_OPTIONS_EXPIRES_IN: Joi.number()
     .positive()
