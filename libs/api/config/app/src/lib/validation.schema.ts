@@ -90,6 +90,3 @@ export const validationSchema = Joi.object({
     .default(WinstonLogLevel.SILLY)
     .description('WINSTON file level'),
 });
-function ApiLocalhost(ApiLocalhost: any) {
-  throw new Error('Function not implemented.');
-}
