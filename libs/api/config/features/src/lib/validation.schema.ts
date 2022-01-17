@@ -1,4 +1,5 @@
 import * as Joi from 'joi';
+import joiPassword from 'joi-password';
 
 import { ApiHostname } from '@wwwsolutions/api/config/app';
 
@@ -124,7 +125,9 @@ export const validationSchema = Joi.object({
 
   // OPTIONAL
   POSTGRES_USER: Joi.string().default('root').description('POSTGRES user'),
-  POSTGRES_PASSWORD: Joi.string()
+  POSTGRES_PASSWORD: joiPassword
+    .string()
+    .noWhiteSpaces()
     .default('root')
     .description('POSTGRES password'),
   POSTGRES_DB_NAME: Joi.string()
@@ -169,8 +172,14 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // OPTIONAL
-  JWT_SECRET: Joi.string()
-    .default('my$deepest$secret#123456789')
+  JWT_SECRET: joiPassword
+    .string()
+    .minOfSpecialCharacters(2)
+    .minOfLowercase(2)
+    .minOfUppercase(2)
+    .minOfNumeric(2)
+    .noWhiteSpaces()
+    .default('My$deepest$Secret#123456789')
     .description('JWT secret'),
   JWT_SIGN_OPTIONS_EXPIRES_IN: Joi.number()
     .positive()
