@@ -98,6 +98,7 @@ export const validationSchema = Joi.object({
 
   // OPTIONAL
   PRISMA_DATASOURCE_PROVIDER: Joi.string()
+    .lowercase()
     .valid(
       PrismaProvider.SQLITE,
       PrismaProvider.POSTGRESQL,
@@ -107,19 +108,14 @@ export const validationSchema = Joi.object({
     )
     .default(PrismaProvider.POSTGRESQL)
     .description('PRISMA: Describes which data source connectors to use.'),
-
   PRISMA_DATASOURCE_SHADOW_URL: Joi.string()
     .description(
       'PRISMA: Connection URL to the shadow database used by Prisma Migrate. Allows you to use a cloud-hosted database as the shadow database.'
     )
     .empty(),
-
   PRISMA_DATASOURCE_REF_INTEGRITY: Joi.string()
     .description('PRISMA: Allows setting the referential integrity.')
     .empty(),
-
-  // PRISMA_DATASOURCE_SHADOW_URL,
-  // PRISMA_DATASOURCE_REF_INTEGRITY,
 
   /* --------------------------------------------------------------
   POSTGRES
