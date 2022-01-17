@@ -1,7 +1,12 @@
 import * as Joi from 'joi';
 
 import { Env } from './constants/environment.constants';
-import { ApiType, ApiIntegrationType } from './constants/app.constants';
+import {
+  ApiType,
+  ApiIntegrationType,
+  ApiProtocols,
+  ApiHostname,
+} from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
@@ -39,12 +44,12 @@ export const validationSchema = Joi.object({
   // OPTIONAL
   API_PROTOCOL: Joi.string()
     .lowercase()
-    .valid('http', 'https')
-    .default('http')
+    .valid(ApiProtocols.HTTP, ApiProtocols.HTTPS)
+    .default(ApiProtocols.HTTP)
     .description('API protocol'),
   API_HOSTNAME: Joi.string()
     .hostname()
-    .default('localhost')
+    .default(ApiHostname.LOCALHOST)
     .description('API host'),
 
   API_PORT: Joi.number().port().default(3000).description('API port'),
@@ -85,3 +90,6 @@ export const validationSchema = Joi.object({
     .default(WinstonLogLevel.SILLY)
     .description('WINSTON file level'),
 });
+function ApiLocalhost(ApiLocalhost: any) {
+  throw new Error('Function not implemented.');
+}

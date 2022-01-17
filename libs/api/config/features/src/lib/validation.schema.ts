@@ -1,5 +1,7 @@
 import * as Joi from 'joi';
 
+import { ApiHostname } from '@wwwsolutions/api/config/app';
+
 import { PrismaProvider } from './constants/prisma.constants';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
@@ -94,7 +96,7 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
+  // OPTIONAL
   PRISMA_DATASOURCE_PROVIDER: Joi.string()
     .valid(
       PrismaProvider.SQLITE,
@@ -124,17 +126,19 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
-  POSTGRES_USER: Joi.string().required().description('POSTGRES user'),
-  POSTGRES_PASSWORD: Joi.string().required().description('POSTGRES password'),
+  // OPTIONAL
+  POSTGRES_USER: Joi.string().default('root').description('POSTGRES user'),
+  POSTGRES_PASSWORD: Joi.string()
+    .default('root')
+    .description('POSTGRES password'),
   POSTGRES_DB_NAME: Joi.string()
-    .required()
+    .default('demo')
     .description('POSTGRES database name'),
   POSTGRES_HOSTNAME: Joi.string()
     .hostname()
-    .required()
+    .default(ApiHostname.LOOPBACK)
     .description('POSTGRES database hostname'),
-  POSTGRES_PORT: Joi.number().required().port().description('POSTGRES port'),
+  POSTGRES_PORT: Joi.number().default(5432).port().description('POSTGRES port'),
 
   /* --------------------------------------------------------------
   JWT
