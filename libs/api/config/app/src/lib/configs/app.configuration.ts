@@ -25,7 +25,7 @@ export const appConfiguration = registerAs('app', () => ({
   integrationType: process.env.API_INTEGRATION_TYPE,
 
   protocol: process.env.API_PROTOCOL,
-  host: process.env.API_HOST,
+  host: process.env.API_HOSTNAME,
   port: Number(process.env.API_PORT),
 
   get domain(): string {

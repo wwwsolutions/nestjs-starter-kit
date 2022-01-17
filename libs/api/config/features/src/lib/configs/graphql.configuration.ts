@@ -54,9 +54,7 @@ const prodPlugins = [
 function parseAutoSchemaFileValue(value: string | undefined): boolean | string {
   if (value === undefined) {
     return false;
-  }
-
-  if (value === 'true') {
+  } else if (value === 'true') {
     return true;
   } else if (value === 'false') {
     return false;
