@@ -141,6 +141,26 @@ export const validationSchema = Joi.object({
   POSTGRES_PORT: Joi.number().default(5432).port().description('POSTGRES port'),
 
   /* --------------------------------------------------------------
+  PGADMIN
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  PGADMIN_CONFIG_SERVER_MODE: Joi.string()
+    .default('False')
+    .description('PGADMIN server mode'),
+  PGADMIN_DEFAULT_EMAIL: Joi.string()
+    .email()
+    .default('pgadmin4@pgadmin.org')
+    .description('PGADMIN default email'),
+  PGADMIN_DEFAULT_PASSWORD: Joi.string()
+    .default('postgres')
+    .description('PGADMIN default password'),
+  PGADMIN_LISTEN_PORT: Joi.number()
+    .default(5050)
+    .port()
+    .description('PGADMIN listen port'),
+
+  /* --------------------------------------------------------------
   JWT
   api/config/features/src/lib/configs/jwt.configuration.ts
   --------------------------------------------------------------- */
