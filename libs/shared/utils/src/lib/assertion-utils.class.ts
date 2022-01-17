@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AssertionError } from 'assert';
 
+// see @hqoss/guards
+
 export class AssertionUtils {
   static assertIsNumber(val: unknown): asserts val is number {
     if (typeof val !== 'number') {
