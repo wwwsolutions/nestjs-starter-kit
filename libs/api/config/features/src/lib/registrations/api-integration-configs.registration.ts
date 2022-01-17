@@ -17,13 +17,23 @@ import { postgresConfiguration } from '../configs/postgresql.configuration';
  */
 
 export const apiIntegrationConfigs: any = [
-  // `graphql-prisma` integration (ApiIntegrationGraphqlPrismaModule)
+  /* <OPTIONAL> **********************************************************
+   *
+   * API INTEGRATION - configs for `graphql-prisma` integration
+   *
+   * ALTERNATIVE
+   ***********************************************************************/
   graphqlConfiguration,
   prismaConfiguration,
   postgresConfiguration,
 
-  // ALTERNATIVE INTEGRATION
-  // `rest-mongoose` integration (ApiIntegrationRestMongooseModule)
+  /* <OPTIONAL> **********************************************************
+   *
+   * API INTEGRATION - configs for `rest-mongoose` integration
+   * Registered in ApiConfigFeaturesModule
+   *
+   * ALTERNATIVE
+   ***********************************************************************/
   // mongooseConfiguration,
   // mongoConfiguration,
 ];
