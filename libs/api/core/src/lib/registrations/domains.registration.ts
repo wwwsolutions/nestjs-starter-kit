@@ -12,6 +12,7 @@ import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/a
  *
  *    ApiDomainUsersFeatureModule,
  *    ApiDomainAuthenticationFeatureModule,
+ *
  */
 
 export const domains: NestImportsType = [
