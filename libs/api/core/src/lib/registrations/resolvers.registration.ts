@@ -10,4 +10,4 @@ import { ApiCoreResolver } from '../api-core.resolver';
  *
  */
 
-export const resolversConfiguration: NestProvidersType = [ApiCoreResolver];
+export const resolvers: NestProvidersType = [ApiCoreResolver];

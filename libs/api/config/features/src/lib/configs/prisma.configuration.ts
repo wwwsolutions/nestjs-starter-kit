@@ -7,7 +7,6 @@ import { PrismaProvider } from '../constants/prisma.constants';
 const composeDatabaseConnectionUrl = (
   prismaProvider: PrismaProvider
 ): string => {
-  console.log('composeDatabaseConnectionUrl()');
   // 'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'
   switch (prismaProvider) {
     case PrismaProvider.SQLITE:
