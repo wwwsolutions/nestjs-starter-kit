@@ -1,8 +1,9 @@
 import { NestImportsType } from '../nest.types';
 
 import { ApiDomainUsersFeatureModule } from '@wwwsolutions/api/domain/users/feature';
+import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/authentication/feature';
 
-/* BUSINESS LOGIC
+/* <OPTIONAL>
  *
  * REGISTER DOMAIN FEATURE MODULES
  * WHICH HOLD BUSINESS LOGIC
@@ -10,7 +11,10 @@ import { ApiDomainUsersFeatureModule } from '@wwwsolutions/api/domain/users/feat
  * <examples>
  *
  *    ApiDomainUsersFeatureModule,
- *
+ *    ApiDomainAuthenticationFeatureModule,
  */
 
-export const domains: NestImportsType = [ApiDomainUsersFeatureModule];
+export const domains: NestImportsType = [
+  ApiDomainUsersFeatureModule,
+  ApiDomainAuthenticationFeatureModule,
+];

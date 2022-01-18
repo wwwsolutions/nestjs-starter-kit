@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { jwtConfiguration } from '../configs/jwt.configuration';
+import { adminConfiguration } from '../configs/admin.configuration';
 
 /* <OPTIONAL>
  *
@@ -14,4 +15,4 @@ import { jwtConfiguration } from '../configs/jwt.configuration';
  *
  */
 
-export const businessLogicConfigs: any = [jwtConfiguration];
+export const businessLogicConfigs: any = [adminConfiguration, jwtConfiguration];

@@ -48,6 +48,12 @@
       "@wwwsolutions/api/data-access/prisma": [
         "libs/api/data-access/prisma/src/index.ts"
       ],
+      "@wwwsolutions/api/domain/authentication/data-access": [
+        "libs/api/domain/authentication/data-access/src/index.ts"
+      ],
+      "@wwwsolutions/api/domain/authentication/feature": [
+        "libs/api/domain/authentication/feature/src/index.ts"
+      ],
       "@wwwsolutions/api/domain/users/data-access": [
         "libs/api/domain/users/data-access/src/index.ts"
       ],
