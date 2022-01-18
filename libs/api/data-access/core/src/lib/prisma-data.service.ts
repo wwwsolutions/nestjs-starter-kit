@@ -25,12 +25,12 @@ import {
 
 import { PrismaClient } from '@wwwsolutions/api/data-access/prisma';
 
-// import {
-//   CreateOneUserArgs,
-//   FindManyUserArgs,
-//   User,
-//   UserCreateInput,
-// } from '@wwwsolutions/api/data-access/models';
+import {
+  CreateOneUserArgs,
+  FindManyUserArgs,
+  User,
+  UserCreateInput,
+} from '@wwwsolutions/api/data-access/models';
 
 /**
  * Service extends `PrismaClient` with additional custom logic
@@ -43,14 +43,14 @@ export class PrismaDataService
 {
   private readonly logger = new Logger(PrismaDataService.name);
 
-  // private readonly defaultAdmin: UserCreateInput | undefined;
+  private readonly defaultAdmin: UserCreateInput | undefined;
 
   constructor(
-    //  @InjectAdminConfig()
-    //  private readonly adminConfiguration: AdminConfiguration
-
     @InjectEnvironmentConfig()
     readonly environmentConfiguration: EnvironmentConfiguration,
+
+    //  @InjectAdminConfig()
+    //  private readonly adminConfiguration: AdminConfiguration
 
     @InjectPrismaConfig()
     readonly prismaConfiguration: PrismaConfiguration
@@ -98,37 +98,37 @@ export class PrismaDataService
     });
   }
 
-  // async findManyUsers({ orderBy }: FindManyUserArgs): Promise<User[]> {
-  //   const found = await this.user.findMany({ orderBy }); // `PrismaClient` method
-  //   this.logger.log(`🔶 findManyUsers, '${found.map((user) => user.id)}'`);
-  //   return found;
-  // }
+  async findManyUsers({ orderBy }: FindManyUserArgs): Promise<User[]> {
+    const found = await this.user.findMany({ orderBy }); // `PrismaClient` method
+    this.logger.log(`🔶 findManyUsers, '${found.map((user) => user.id)}'`);
+    return found;
+  }
 
-  // // CRETE SINGLE USER
-  // async createUser(createOneUserArgs: CreateOneUserArgs): Promise<User> {
-  //   const created = await this.user.create(createOneUserArgs); // `PrismaClient` method
-  //   this.logger.log(`🔶 createUser, '${created.id}', '${created.email}'`);
-  //   return created;
-  // }
+  // CRETE SINGLE USER
+  async createUser(createOneUserArgs: CreateOneUserArgs): Promise<User> {
+    const created = await this.user.create(createOneUserArgs); // `PrismaClient` method
+    this.logger.log(`🔶 createUser, '${created.id}', '${created.email}'`);
+    return created;
+  }
 
-  // async findUserByEmail(email: string): Promise<User | null> {
-  //   const found = await this.user.findUnique({ where: { email } }); // `PrismaClient` method
-  //   this.logger.log(`🔶 findUserByEmail, '${found?.email}'`);
-  //   return found;
-  // }
+  async findUserByEmail(email: string): Promise<User | null> {
+    const found = await this.user.findUnique({ where: { email } }); // `PrismaClient` method
+    this.logger.log(`🔶 findUserByEmail, '${found?.email}'`);
+    return found;
+  }
 
-  // async findUserById(id: number): Promise<User | null> {
-  //   const found = await this.user.findUnique({ where: { id } }); // `PrismaClient` method
-  //   this.logger.log(`🔶 findUserById, '${found?.id}'`);
-  //   return found;
-  // }
+  async findUserById(id: number): Promise<User | null> {
+    const found = await this.user.findUnique({ where: { id } }); // `PrismaClient` method
+    this.logger.log(`🔶 findUserById, '${found?.id}'`);
+    return found;
+  }
 
-  // // [HELPER METHODS]
+  // [HELPER METHODS]
 
-  // /**
-  //  * Ensures that default admin user exists in database,
-  //  * if not, it creates one from from data stored in .env
-  //  */
+  /**
+   * Ensures that default admin user exists in database,
+   * if not, it creates one from from data stored in .env
+   */
   // private async ensureDefaultAdminUser(): Promise<boolean> {
   //   // Check if default admin user exists in database
   //   const found = await this.findUserByEmail(this.defaultAdmin!.email);

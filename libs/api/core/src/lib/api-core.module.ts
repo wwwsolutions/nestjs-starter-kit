@@ -7,10 +7,10 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { controllersConfiguration } from './registrations/controllers.registration';
-import { resolversConfiguration } from './registrations/resolvers.registration';
-import { domainsConfiguration } from './registrations/domains.registration';
-import { integrationConfiguration } from './registrations/integration.registration';
+import { controllers } from './registrations/controllers.registration';
+import { resolvers } from './registrations/resolvers.registration';
+import { domains } from './registrations/domains.registration';
+import { integration } from './registrations/integration.registration';
 
 /* <DO NOT CHANGE>
  *
@@ -28,10 +28,11 @@ import { integrationConfiguration } from './registrations/integration.registrati
       }),
       inject: [winstonConfiguration.KEY],
     }),
-    ...integrationConfiguration,
-    ...domainsConfiguration,
+    ...integration,
+    ...domains,
   ],
-  providers: resolversConfiguration,
-  controllers: controllersConfiguration,
+  providers: resolvers,
+  // controllers: controllers,
+  controllers,
 })
 export class ApiCoreModule {}

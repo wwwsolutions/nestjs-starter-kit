@@ -48,6 +48,12 @@
       "@wwwsolutions/api/data-access/prisma": [
         "libs/api/data-access/prisma/src/index.ts"
       ],
+      "@wwwsolutions/api/domain/users/data-access": [
+        "libs/api/domain/users/data-access/src/index.ts"
+      ],
+      "@wwwsolutions/api/domain/users/feature": [
+        "libs/api/domain/users/feature/src/index.ts"
+      ],
       "@wwwsolutions/api/integration/graphql-prisma": [
         "libs/api/integration/graphql-prisma/src/index.ts"
       ],

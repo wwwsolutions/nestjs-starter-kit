@@ -10,9 +10,8 @@ import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration
  * <list of integrations>
  *
  *    ApiIntegrationGraphqlPrismaModule
+ *    ApiIntegrationRestMongooseModule
  *
  */
 
-export const integrationConfiguration: NestImportsType = [
-  ApiIntegrationGraphqlPrismaModule,
-];
+export const integration: NestImportsType = [ApiIntegrationGraphqlPrismaModule];
