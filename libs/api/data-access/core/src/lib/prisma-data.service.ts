@@ -12,8 +12,6 @@ import {
 import {
   InjectEnvironmentConfig,
   EnvironmentConfiguration,
-  // InjectAdminConfig,
-  // AdminConfiguration,
   Env,
 } from '@wwwsolutions/api/config/app';
 
@@ -21,6 +19,8 @@ import {
   InjectPrismaConfig,
   PrismaConfiguration,
   PrismaLogLevel,
+  InjectAdminConfig,
+  AdminConfiguration,
 } from '@wwwsolutions/api/config/features';
 
 import { PrismaClient } from '@wwwsolutions/api/data-access/prisma';
@@ -49,8 +49,8 @@ export class PrismaDataService
     @InjectEnvironmentConfig()
     readonly environmentConfiguration: EnvironmentConfiguration,
 
-    //  @InjectAdminConfig()
-    //  private readonly adminConfiguration: AdminConfiguration
+    @InjectAdminConfig()
+    private readonly adminConfiguration: AdminConfiguration,
 
     @InjectPrismaConfig()
     readonly prismaConfiguration: PrismaConfiguration
@@ -65,11 +65,11 @@ export class PrismaDataService
         environmentConfiguration.env === Env.DEVELOPMENT ? 'pretty' : 'minimal',
     });
 
-    // this.defaultAdmin = this.adminConfiguration.admin.defaultAdmin;
+    this.defaultAdmin = this.adminConfiguration.admin.defaultAdmin;
 
-    // this.logger.log(
-    //   `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
-    // );
+    this.logger.log(
+      `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
+    );
 
     this.logger.log(this.prismaConfiguration.schemaDatasourcesUrlOverride);
   }
@@ -80,7 +80,7 @@ export class PrismaDataService
   async onModuleInit(): Promise<void> {
     await this.$connect();
     this.logger.log(`🔶 Prisma connected`);
-    // await this.ensureDefaultAdminUser();
+    await this.ensureDefaultAdminUser();
   }
 
   /**
@@ -129,22 +129,22 @@ export class PrismaDataService
    * Ensures that default admin user exists in database,
    * if not, it creates one from from data stored in .env
    */
-  // private async ensureDefaultAdminUser(): Promise<boolean> {
-  //   // Check if default admin user exists in database
-  //   const found = await this.findUserByEmail(this.defaultAdmin!.email);
+  private async ensureDefaultAdminUser(): Promise<boolean> {
+    // Check if default admin user exists in database
+    const found = await this.findUserByEmail(this.defaultAdmin!.email);
 
-  //   if (found) {
-  //     this.logger.log(`🤓 Existing default admin user: '${found.email}'`);
-  //     return true;
-  //   }
+    if (found) {
+      this.logger.log(`🤓 Existing default admin user: '${found.email}'`);
+      return true;
+    }
 
-  //   // Default admin user does not exist in database, create it
-  //   const created = await this.createUser({
-  //     data: this.defaultAdmin!,
-  //   });
+    // Default admin user does not exist in database, create it
+    const created = await this.createUser({
+      data: this.defaultAdmin!,
+    });
 
-  //   this.logger.log(`🤓 Created default admin user: '${created.email}'`);
+    this.logger.log(`🤓 Created default admin user: '${created.email}'`);
 
-  //   return true;
-  // }
+    return true;
+  }
 }

@@ -187,6 +187,20 @@ export const validationSchema = Joi.object({
     .description('JWT sign options expires'),
 
   /* --------------------------------------------------------------
+  ADMIN
+  api/config/features/src/lib/configs/admin.configuration.ts
+  --------------------------------------------------------------- */
+
+  // REQUIRED
+  ADMIN_EMAIL: Joi.string()
+    .email()
+    .default('admin@example.com')
+    .description('API default admin email'),
+  ADMIN_PASSWORD: Joi.string()
+    .default('password')
+    .description('API default admin password'),
+
+  /* --------------------------------------------------------------
   MONGO
   api/config/features/src/lib/configs/mongo.configuration.ts
   --------------------------------------------------------------- */
@@ -199,6 +213,7 @@ export const validationSchema = Joi.object({
   CACHE
   api/config/features/src/lib/configs/cache.configuration.ts
   --------------------------------------------------------------- */
+  // TODO: add cache validation fields
   // CACHE_DRIVER: Joi.string().default('in-memory').description('CACHE driver'),
   // CACHE_HOST: Joi.string().required().description('CACHE host'),
   // CACHE_PORT: Joi.number().port().required().description('CACHE port'),
