@@ -1,0 +1,34 @@
+{
+  "root": "libs/api/domain/authentication/feature",
+  "sourceRoot": "libs/api/domain/authentication/feature/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/domain/authentication/feature",
+        "tsConfig": "libs/api/domain/authentication/feature/tsconfig.lib.json",
+        "packageJson": "libs/api/domain/authentication/feature/package.json",
+        "main": "libs/api/domain/authentication/feature/src/index.ts",
+        "assets": ["libs/api/domain/authentication/feature/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/domain/authentication/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/domain/authentication/feature"],
+      "options": {
+        "jestConfig": "libs/api/domain/authentication/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:api"]
+}
