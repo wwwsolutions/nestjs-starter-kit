@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { AuthenticationService } from './authentication.service';
+import { ApiDataAccessCoreModule } from '@wwwsolutions/api/data-access/core';
 
 import { UsersService } from '@wwwsolutions/api/domain/users/data-access';
 
+import { AuthenticationService } from './authentication.service';
+
 @Module({
-  providers: [UsersService, AuthenticationService],
-  // exports: [UsersService, AuthenticationService],
+  imports: [ApiDataAccessCoreModule],
+  providers: [AuthenticationService, UsersService],
   exports: [AuthenticationService],
 })
 export class ApiDomainAuthenticationDataAccessModule {}

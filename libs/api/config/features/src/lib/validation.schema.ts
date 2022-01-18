@@ -167,6 +167,20 @@ export const validationSchema = Joi.object({
   REDIS_PORT: Joi.number().default(6379).port().description('REDIS port'),
 
   /* --------------------------------------------------------------
+  ADMIN
+  api/config/features/src/lib/configs/admin.configuration.ts
+  --------------------------------------------------------------- */
+
+  // REQUIRED
+  ADMIN_EMAIL: Joi.string()
+    .email()
+    .default('admin@example.com')
+    .description('API default admin email'),
+  ADMIN_PASSWORD: Joi.string()
+    .default('password')
+    .description('API default admin password'),
+
+  /* --------------------------------------------------------------
   JWT
   api/config/features/src/lib/configs/jwt.configuration.ts
   --------------------------------------------------------------- */
@@ -185,20 +199,6 @@ export const validationSchema = Joi.object({
     .positive()
     .default(3600)
     .description('JWT sign options expires'),
-
-  /* --------------------------------------------------------------
-  ADMIN
-  api/config/features/src/lib/configs/admin.configuration.ts
-  --------------------------------------------------------------- */
-
-  // REQUIRED
-  ADMIN_EMAIL: Joi.string()
-    .email()
-    .default('admin@example.com')
-    .description('API default admin email'),
-  ADMIN_PASSWORD: Joi.string()
-    .default('password')
-    .description('API default admin password'),
 
   /* --------------------------------------------------------------
   MONGO
