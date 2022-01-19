@@ -1,5 +1,10 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
-import { UseGuards } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  UseFilters,
+  UseGuards,
+} from '@nestjs/common';
 
 import { UsersService } from '@wwwsolutions/api/domain/users/data-access';
 
@@ -10,9 +15,11 @@ import {
   FindManyUserArgs,
   FindUniqueUserArgs,
 } from '@wwwsolutions/api/data-access/models';
+import { HttpExceptionFilter } from '@wwwsolutions/shared/utils';
 
 // [PROTECTED/RESTRICTED API]
 @UseGuards(GqlAuthGuard)
+@UseFilters(HttpExceptionFilter)
 @Resolver()
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
@@ -22,6 +29,7 @@ export class UsersResolver {
   async user(@Args() args: FindUniqueUserArgs): Promise<User | null> {
     return await this.usersService.user(args);
   }
+
   // GET MULTIPLE USERS
   @Query(() => [User], { nullable: true })
   async users(@Args() args: FindManyUserArgs): Promise<User[]> {

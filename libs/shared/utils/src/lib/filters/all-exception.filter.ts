@@ -4,14 +4,11 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
-  Logger,
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
-  private readonly logger = new Logger(AllExceptionsFilter.name);
-
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
@@ -26,32 +23,10 @@ export class AllExceptionsFilter implements ExceptionFilter {
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    // let xxxx;
-    // console.log(
-    //   '>>>>>>>=>',
-    //   (xxxx =
-    //     exception instanceof HttpException
-    //       ? exception.getStatus()
-    //       : HttpStatus.INTERNAL_SERVER_ERROR)
-    // );
-
-    const timestamp = new Date().toISOString();
-
-    // console.log(timestamp, typeof timestamp);
-
-    // TODO: FIX how to log customize error message - responseBody??
-    // TODO: move it in independent lib
-
-    // this.logger.error({
-    //   httpStatus,
-    //   test: 'fuckyou',
-    //   timestamp: `${timestamp}`,
-    // });
-
     const responseBody = {
       statusCode: httpStatus,
       timestamp: new Date().toISOString(),
-      // path: httpAdapter.getRequestUrl(ctx.getRequest()),
+      path: httpAdapter.getRequestUrl(ctx.getRequest()),
     };
 
     httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
