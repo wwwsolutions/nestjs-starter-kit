@@ -185,16 +185,18 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/jwt.configuration.ts
   --------------------------------------------------------------- */
 
-  // OPTIONAL
+  // REQUIRED
   JWT_SECRET: joiPassword
     .string()
+    .required()
     .minOfSpecialCharacters(2)
     .minOfLowercase(2)
     .minOfUppercase(2)
     .minOfNumeric(2)
     .noWhiteSpaces()
-    .default('My$deepest$Secret#123456789')
     .description('JWT secret'),
+
+  // OPTIONAL
   JWT_SIGN_OPTIONS_EXPIRES_IN: Joi.number()
     .positive()
     .default(3600)

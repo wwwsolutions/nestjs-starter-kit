@@ -22,13 +22,13 @@ export function configureApiIntegrationGraphqlPrisma(
     configureApiIntegrationGraphqlPrisma.name
   );
 
-  // CUSTOM GLOBAL ERROR HANDLING
-  const { httpAdapter } = app.get(HttpAdapterHost);
-  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
-  Logger.log(
-    `🔒 app.useGlobalFilters implemented`,
-    configureApiIntegrationGraphqlPrisma.name
-  );
+  // CUSTOM GLOBAL ERROR HANDLING // TODO: fix --> does not work with graphql
+  // const { httpAdapter } = app.get(HttpAdapterHost);
+  // app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
+  // Logger.log(
+  //   `🔒 app.useGlobalFilters implemented`,
+  //   configureApiIntegrationGraphqlPrisma.name
+  // );
 
   // CUSTOM GLOBAL PIPES // TODO: fix
   app.useGlobalPipes(new ValidationPipe());
