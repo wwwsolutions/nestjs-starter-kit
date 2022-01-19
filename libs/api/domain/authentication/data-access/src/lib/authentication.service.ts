@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
   Injectable,
@@ -34,16 +35,12 @@ export class AuthenticationService {
 
   // LOGIN USER
   async login({ email, password }: UserLoginInput): Promise<UserToken> {
-    // this.logger.log(userLoginInput);
-
     // find user
     const found = await this.data.findUserByEmail(email);
 
     if (!found) {
       throw new NotFoundException(`User with email ${email} does not exist`);
     }
-
-    // this.logger.log(found);
 
     // validate password
     const isPasswordValid = await AuthenticationUtils.validate(
@@ -55,23 +52,17 @@ export class AuthenticationService {
       throw new Error(`Invalid password`);
     }
 
-    // this.logger.log(isPasswordValid);
-
     // sign token
     const signedToken = this.signToken(found.id);
 
     // compose return object
     const userToken = { user: found, token: signedToken };
 
-    // this.logger.log(userToken);
-
     return userToken;
   }
 
   // REGISTER USER
   async register({ email, password }: UserRegisterInput): Promise<UserToken> {
-    // this.logger.log(userRegisterInput.email);
-
     // make sure email is unique, check database
     const found = await this.data.findUserByEmail(email);
 
@@ -79,22 +70,13 @@ export class AuthenticationService {
       throw new BadRequestException(`Cannot register with email ${email}`);
     }
 
-    // this.logger.log(found);
-
     // hash password
     const hashedPassword = await AuthenticationUtils.hash(password);
 
-    // this.logger.log(hashedPassword);
-
     // create and return new user with hashed pwd
-    // const created = await this.data.user.create({
-    //   data: { email, password: hashedPassword },
-    // });
     const created = await this.data.createUser({
       data: { email, password: hashedPassword },
     });
-
-    // this.logger.log(created);
 
     // sign token
     const signedToken = this.signToken(created.id);
@@ -102,12 +84,10 @@ export class AuthenticationService {
     // compose return object
     const userToken = { user: created, token: signedToken };
 
-    // this.logger.log(userToken);
-
     return userToken;
   }
 
-  // HELPER METHODS
+  // [HELPER METHODS]
 
   // VALIDATE USER
   async validateUser(userId: number): Promise<User | null> {
@@ -115,16 +95,12 @@ export class AuthenticationService {
 
     const validated = await this.usersService.user({ where: { id: userId } });
 
-    // this.logger.log(validated);
-
     return validated;
   }
 
   async validateUserByEmailAndPassword(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _email: string,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _password: string
+    email: string,
+    password: string
   ): Promise<User | null> {
     throw new Error('Method not implemented.');
   }
@@ -137,8 +113,6 @@ export class AuthenticationService {
     };
 
     const signed = this.jwtService.sign(payload);
-
-    // this.logger.log(signed);
 
     return signed;
   }
