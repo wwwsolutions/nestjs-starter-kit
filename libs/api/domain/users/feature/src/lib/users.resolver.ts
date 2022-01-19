@@ -3,7 +3,7 @@ import { UseGuards } from '@nestjs/common';
 
 import { UsersService } from '@wwwsolutions/api/domain/users/data-access';
 
-// import { GqlAuthGuard } from '@wwwsolutions/api/graphql/authentication/feature';
+import { GqlAuthGuard } from '@wwwsolutions/api/domain/authentication/feature';
 
 import {
   User,
@@ -12,7 +12,7 @@ import {
 } from '@wwwsolutions/api/data-access/models';
 
 // [PROTECTED/RESTRICTED API]
-// @UseGuards(GqlAuthGuard)
+@UseGuards(GqlAuthGuard)
 @Resolver()
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
