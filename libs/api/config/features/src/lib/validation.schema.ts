@@ -174,10 +174,10 @@ export const validationSchema = Joi.object({
   // REQUIRED
   ADMIN_EMAIL: Joi.string()
     .email()
-    .default('admin@example.com')
+    .required()
     .description('API default admin email'),
   ADMIN_PASSWORD: Joi.string()
-    .default('password')
+    .required()
     .description('API default admin password'),
 
   /* --------------------------------------------------------------
