@@ -16,7 +16,9 @@ export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
   integrationType: string
 ) {
-  // CUSTOM LOGGER
+  /******************************************************
+   *            ENABLE CUSTOM LOGGER                    *
+   ******************************************************/
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
@@ -29,7 +31,10 @@ export function configureApiIntegrationGraphqlPrisma(
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
-  // CUSTOM GLOBAL ERROR HANDLING // TODO: fix --> does not work with graphql
+  /******************************************************
+   *      ENABLE CUSTOM GLOBAL ERROR HANDLING           *
+   ******************************************************/
+  // TODO: fix --> to work with graphql
   const { httpAdapter } = app.get(HttpAdapterHost);
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
 
@@ -38,9 +43,9 @@ export function configureApiIntegrationGraphqlPrisma(
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
-  // CUSTOM GLOBAL PIPES // TODO: fix
-  // app.useGlobalPipes(new ValidationPipe());
-
+  /******************************************************
+   *              ENABLE GLOBAL PIPES                   *
+   ******************************************************/
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,

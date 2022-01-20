@@ -8,22 +8,22 @@ export enum GlobalPrefix {
   API = 'api',
 }
 
-export enum ApiIntegrationType {
-  GRAPHQL_PRISMA_INTEGRATION = 'Graphql-Prisma-Integration',
-  REST_MONGOOSE_INTEGRATION = 'Rest-Mongoose-Integration',
+export enum Integration {
+  GRAPHQL_PRISMA = 'Graphql-Prisma-Integration',
+  REST_MONGOOSE = 'Rest-Mongoose-Integration',
 }
 
-export enum ApiIntegrationTypeLabel {
+export enum IntegrationLabel {
   GPI = 'GPI',
   RMI = 'RMI',
 }
 
-export enum ApiProtocols {
+export enum Protocols {
   HTTP = 'http',
   HTTPS = 'https',
 }
 
-export enum ApiHostname {
+export enum Hostname {
   LOOPBACK = '127.0.0.1',
   LOCALHOST = 'localhost',
 }

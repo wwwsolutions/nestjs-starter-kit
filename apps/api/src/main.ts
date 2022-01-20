@@ -11,7 +11,7 @@ import {
   AppConfiguration,
   appConfiguration,
   Env,
-  ApiIntegrationType,
+  Integration,
   // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
@@ -42,33 +42,44 @@ async function bootstrap() {
 
   // MIDDLEWARE
 
-  // ENABLE CORS
-  environment && app.enableCors();
+  /******************************************************
+   *                  ENABLE CORS                       *
+   ******************************************************/
+  if (environment) {
+    app.enableCors();
+  }
 
-  // SET GLOBAL PREFIX
-  prefix && app.setGlobalPrefix(prefix);
+  /******************************************************
+   *              SET GLOBAL PREFIX                     *
+   ******************************************************/
+  if (prefix) {
+    app.setGlobalPrefix(prefix);
+  }
 
-  // ENABLE/CONFIGURE API INTEGRATION
-  if (integrationType === ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION)
+  /******************************************************
+   *        ENABLE/CONFIGURE API INTEGRATION            *
+   ******************************************************/
+  if (integrationType === Integration.GRAPHQL_PRISMA)
     configureApiIntegrationGraphqlPrisma(app, integrationType);
 
-  // PRODUCTION SERVER
-  environment &&
-    (await app.listen(port, () => {
-      Logger.log(
-        chalk.gray(
-          `🚀 Server ready at: ${chalk.bgYellow.black(domain + '/' + path)}`
-        ),
-        chalk.gray(bootstrap.name)
-      );
+  /******************************************************
+   *                    SERVER                          *
+   ******************************************************/
+  await app.listen(port, () => {
+    Logger.log(
+      chalk.gray(
+        `🚀 Server ready at: ${chalk.bgYellow.black(domain + '/' + path)}`
+      ),
+      chalk.gray(bootstrap.name)
+    );
 
-      Logger.log(
-        chalk.gray(
-          `🚀 Running ${type} API, in ${chalk.bgYellow.black(environment)} mode`
-        ),
-        chalk.gray(bootstrap.name)
-      );
-    }));
+    Logger.log(
+      chalk.gray(
+        `🚀 Running ${type} API, in ${chalk.bgYellow.black(environment)} mode`
+      ),
+      chalk.gray(bootstrap.name)
+    );
+  });
 }
 
 bootstrap();

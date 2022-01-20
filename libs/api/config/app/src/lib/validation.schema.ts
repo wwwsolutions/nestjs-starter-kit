@@ -3,9 +3,9 @@ import * as Joi from 'joi';
 import { Env } from './constants/environment.constants';
 import {
   ApiType,
-  ApiIntegrationType,
-  ApiProtocols,
-  ApiHostname,
+  Integration,
+  Protocols,
+  Hostname,
 } from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
@@ -33,23 +33,20 @@ export const validationSchema = Joi.object({
     .required()
     .valid(ApiType.GRAPHQL_API, ApiType.REST_API)
     .description('API type'),
-  API_INTEGRATION_TYPE: Joi.string()
+  API_INTEGRATION: Joi.string()
     .required()
-    .valid(
-      ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION,
-      ApiIntegrationType.REST_MONGOOSE_INTEGRATION
-    )
+    .valid(Integration.GRAPHQL_PRISMA, Integration.REST_MONGOOSE)
     .description('API type'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()
     .lowercase()
-    .valid(ApiProtocols.HTTP, ApiProtocols.HTTPS)
-    .default(ApiProtocols.HTTP)
+    .valid(Protocols.HTTP, Protocols.HTTPS)
+    .default(Protocols.HTTP)
     .description('API protocol'),
   API_HOSTNAME: Joi.string()
     .hostname()
-    .default(ApiHostname.LOCALHOST)
+    .default(Hostname.LOCALHOST)
     .description('API host'),
 
   API_PORT: Joi.number().port().default(3000).description('API port'),
