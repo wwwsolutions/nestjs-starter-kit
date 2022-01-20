@@ -3,10 +3,17 @@ import { ConfigType, registerAs } from '@nestjs/config';
 import * as winston from 'winston';
 import { LoggerOptions } from 'winston';
 import { utilities as nestWinstonModuleUtilities } from 'nest-winston';
-
-import { generateApiIntegrationTypeLabel } from './app.configuration';
-
 import { ConversionUtils } from '@wwwsolutions/shared/utils';
+
+const generateApiIntegrationTypeLabel = (
+  apiIntegrationType: string | undefined
+): string => {
+  if (!apiIntegrationType) throw 'apiIntegrationType is undefined';
+  return apiIntegrationType
+    .split('-')
+    .map((word: string) => word.charAt(0))
+    .join('');
+};
 
 export const winstonConfiguration = registerAs('winston', () => ({
   levelConsole: process.env.WINSTON_LEVEL_CONSOLE,
