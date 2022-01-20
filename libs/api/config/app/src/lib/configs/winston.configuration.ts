@@ -5,7 +5,7 @@ import { LoggerOptions } from 'winston';
 import { utilities as nestWinstonModuleUtilities } from 'nest-winston';
 import { ConversionUtils } from '@wwwsolutions/shared/utils';
 
-const generateApiIntegrationTypeLabel = (
+const generateIntegrationLabel = (
   apiIntegrationType: string | undefined
 ): string => {
   if (!apiIntegrationType) throw 'apiIntegrationType is undefined';
@@ -36,7 +36,7 @@ export const winstonConfiguration = registerAs('winston', () => ({
             winston.format.timestamp(),
             winston.format.ms(),
             nestWinstonModuleUtilities.format.nestLike(
-              generateApiIntegrationTypeLabel(process.env.API_INTEGRATION_TYPE),
+              generateIntegrationLabel(process.env.API_INTEGRATION_TYPE),
               {
                 prettyPrint: this.prettyPrint as boolean,
               }

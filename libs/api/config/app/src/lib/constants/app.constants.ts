@@ -13,7 +13,7 @@ export enum Integration {
   REST_MONGOOSE = 'Rest-Mongoose-Integration',
 }
 
-export enum ApiIntegrationTypeLabel {
+export enum IntegrationLabel {
   GPI = 'GPI',
   RMI = 'RMI',
 }
