@@ -38,6 +38,7 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
         //   return graphQLFormattedError;
         // },
 
+        // TODO: make it sure that it works as intended
         formatError: (error: GraphQLError) => {
           if (error.message === 'VALIDATION_ERROR') {
             const extensions = {
