@@ -9,8 +9,10 @@ import {
 
 import {
   ApiConfigFeaturesModule,
-  GraphqlConfiguration,
   graphqlConfiguration,
+  GraphqlConfiguration,
+  apolloServerPluginsConfiguration,
+  ApolloServerPluginsConfiguration,
 } from '@wwwsolutions/api/config/features';
 import { GraphQLError, GraphQLFormattedError } from 'graphql';
 
@@ -23,12 +25,18 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
     GraphQLModule.forRootAsync({
       useFactory: async (
         environmentConfiguration: EnvironmentConfiguration,
-        graphqlConfiguration: GraphqlConfiguration
+        graphqlConfiguration: GraphqlConfiguration,
+        apolloServerPluginsConfiguration: ApolloServerPluginsConfiguration
       ) => ({
         // api/config/features/src/lib/configs/graphql.configuration.ts
         ...(environmentConfiguration.env === Env.PRODUCTION
-          ? graphqlConfiguration.prodOptions
-          : graphqlConfiguration.options),
+          ? graphqlConfiguration.productionOptions
+          : graphqlConfiguration.developmentOptions),
+
+        // api/config/features/src/lib/configs/apollo-server-plugins.configuration.ts
+        ...(environmentConfiguration.env === Env.PRODUCTION
+          ? apolloServerPluginsConfiguration.productionPlugins
+          : apolloServerPluginsConfiguration.developmentPlugins),
 
         // formatError: (error: GraphQLError) => {
         //   const graphQLFormattedError: GraphQLFormattedError = {
@@ -73,7 +81,11 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
           }
         },
       }),
-      inject: [environmentConfiguration.KEY, graphqlConfiguration.KEY],
+      inject: [
+        environmentConfiguration.KEY,
+        graphqlConfiguration.KEY,
+        apolloServerPluginsConfiguration.KEY,
+      ],
     }),
 
     // DATA LAYER CONFIG

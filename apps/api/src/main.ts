@@ -11,6 +11,7 @@ import {
   AppConfiguration,
   appConfiguration,
   Env,
+  ApiIntegrationType,
   // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
@@ -48,7 +49,8 @@ async function bootstrap() {
   prefix && app.setGlobalPrefix(prefix);
 
   // ENABLE/CONFIGURE API INTEGRATION
-  integrationType && configureApiIntegrationGraphqlPrisma(app, integrationType);
+  if (integrationType === ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION)
+    configureApiIntegrationGraphqlPrisma(app, integrationType);
 
   // PRODUCTION SERVER
   environment &&
