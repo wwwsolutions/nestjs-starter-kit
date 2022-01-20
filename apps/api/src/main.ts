@@ -11,7 +11,7 @@ import {
   AppConfiguration,
   appConfiguration,
   Env,
-  ApiIntegrationType,
+  Integration,
   // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
@@ -53,7 +53,7 @@ async function bootstrap() {
   }
 
   // ENABLE/CONFIGURE API INTEGRATION
-  if (integrationType === ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION)
+  if (integrationType === Integration.GRAPHQL_PRISMA)
     configureApiIntegrationGraphqlPrisma(app, integrationType);
 
   // PRODUCTION SERVER

@@ -8,9 +8,9 @@ export enum GlobalPrefix {
   API = 'api',
 }
 
-export enum ApiIntegrationType {
-  GRAPHQL_PRISMA_INTEGRATION = 'Graphql-Prisma-Integration',
-  REST_MONGOOSE_INTEGRATION = 'Rest-Mongoose-Integration',
+export enum Integration {
+  GRAPHQL_PRISMA = 'Graphql-Prisma-Integration',
+  REST_MONGOOSE = 'Rest-Mongoose-Integration',
 }
 
 export enum ApiIntegrationTypeLabel {

@@ -3,7 +3,7 @@ import * as Joi from 'joi';
 import { Env } from './constants/environment.constants';
 import {
   ApiType,
-  ApiIntegrationType,
+  Integration,
   ApiProtocols,
   ApiHostname,
 } from './constants/app.constants';
@@ -35,10 +35,7 @@ export const validationSchema = Joi.object({
     .description('API type'),
   API_INTEGRATION_TYPE: Joi.string()
     .required()
-    .valid(
-      ApiIntegrationType.GRAPHQL_PRISMA_INTEGRATION,
-      ApiIntegrationType.REST_MONGOOSE_INTEGRATION
-    )
+    .valid(Integration.GRAPHQL_PRISMA, Integration.REST_MONGOOSE)
     .description('API type'),
 
   // OPTIONAL
