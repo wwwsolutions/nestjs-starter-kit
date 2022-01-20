@@ -1,6 +1,8 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
+import chalk from 'chalk';
+
 import { AppModule } from './app/app.module';
 
 import {
@@ -51,10 +53,18 @@ async function bootstrap() {
   // PRODUCTION SERVER
   environment &&
     (await app.listen(port, () => {
-      Logger.log(`🚀 Server ready at: ${domain}/${path}`, bootstrap.name);
       Logger.log(
-        `🚀 Running ${type} API, in ${environment} mode`,
-        bootstrap.name
+        chalk.gray(
+          `🚀 Server ready at: ${chalk.bgYellow.black(domain + '/' + path)}`
+        ),
+        chalk.gray(bootstrap.name)
+      );
+
+      Logger.log(
+        chalk.gray(
+          `🚀 Running ${type} API, in ${chalk.bgYellow.black(environment)} mode`
+        ),
+        chalk.gray(bootstrap.name)
       );
     }));
 }

@@ -32,7 +32,6 @@ import { integration } from './registrations/integration.registration';
     ...domains,
   ],
   providers: resolvers,
-  // controllers: controllers,
   controllers,
 })
 export class ApiCoreModule {}

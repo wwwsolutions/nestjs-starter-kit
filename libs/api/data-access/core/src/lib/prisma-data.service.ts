@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 // https://notiz.dev/blog/how-to-connect-nestjs-with-prisma
+import chalk from 'chalk';
 
 import {
   INestApplication,
@@ -41,7 +42,7 @@ export class PrismaDataService
   extends PrismaClient
   implements OnModuleInit, OnModuleDestroy
 {
-  private readonly logger = new Logger(PrismaDataService.name);
+  private readonly logger = new Logger(chalk.gray(PrismaDataService.name));
 
   private readonly defaultAdmin: UserCreateInput | undefined;
 
@@ -68,7 +69,9 @@ export class PrismaDataService
     this.defaultAdmin = this.adminConfiguration.admin.defaultAdmin;
 
     this.logger.log(
-      `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
+      chalk.magenta(
+        `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
+      )
     );
 
     this.logger.log(this.prismaConfiguration.schemaDatasourcesUrlOverride);
@@ -79,7 +82,7 @@ export class PrismaDataService
    */
   async onModuleInit(): Promise<void> {
     await this.$connect();
-    this.logger.log(`🔶 Prisma connected`);
+    this.logger.log(chalk.magenta(`🔶 Prisma connected`));
     await this.ensureDefaultAdminUser();
   }
 
@@ -87,39 +90,43 @@ export class PrismaDataService
    * Disconnect from the database when the application is shutting down.
    */
   async onModuleDestroy(): Promise<void> {
-    this.logger.log(`🔶 Prisma disconnected`);
+    this.logger.log(chalk.magenta(`🔶 Prisma disconnected`));
     await this.$disconnect(); // `PrismaClient` method
   }
 
   async enableShutdownHooks(app: INestApplication) {
     this.$on('beforeExit', async () => {
-      this.logger.log(`🔶 App closed`);
+      this.logger.log(chalk.magenta(`🔶 App closed`));
       await app.close();
     });
   }
 
   async findManyUsers({ orderBy }: FindManyUserArgs): Promise<User[]> {
     const found = await this.user.findMany({ orderBy }); // `PrismaClient` method
-    this.logger.log(`🔶 findManyUsers, '${found.map((user) => user.id)}'`);
+    this.logger.log(
+      chalk.magenta(`🔶 findManyUsers, '${found.map((user) => user.id)}'`)
+    );
     return found;
   }
 
   // CRETE SINGLE USER
   async createUser(createOneUserArgs: CreateOneUserArgs): Promise<User> {
     const created = await this.user.create(createOneUserArgs); // `PrismaClient` method
-    this.logger.log(`🔶 createUser, '${created.id}', '${created.email}'`);
+    this.logger.log(
+      chalk.magenta(`🔶 createUser, '${created.id}', '${created.email}'`)
+    );
     return created;
   }
 
   async findUserByEmail(email: string): Promise<User | null> {
     const found = await this.user.findUnique({ where: { email } }); // `PrismaClient` method
-    this.logger.log(`🔶 findUserByEmail, '${found?.email}'`);
+    this.logger.log(chalk.magenta(`🔶 findUserByEmail, '${found?.email}'`));
     return found;
   }
 
   async findUserById(id: number): Promise<User | null> {
     const found = await this.user.findUnique({ where: { id } }); // `PrismaClient` method
-    this.logger.log(`🔶 findUserById, '${found?.id}'`);
+    this.logger.log(chalk.magenta(`🔶 findUserById, '${found?.id}'`));
     return found;
   }
 
@@ -134,7 +141,9 @@ export class PrismaDataService
     const found = await this.findUserByEmail(this.defaultAdmin!.email);
 
     if (found) {
-      this.logger.log(`🤓 Existing default admin user: '${found.email}'`);
+      this.logger.log(
+        chalk.magenta(`🤓 Existing default admin user: '${found.email}'`)
+      );
       return true;
     }
 
@@ -143,7 +152,9 @@ export class PrismaDataService
       data: this.defaultAdmin!,
     });
 
-    this.logger.log(`🤓 Created default admin user: '${created.email}'`);
+    this.logger.log(
+      chalk.magenta(`🤓 Created default admin user: '${created.email}'`)
+    );
 
     return true;
   }
