@@ -18,12 +18,12 @@ export enum IntegrationLabel {
   RMI = 'RMI',
 }
 
-export enum ApiProtocols {
+export enum Protocols {
   HTTP = 'http',
   HTTPS = 'https',
 }
 
-export enum ApiHostname {
+export enum Hostname {
   LOOPBACK = '127.0.0.1',
   LOCALHOST = 'localhost',
 }

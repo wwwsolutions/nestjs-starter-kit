@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 import joiPassword from 'joi-password';
 
-import { ApiHostname } from '@wwwsolutions/api/config/app';
+import { Hostname } from '@wwwsolutions/api/config/app';
 
 import { PrismaProvider } from './constants/prisma.constants';
 
@@ -135,7 +135,7 @@ export const validationSchema = Joi.object({
     .description('POSTGRES database name'),
   POSTGRES_HOSTNAME: Joi.string()
     .hostname()
-    .default(ApiHostname.LOOPBACK)
+    .default(Hostname.LOOPBACK)
     .description('POSTGRES database hostname'),
   POSTGRES_PORT: Joi.number().default(5432).port().description('POSTGRES port'),
 

@@ -36,7 +36,7 @@ export const winstonConfiguration = registerAs('winston', () => ({
             winston.format.timestamp(),
             winston.format.ms(),
             nestWinstonModuleUtilities.format.nestLike(
-              generateIntegrationLabel(process.env.API_INTEGRATION_TYPE),
+              generateIntegrationLabel(process.env.API_INTEGRATION),
               {
                 prettyPrint: this.prettyPrint as boolean,
               }

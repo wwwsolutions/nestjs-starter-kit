@@ -42,21 +42,29 @@ async function bootstrap() {
 
   // MIDDLEWARE
 
-  // ENABLE CORS
+  /******************************************************
+   *                  ENABLE CORS                       *
+   ******************************************************/
   if (environment) {
     app.enableCors();
   }
 
-  // SET GLOBAL PREFIX
+  /******************************************************
+   *              SET GLOBAL PREFIX                     *
+   ******************************************************/
   if (prefix) {
     app.setGlobalPrefix(prefix);
   }
 
-  // ENABLE/CONFIGURE API INTEGRATION
+  /******************************************************
+   *        ENABLE/CONFIGURE API INTEGRATION            *
+   ******************************************************/
   if (integrationType === Integration.GRAPHQL_PRISMA)
     configureApiIntegrationGraphqlPrisma(app, integrationType);
 
-  // PRODUCTION SERVER
+  /******************************************************
+   *                    SERVER                          *
+   ******************************************************/
   await app.listen(port, () => {
     Logger.log(
       chalk.gray(
