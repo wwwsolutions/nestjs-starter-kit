@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { graphqlConfiguration } from '../configs/graphql.configuration';
+import { apolloServerPluginsConfiguration } from '../configs/apollo-server-plugins.configuration';
 import { prismaConfiguration } from '../configs/prisma.configuration';
 import { postgresConfiguration } from '../configs/postgresql.configuration';
 
@@ -24,6 +25,7 @@ export const apiIntegrationConfigs: any = [
    * ALTERNATIVE
    ***********************************************************************/
   graphqlConfiguration,
+  apolloServerPluginsConfiguration,
   prismaConfiguration,
   postgresConfiguration,
 
