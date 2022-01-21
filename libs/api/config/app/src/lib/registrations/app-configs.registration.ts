@@ -2,6 +2,7 @@
 import { environmentConfiguration } from '../configs/environment.configuration';
 import { appConfiguration } from '../configs/app.configuration';
 import { winstonConfiguration } from '../configs/winston.configuration';
+import { swaggerConfiguration } from '../configs/swagger.configuration';
 
 /* <REQUIRED>
  *
@@ -20,4 +21,5 @@ export const appConfigsObjects: any = [
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,
+  swaggerConfiguration,
 ];

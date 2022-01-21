@@ -22,19 +22,16 @@ export const apiIntegrationConfigs: any = [
    *
    * API INTEGRATION - configs for `graphql-prisma` integration
    *
-   * ALTERNATIVE
    ***********************************************************************/
-  graphqlConfiguration,
-  apolloServerPluginsConfiguration,
-  prismaConfiguration,
-  postgresConfiguration,
-
+  // graphqlConfiguration,
+  // apolloServerPluginsConfiguration,
+  // prismaConfiguration,
+  // postgresConfiguration,
   /* <OPTIONAL> **********************************************************
    *
    * API INTEGRATION - configs for `rest-mongoose` integration
    * Registered in ApiConfigFeaturesModule
    *
-   * ALTERNATIVE
    ***********************************************************************/
   // mongooseConfiguration,
   // mongoConfiguration,
