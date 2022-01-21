@@ -30,5 +30,5 @@
       }
     }
   },
-  "tags": ["type:integration scope:api"]
+  "tags": ["type:integration", "scope:api"]
 }

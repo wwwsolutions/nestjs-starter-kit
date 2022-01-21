@@ -16,6 +16,8 @@ import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/a
  */
 
 export const domains: NestImportsType = [
-  ApiDomainUsersFeatureModule,
-  ApiDomainAuthenticationFeatureModule,
+  // <GRAPHQL-PRISMA-INTEGRATION>
+  // ApiDomainUsersFeatureModule,
+  // ApiDomainAuthenticationFeatureModule,
+  // <REST-MONGOOSE-INTEGRATION>
 ];

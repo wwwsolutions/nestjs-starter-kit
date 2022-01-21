@@ -14,6 +14,8 @@ import {
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
 
@@ -53,6 +55,9 @@ async function bootstrap() {
    ******************************************************/
   if (integrationType === Integration.GRAPHQL_PRISMA)
     configureApiIntegrationGraphqlPrisma(app, integrationType);
+
+  if (integrationType === Integration.REST_MONGOOSE)
+    configureApiIntegrationRestMongoose(app, integrationType);
 
   // SERVER
   await app.listen(port, () => {
