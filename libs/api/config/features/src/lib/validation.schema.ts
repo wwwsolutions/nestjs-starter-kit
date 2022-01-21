@@ -208,9 +208,25 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // OPTIONAL
-  // TODO: add mongo validation fields
-  MONGO_URI: Joi.string().default('mongodb://localhost:27017'),
-  MONGO_DBNAME: Joi.string().lowercase().default('demo'),
+  // MONGO_URI: Joi.string().default('mongodb://localhost:27017'),
+
+  MONGO_INITDB_ROOT_USERNAME: Joi.string()
+    .lowercase()
+    .default('root')
+    .description('MONGODB root user'),
+  MONGO_INITDB_ROOT_PASSWORD: joiPassword
+    .string()
+    .noWhiteSpaces()
+    .default('root')
+    .description('MONGODB root password'),
+  MONGO_DBNAME: Joi.string()
+    .default('demo')
+    .description('MONGODB database name'),
+  MONGO_HOSTNAME: Joi.string()
+    .hostname()
+    .default(Hostname.LOCALHOST)
+    .description('MONGODB database hostname'),
+  MONGO_PORT: Joi.number().default(27017).port().description('MONGODB port'),
 
   /* --------------------------------------------------------------
   CACHE

@@ -24,4 +24,4 @@ services:
 
   mongodb:
     container_name: mongodev
-    image: mongo:latest
+    image: mongo:4.4.11

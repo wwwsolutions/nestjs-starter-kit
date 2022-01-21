@@ -16,8 +16,8 @@ import {
 
     // DATA-LAYER CONFIGURATION
     MongooseModule.forRootAsync({
-      useFactory: async (config: MongoConfiguration) => ({
-        ...config,
+      useFactory: async ({ uri }: MongoConfiguration) => ({
+        uri,
       }),
       inject: [mongoConfiguration.KEY],
     }),
