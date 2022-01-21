@@ -10,18 +10,12 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  Env,
   Integration,
-  // configureApiGraphqlPrismaIntegration,
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
-
-// HELPER --> DEBUG ENV VARIABLES
-// const envLocalPath = path.resolve('apps/api/.env.local');
-// const envDevelopmentPath = path.resolve('apps/api/.env.development');
 
 async function bootstrap() {
   // HELPER --> DEBUG ENV VARIABLES
