@@ -6,6 +6,7 @@
     "api-config-codegen": "libs/api/config/codegen",
     "api-config-docker": "libs/api/config/docker",
     "api-config-features": "libs/api/config/features",
+    "api-config-swagger": "libs/api/config/swagger",
     "api-core": "libs/api/core",
     "api-data-access-core": "libs/api/data-access/core",
     "api-data-access-models": "libs/api/data-access/models",
