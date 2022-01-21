@@ -8,7 +8,6 @@ import {
 } from '@wwwsolutions/api/config/app';
 
 export function configureSwagger(app: INestApplication) {
-  // SWAGGER CONFIGURATION
   const { domain, swaggerUIPath } = app.get<SwaggerConfiguration>(
     swaggerConfiguration.KEY
   );

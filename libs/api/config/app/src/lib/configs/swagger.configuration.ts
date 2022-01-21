@@ -10,6 +10,7 @@ export const swaggerConfiguration = registerAs('swagger', () => ({
   protocol: process.env.API_PROTOCOL,
   host: process.env.API_HOSTNAME,
   port: Number(process.env.API_PORT),
+  swaggerUiDir: process.env.SWAGGER_UI_DIR,
 
   get domain(): string {
     return `${this.protocol}://${this.host}:${this.port}`;
@@ -20,7 +21,7 @@ export const swaggerConfiguration = registerAs('swagger', () => ({
   },
 
   get swaggerUIPath(): string {
-    return `/${this.prefix}/docs`;
+    return `/${this.prefix}/${this.swaggerUiDir}`;
   },
 }));
 
