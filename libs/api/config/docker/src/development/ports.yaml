@@ -11,3 +11,6 @@ services:
   redis:
     ports:
       - ${REDIS_PORT}:6379
+
+  mongodb:
+    - 27017:27017

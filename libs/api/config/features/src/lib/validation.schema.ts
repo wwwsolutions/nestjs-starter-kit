@@ -207,9 +207,10 @@ export const validationSchema = Joi.object({
   api/config/features/src/lib/configs/mongo.configuration.ts
   --------------------------------------------------------------- */
 
+  // OPTIONAL
   // TODO: add mongo validation fields
-  // MONGO_URI: Joi.string().default('mongodb://localhost:27017'),
-  // MONGO_DBNAME: Joi.string().default('my_mongo_database'),
+  MONGO_URI: Joi.string().default('mongodb://localhost:27017'),
+  MONGO_DBNAME: Joi.string().lowercase().default('demo'),
 
   /* --------------------------------------------------------------
   CACHE

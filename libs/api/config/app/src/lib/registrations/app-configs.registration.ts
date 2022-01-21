@@ -18,8 +18,11 @@ import { swaggerConfiguration } from '../configs/swagger.configuration';
  */
 
 export const appConfigsObjects: any = [
+  // <GRAPHQL-PRISMA-INTEGRATION>
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,
+
+  // <REST-MONGOOSE-INTEGRATION>
   swaggerConfiguration,
 ];

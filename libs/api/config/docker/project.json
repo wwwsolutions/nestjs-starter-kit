@@ -106,14 +106,14 @@
       "options": {
         "parallel": false,
         "commands": [
-          "nx run api-graphql-config-docker:compose --mode=development",
-          "nx run api-graphql-config-docker:up --mode=development",
-          "nx run api-graphql-config-docker:down --mode=development",
-          "nx run api-graphql-config-docker:clean --mode=development",
-          "nx run api-graphql-config-docker:config --mode=development",
-          "nx run api-graphql-config-docker:logs --mode=development",
-          "nx run api-graphql-config-docker:logs-save --mode=development",
-          "nx run api-graphql-config-docker:system-prune"
+          "nx run api-config-docker:compose --mode=development",
+          "nx run api-config-docker:up --mode=development",
+          "nx run api-config-docker:down --mode=development",
+          "nx run api-config-docker:clean --mode=development",
+          "nx run api-config-docker:config --mode=development",
+          "nx run api-config-docker:logs --mode=development",
+          "nx run api-config-docker:logs-save --mode=development",
+          "nx run api-config-docker:system-prune"
         ]
       }
     }
