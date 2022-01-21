@@ -40,8 +40,6 @@ async function bootstrap() {
   const { integrationType, type, domain, path, prefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
-  // MIDDLEWARE
-
   /******************************************************
    *                  ENABLE CORS                       *
    ******************************************************/
@@ -62,9 +60,7 @@ async function bootstrap() {
   if (integrationType === Integration.GRAPHQL_PRISMA)
     configureApiIntegrationGraphqlPrisma(app, integrationType);
 
-  /******************************************************
-   *                    SERVER                          *
-   ******************************************************/
+  // SERVER
   await app.listen(port, () => {
     Logger.log(
       chalk.gray(
