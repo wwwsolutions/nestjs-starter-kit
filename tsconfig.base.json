@@ -38,6 +38,9 @@
       "@wwwsolutions/api/config/features": [
         "libs/api/config/features/src/index.ts"
       ],
+      "@wwwsolutions/api/config/swagger": [
+        "libs/api/config/swagger/src/index.ts"
+      ],
       "@wwwsolutions/api/core": ["libs/api/core/src/index.ts"],
       "@wwwsolutions/api/data-access/core": [
         "libs/api/data-access/core/src/index.ts"
@@ -62,6 +65,9 @@
       ],
       "@wwwsolutions/api/integration/graphql-prisma": [
         "libs/api/integration/graphql-prisma/src/index.ts"
+      ],
+      "@wwwsolutions/api/integration/rest-mongoose": [
+        "libs/api/integration/rest-mongoose/src/index.ts"
       ],
       "@wwwsolutions/shared/utils": ["libs/shared/utils/src/index.ts"]
     }

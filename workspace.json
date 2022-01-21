@@ -6,6 +6,7 @@
     "api-config-codegen": "libs/api/config/codegen",
     "api-config-docker": "libs/api/config/docker",
     "api-config-features": "libs/api/config/features",
+    "api-config-swagger": "libs/api/config/swagger",
     "api-core": "libs/api/core",
     "api-data-access-core": "libs/api/data-access/core",
     "api-data-access-models": "libs/api/data-access/models",
@@ -15,6 +16,7 @@
     "api-domain-users-data-access": "libs/api/domain/users/data-access",
     "api-domain-users-feature": "libs/api/domain/users/feature",
     "api-integration-graphql-prisma": "libs/api/integration/graphql-prisma",
+    "api-integration-rest-mongoose": "libs/api/integration/rest-mongoose",
     "shared-utils": "libs/shared/utils"
   }
 }
