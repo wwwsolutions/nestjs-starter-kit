@@ -3,6 +3,7 @@ import { graphqlConfiguration } from '../configs/graphql.configuration';
 import { apolloServerPluginsConfiguration } from '../configs/apollo-server-plugins.configuration';
 import { prismaConfiguration } from '../configs/prisma.configuration';
 import { postgresConfiguration } from '../configs/postgresql.configuration';
+import { mongoConfiguration } from '../configs/mongo.configuration';
 
 /* <OPTIONAL>
  *
@@ -22,20 +23,17 @@ export const apiIntegrationConfigs: any = [
    *
    * API INTEGRATION - configs for `graphql-prisma` integration
    *
-   * ALTERNATIVE
    ***********************************************************************/
-  graphqlConfiguration,
-  apolloServerPluginsConfiguration,
-  prismaConfiguration,
-  postgresConfiguration,
-
+  // graphqlConfiguration,
+  // apolloServerPluginsConfiguration,
+  // prismaConfiguration,
+  // postgresConfiguration,
   /* <OPTIONAL> **********************************************************
    *
    * API INTEGRATION - configs for `rest-mongoose` integration
    * Registered in ApiConfigFeaturesModule
    *
-   * ALTERNATIVE
    ***********************************************************************/
   // mongooseConfiguration,
-  // mongoConfiguration,
+  mongoConfiguration,
 ];

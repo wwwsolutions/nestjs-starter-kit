@@ -2,6 +2,7 @@
 import { environmentConfiguration } from '../configs/environment.configuration';
 import { appConfiguration } from '../configs/app.configuration';
 import { winstonConfiguration } from '../configs/winston.configuration';
+import { swaggerConfiguration } from '../configs/swagger.configuration';
 
 /* <REQUIRED>
  *
@@ -17,7 +18,11 @@ import { winstonConfiguration } from '../configs/winston.configuration';
  */
 
 export const appConfigsObjects: any = [
+  // <GRAPHQL-PRISMA-INTEGRATION>
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,
+
+  // <REST-MONGOOSE-INTEGRATION>
+  swaggerConfiguration,
 ];

@@ -6,5 +6,6 @@ export * from './lib/configs/apollo-server-plugins.configuration';
 export * from './lib/configs/postgresql.configuration';
 export * from './lib/configs/jwt.configuration';
 export * from './lib/configs/admin.configuration';
+export * from './lib/configs/mongo.configuration';
 
 export * from './lib/constants/prisma.constants';

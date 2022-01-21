@@ -56,7 +56,7 @@ export const validationSchema = Joi.object({
   api/config/app/src/lib/configs/winston.configuration.ts
   --------------------------------------------------------------- */
 
-  // REQUIRED
+  // OPTIONAL
   WINSTON_LEVEL_CONSOLE: Joi.string()
     .lowercase()
     .valid(
@@ -86,4 +86,15 @@ export const validationSchema = Joi.object({
     )
     .default(WinstonLogLevel.SILLY)
     .description('WINSTON file level'),
+
+  /* --------------------------------------------------------------
+  SWAGGER
+  api/config/app/src/lib/configs/swagger.configuration.ts
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  SWAGGER_UI_DIR: Joi.string()
+    .lowercase()
+    .default('docs')
+    .description('SWAGGER UI directory'),
 });

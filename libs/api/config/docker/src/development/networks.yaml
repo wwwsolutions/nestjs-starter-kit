@@ -8,6 +8,10 @@ services:
     networks:
       - devnet
 
+  mongodb:
+    networks:
+      - devnet
+
 networks:
   devnet:
     driver: bridge
