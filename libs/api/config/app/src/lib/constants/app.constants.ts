@@ -1,6 +1,6 @@
 export enum ApiType {
-  GRAPHQL_API = 'GraphqlApi',
-  REST_API = 'RestApi',
+  GRAPHQL_API = 'Graphql',
+  REST_API = 'REST',
 }
 
 export enum GlobalPrefix {

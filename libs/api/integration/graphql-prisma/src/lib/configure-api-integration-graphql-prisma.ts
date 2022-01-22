@@ -39,7 +39,11 @@ export function configureApiIntegrationGraphqlPrisma(
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black('Global Filters')} implemented`),
+    chalk.gray(
+      `🔒 ${chalk.bgYellow.black(
+        'Global Exception Filter: AllExceptionsFilter'
+      )} implemented`
+    ),
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
@@ -55,6 +59,13 @@ export function configureApiIntegrationGraphqlPrisma(
         });
       },
     })
+  );
+
+  Logger.log(
+    chalk.gray(
+      `🔒 ${chalk.bgYellow.black('Global Pipes: ValidationPipe')} implemented`
+    ),
+    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
   Logger.log(

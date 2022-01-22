@@ -70,7 +70,9 @@ async function bootstrap() {
 
     Logger.log(
       chalk.gray(
-        `🚀 Running ${type} API, in ${chalk.bgYellow.black(environment)} mode`
+        `🚀 Running ${chalk.bgYellow.black(
+          type
+        )} API, in ${chalk.bgYellow.black(environment)} mode`
       ),
       chalk.gray(bootstrap.name)
     );
