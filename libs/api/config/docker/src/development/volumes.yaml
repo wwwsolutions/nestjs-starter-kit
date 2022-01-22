@@ -4,7 +4,7 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
       - postgresql-bin:/usr/lib/postgresql
-      - ../../../../../../.docker/generated/volumes/files:/files
+      - ../../../../../../generated/docker/volumes/files:/files
 
   pgadmin:
     volumes:
