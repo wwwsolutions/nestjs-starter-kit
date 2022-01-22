@@ -27,7 +27,9 @@ export function configureApiIntegrationGraphqlPrisma(
   );
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black('Custom Logger')} implemented`),
+    chalk.gray(
+      `🔒 ${chalk.bgYellow.black('Custom Logger: Winston')} implemented`
+    ),
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 

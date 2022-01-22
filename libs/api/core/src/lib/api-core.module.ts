@@ -28,7 +28,7 @@ import { integration } from './registrations/integration.registration';
       }),
       inject: [winstonConfiguration.KEY],
     }),
-    ...integration,
+    integration,
     ...domains,
   ],
   providers: resolvers,

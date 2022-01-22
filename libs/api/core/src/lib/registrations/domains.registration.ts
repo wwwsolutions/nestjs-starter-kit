@@ -1,4 +1,4 @@
-import { NestImportsType } from '../nest.types';
+import { NestImportsTypes } from '../nest.types';
 
 import { ApiDomainUsersFeatureModule } from '@wwwsolutions/api/domain/users/feature';
 import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/authentication/feature';
@@ -15,7 +15,7 @@ import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/a
  *
  */
 
-export const domains: NestImportsType = [
+export const domains: NestImportsTypes = [
   // <GRAPHQL-PRISMA-INTEGRATION>
   // ApiDomainUsersFeatureModule,
   // ApiDomainAuthenticationFeatureModule,

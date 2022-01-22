@@ -1,8 +1,7 @@
 import { NestImportsType } from '../nest.types';
 
-// import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
+import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/rest-mongoose';
 
 /* <REQUIRED>
@@ -17,5 +16,5 @@ import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/
  *
  */
 
-// export const integration: NestImportsType = [ApiIntegrationGraphqlPrismaModule];
-export const integration: NestImportsType = [ApiIntegrationRestMongooseModule];
+// export const integration: NestImportsType = ApiIntegrationGraphqlPrismaModule;
+export const integration: NestImportsType = ApiIntegrationRestMongooseModule;
