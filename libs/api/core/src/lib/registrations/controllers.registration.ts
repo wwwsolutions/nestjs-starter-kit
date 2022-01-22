@@ -1,5 +1,7 @@
 import { NestControllersType } from '../nest.types';
 
+import { ApiCoreController } from '../api-core.controller';
+
 /* <OPTIONAL>
  *
  * IN CASE OF REST INTEGRATION, REGISTER CONTROLLERS
@@ -9,4 +11,4 @@ import { NestControllersType } from '../nest.types';
  *    ApiCoreController,
  */
 
-export const controllers: NestControllersType = [];
+export const controllers: NestControllersType = [ApiCoreController];

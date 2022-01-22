@@ -35,7 +35,7 @@
         "parallel": false,
         "cwd": "libs/api/config/docker/src",
         "commands": [
-          "docker-compose --project-name nest-api-{args.mode} --verbose --env-file ../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../.docker/generated/docker-compose-stack.{args.mode}.yaml"
+          "docker-compose --project-name nest-api-{args.mode} --verbose --env-file ../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
         ]
       }
     },
@@ -44,7 +44,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml up --build -d"
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
         ]
       }
     },
@@ -53,7 +53,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name nest-api-{args.mode} --verbose -f .docker/generated/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
+          "docker-compose --project-name nest-api-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
         ]
       }
     },
@@ -62,8 +62,8 @@
       "options": {
         "parallel": false,
         "commands": [
-          "npx rimraf -lf .docker/generated/docker-compose-stack.{args.mode}.yaml",
-          "npx rimraf .docker/generated/volumes"
+          "npx rimraf -lf generated/docker/docker-compose-stack.{args.mode}.yaml",
+          "npx rimraf generated/docker/volumes"
         ]
       }
     },
@@ -72,7 +72,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose -f .docker/generated/docker-compose-stack.{args.mode}.yaml config"
+          "docker-compose -f generated/docker/docker-compose-stack.{args.mode}.yaml config"
         ]
       }
     },
@@ -81,7 +81,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose  -f .docker/generated/docker-compose-stack.{args.mode}.yaml logs -f -t --tail 30"
+          "docker-compose  -f generated/docker/docker-compose-stack.{args.mode}.yaml logs -f -t --tail 30"
         ]
       }
     },
@@ -90,7 +90,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose -f .docker/generated/docker-compose-stack.{args.mode}.yaml logs -f -t >> .docker/logs/myDockerCompose.log"
+          "docker-compose -f generated/docker/docker-compose-stack.{args.mode}.yaml logs -f -t >> .docker/logs/myDockerCompose.log"
         ]
       }
     },

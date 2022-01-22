@@ -9,7 +9,6 @@ export const mongoConfiguration = registerAs('mongo', () => ({
   port: Number(process.env.MONGO_PORT),
 
   get uri(): string {
-    // return `mongodb://${this.user}:${this.password}@${this.hostname}:${this.port}/${this.dbName}`;
     return `mongodb://${this.hostname}:${this.port}`;
   },
 }));

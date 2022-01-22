@@ -47,12 +47,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
 
-    this.logger.error(JSON.stringify(exception));
+    // this.logger.error(JSON.stringify(exception));
 
     // TODO: FIX how to log customize error message - responseBody??
     // TODO: move it in independent lib
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const customError = {
       statusCode: status,
       timestamp: new Date().toISOString(),
@@ -61,7 +60,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     // console.log(customError);
 
-    response.status(status).json(exception);
+    response.status(status).json(customError);
   }
 }
 

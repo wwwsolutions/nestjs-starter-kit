@@ -23,12 +23,5 @@ export function configureSwagger(app: INestApplication) {
 
   SwaggerModule.setup(swaggerUIPath, app, swaggerDoc);
 
-  Logger.log(
-    chalk.gray(
-      `🔶 Swagger Docs enabled: ${chalk.bgYellow.black(
-        domain
-      )}${chalk.bgYellow.black(swaggerUIPath)} implemented`
-    ),
-    chalk.gray(configureSwagger.name)
-  );
+  return { configFnName: configureSwagger.name, domain, swaggerUIPath };
 }
