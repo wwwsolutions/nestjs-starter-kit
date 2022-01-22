@@ -8,8 +8,12 @@ import {
 
 export type NestControllersType = Type<any>[] | undefined;
 
-export type NestImportsType = Array<
-  Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference
->;
+export type NestImportsType =
+  | Type<any>
+  | DynamicModule
+  | Promise<DynamicModule>
+  | ForwardReference;
+
+export type NestImportsTypes = Array<NestImportsType>;
 
 export type NestProvidersType = Provider<any>[] | undefined;
