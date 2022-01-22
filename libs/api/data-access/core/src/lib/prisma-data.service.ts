@@ -104,12 +104,14 @@ export class PrismaDataService
   async findManyUsers({ orderBy }: FindManyUserArgs): Promise<User[]> {
     const found = await this.user.findMany({ orderBy }); // `PrismaClient` method
     this.logger.log(
-      chalk.magenta(`🔶 findManyUsers, '${found.map((user) => user.id)}'`)
+      chalk.magenta(
+        `🔶 findManyUsers, '${found.map((user: { id: unknown }) => user.id)}'`
+      )
     );
     return found;
   }
 
-  // CRETE SINGLE USER
+  // CREATE SINGLE USER
   async createUser(createOneUserArgs: CreateOneUserArgs): Promise<User> {
     const created = await this.user.create(createOneUserArgs); // `PrismaClient` method
     this.logger.log(

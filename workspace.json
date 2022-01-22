@@ -11,6 +11,7 @@
     "api-data-access-core": "libs/api/data-access/core",
     "api-data-access-models": "libs/api/data-access/models",
     "api-data-access-prisma": "libs/api/data-access/prisma",
+    "api-domain-article-feature": "libs/api/domain/article/feature",
     "api-domain-authentication-data-access": "libs/api/domain/authentication/data-access",
     "api-domain-authentication-feature": "libs/api/domain/authentication/feature",
     "api-domain-users-data-access": "libs/api/domain/users/data-access",

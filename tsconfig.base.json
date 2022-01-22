@@ -51,6 +51,9 @@
       "@wwwsolutions/api/data-access/prisma": [
         "libs/api/data-access/prisma/src/index.ts"
       ],
+      "@wwwsolutions/api/domain/article/feature": [
+        "libs/api/domain/article/feature/src/index.ts"
+      ],
       "@wwwsolutions/api/domain/authentication/data-access": [
         "libs/api/domain/authentication/data-access/src/index.ts"
       ],
