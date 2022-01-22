@@ -34,6 +34,5 @@ export const apiIntegrationConfigs: any = [
    * Registered in ApiConfigFeaturesModule
    *
    ***********************************************************************/
-  // mongooseConfiguration,
   mongoConfiguration,
 ];

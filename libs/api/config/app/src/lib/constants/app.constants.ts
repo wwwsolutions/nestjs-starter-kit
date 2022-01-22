@@ -1,5 +1,5 @@
 export enum ApiType {
-  GRAPHQL_API = 'Graphql',
+  GRAPHQL_API = 'GraphQL',
   REST_API = 'REST',
 }
 

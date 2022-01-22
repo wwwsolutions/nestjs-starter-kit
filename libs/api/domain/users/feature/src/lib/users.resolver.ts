@@ -1,10 +1,5 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
-import {
-  HttpException,
-  HttpStatus,
-  UseFilters,
-  UseGuards,
-} from '@nestjs/common';
+import { UseFilters, UseGuards } from '@nestjs/common';
 
 import { UsersService } from '@wwwsolutions/api/domain/users/data-access';
 
