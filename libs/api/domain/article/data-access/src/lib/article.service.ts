@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Article, ArticleDocument } from './article.model';
+import { Article, ArticleDocument } from './models/article.model';
 
 import { CreateArticleDto } from '@wwwsolutions/api/domain/article/dtos';
 
