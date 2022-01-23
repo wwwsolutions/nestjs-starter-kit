@@ -13,6 +13,7 @@
     "api-data-access-models": "libs/api/data-access/models",
     "api-data-access-prisma": "libs/api/data-access/prisma",
     "api-domain-article-data-access": "libs/api/domain/article/data-access",
+    "api-domain-article-dtos": "libs/api/domain/article/dtos",
     "api-domain-article-feature": "libs/api/domain/article/feature",
     "api-domain-authentication-data-access": "libs/api/domain/authentication/data-access",
     "api-domain-authentication-feature": "libs/api/domain/authentication/feature",

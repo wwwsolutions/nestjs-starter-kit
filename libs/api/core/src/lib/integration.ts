@@ -16,5 +16,6 @@ import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/
  *
  */
 
-// export const integration: NestImportsType = ApiIntegrationGraphqlPrismaModule;
-export const integration: NestImportsType = ApiIntegrationRestMongooseModule;
+// export const integrationModule: NestImportsType = ApiIntegrationGraphqlPrismaModule;
+export const integrationModule: NestImportsType =
+  ApiIntegrationRestMongooseModule;
