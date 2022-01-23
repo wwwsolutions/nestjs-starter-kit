@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigFactory, ConfigModule, ConfigObject } from '@nestjs/config';
 
-import { appConfigsObjects } from './registrations/app-configs.registration';
+import { appConfigs } from './app-configs';
 
 import { validationSchema } from './validation.schema';
 
-const load: ConfigFactory<ConfigObject>[] | undefined = [...appConfigsObjects];
+const load: ConfigFactory<ConfigObject>[] | undefined = [...appConfigs];
 
 @Module({
   imports: [
