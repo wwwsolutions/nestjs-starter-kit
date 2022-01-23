@@ -2,8 +2,8 @@
   "files.eol": "\n",
   "workbench.colorCustomizations": {
     "activityBar.background": "#000000",
-    "titleBar.activeBackground": "#470202",
-    "titleBar.activeForeground": "#f84a4a"
+    "titleBar.activeBackground": "#1e54c8",
+    "titleBar.activeForeground": "#abb8d6"
   },
   "vsicons.presets.nestjs": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -24,12 +24,5 @@
     "MD004": { "style": "consistent" },
     "MD040": false
   },
-  "cSpell.words": [
-    "BEEMAN",
-    "demodb",
-    "devdependencies",
-    "extendmerge",
-    "Hackathon",
-    "rootpassword"
-  ]
+  "cSpell.words": ["rootpassword"]
 }
