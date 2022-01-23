@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { ArticleService } from './article.service';
 
-import { Article, ArticleSchema } from './article.model';
+import { Article, ArticleSchema } from './models/article.model';
 
 @Module({
   imports: [

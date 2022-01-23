@@ -32,7 +32,7 @@ const providers: NestProvidersType = [ApiCoreResolver];
  *
  * API Core.
  *
- * app base configuration + integration + features.
+ * app base: (ApiConfigAppModule + WinstonModule) + (integrationModule + domainModules).
  *
  */
 @Module({

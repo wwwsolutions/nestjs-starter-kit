@@ -23,5 +23,5 @@ services:
     container_name: redisdev
 
   mongodb:
-    container_name: mongodev
     image: mongo:4.4.11
+    container_name: mongodev

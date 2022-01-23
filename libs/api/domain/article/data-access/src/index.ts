@@ -8,4 +8,4 @@ export * from './lib/article.service';
 // `Article` --> transform layer --> `ArticleDto`
 // TODO: fix this w/ https://www.npmjs.com/package/@nartc/automapper
 
-export * from './lib/article.model';
+export * from './lib/models/article.model';
