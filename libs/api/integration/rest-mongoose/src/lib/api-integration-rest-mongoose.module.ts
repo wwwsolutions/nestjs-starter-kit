@@ -16,8 +16,9 @@ import { ApiConfigFeaturesModule } from '@wwwsolutions/api/config/features';
 
     // DATA-LAYER CONFIGURATION
     MongooseModule.forRootAsync({
-      useFactory: async ({ uri }: MongoConfiguration) => ({
+      useFactory: async ({ uri, dbName }: MongoConfiguration) => ({
         uri,
+        dbName,
       }),
       inject: [mongoConfiguration.KEY],
     }),
