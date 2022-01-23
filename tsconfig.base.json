@@ -38,6 +38,9 @@
       "@wwwsolutions/api/config/features": [
         "libs/api/config/features/src/index.ts"
       ],
+      "@wwwsolutions/api/config/integrations": [
+        "libs/api/config/integrations/src/index.ts"
+      ],
       "@wwwsolutions/api/config/swagger": [
         "libs/api/config/swagger/src/index.ts"
       ],
