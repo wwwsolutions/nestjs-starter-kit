@@ -14,7 +14,9 @@ services:
       - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
       - PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
 
-  mongodb:
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_USERNAME}
+  ### use it with mode=production
+  ### TODO: fix for different modes
+  # mongodb:
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME} # MongoServerError command find requires authentication
+  #     - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_USERNAME} # MongoServerError command find requires authentication

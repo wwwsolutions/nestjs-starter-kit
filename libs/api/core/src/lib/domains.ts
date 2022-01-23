@@ -18,9 +18,9 @@ import { ApiDomainArticleFeatureModule } from '@wwwsolutions/api/domain/article/
  */
 
 export const domainModules: NestImportsTypes = [
-  // <GRAPHQL-PRISMA-INTEGRATION>
+  /*** <GRAPHQL-PRISMA-INTEGRATION> ***/
   // ApiDomainUsersFeatureModule,
   // ApiDomainAuthenticationFeatureModule,
-  // <REST-MONGOOSE-INTEGRATION>
+  /*** <REST-MONGOOSE-INTEGRATION> ***/
   ApiDomainArticleFeatureModule,
 ];

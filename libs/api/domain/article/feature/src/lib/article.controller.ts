@@ -11,7 +11,7 @@ import { CreateArticleDto } from '@wwwsolutions/api/domain/article/dtos';
 @Controller('articles')
 @ApiTags('articles')
 export class ArticleController {
-  constructor(private article: ArticleService) {}
+  constructor(private readonly article: ArticleService) {}
 
   @Get()
   // @ApiOkResponse({
