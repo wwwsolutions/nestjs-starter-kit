@@ -14,7 +14,6 @@ import {
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
