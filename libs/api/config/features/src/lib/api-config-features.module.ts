@@ -7,9 +7,6 @@ import { featuresConfigs } from './features-configs';
 
 import { validationSchema } from './validation.schema';
 
-// const load: ConfigFactory<ConfigObject>[] | undefined = [
-//   ...businessLogicConfigs,
-// ];
 const load: ConfigFactory<ConfigObject>[] | undefined = featuresConfigs;
 
 @Module({

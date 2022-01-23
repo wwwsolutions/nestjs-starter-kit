@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { WinstonModule } from 'nest-winston';
+import { NestControllersType, NestProvidersType } from './types/nest.types';
 
 import {
   ApiConfigAppModule,
@@ -7,19 +8,34 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { controllers } from './controllers';
-import { resolvers } from './resolvers';
-import { domains } from './domains';
-import { integration } from './integration';
+import { domainModules } from './domains';
+import { integrationModule } from './integration';
+
+import { ApiCoreController } from './controllers/api-core.controller';
+import { ApiCoreResolver } from './resolvers/api-core.resolver';
+
+/* <OPTIONAL>
+ *
+ * Register controllers.
+ *
+ */
+const controllers: NestControllersType = [ApiCoreController];
+
+/* <OPTIONAL>
+ *
+ * Register resolvers.
+ *
+ */
+const providers: NestProvidersType = [ApiCoreResolver];
 
 /* <DO NOT CHANGE>
  *
- * To register controllers, resolvers, domains and integration use corresponding `*.registration.ts` files.
+ * API Core.
+ *
+ * app base configuration + integration + features.
  *
  */
-
 @Module({
-  // CONFIG RELEVANT TO BASE STARTER KIT FUNCTIONALITY
   imports: [
     ApiConfigAppModule,
     WinstonModule.forRootAsync({
@@ -28,10 +44,10 @@ import { integration } from './integration';
       }),
       inject: [winstonConfiguration.KEY],
     }),
-    integration,
-    ...domains,
+    integrationModule,
+    ...domainModules,
   ],
-  providers: resolvers,
+  providers,
   controllers,
 })
 export class ApiCoreModule {}

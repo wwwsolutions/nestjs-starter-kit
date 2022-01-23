@@ -7,10 +7,6 @@ import { apiIntegrationConfigs } from './integration-configs';
 
 import { validationSchema } from './validation.schema';
 
-// const load: ConfigFactory<ConfigObject>[] | undefined = [
-//   ...apiIntegrationConfigs,
-// ];
-
 const load: ConfigFactory<ConfigObject>[] | undefined = apiIntegrationConfigs;
 
 @Module({
