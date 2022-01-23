@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLError, GraphQLFormattedError } from 'graphql';
 
 import {
   environmentConfiguration,
@@ -8,17 +9,19 @@ import {
 } from '@wwwsolutions/api/config/app';
 
 import {
-  ApiConfigFeaturesModule,
+  ApiConfigIntegrationsModule,
   graphqlConfiguration,
   GraphqlConfiguration,
   apolloServerPluginsConfiguration,
   ApolloServerPluginsConfiguration,
-} from '@wwwsolutions/api/config/features';
-import { GraphQLError, GraphQLFormattedError } from 'graphql';
+} from '@wwwsolutions/api/config/integrations';
+
+import { ApiConfigFeaturesModule } from '@wwwsolutions/api/config/features';
 
 @Module({
   imports: [
     // APP CONFIG
+    ApiConfigIntegrationsModule,
     ApiConfigFeaturesModule,
 
     // GRAPHQL CONFIG

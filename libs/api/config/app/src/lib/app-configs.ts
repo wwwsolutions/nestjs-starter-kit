@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { environmentConfiguration } from '../configs/environment.configuration';
-import { appConfiguration } from '../configs/app.configuration';
-import { winstonConfiguration } from '../configs/winston.configuration';
-import { swaggerConfiguration } from '../configs/swagger.configuration';
+import { environmentConfiguration } from './configs/environment.configuration';
+import { appConfiguration } from './configs/app.configuration';
+import { winstonConfiguration } from './configs/winston.configuration';
+import { swaggerConfiguration } from './configs/swagger.configuration';
 
 /* <REQUIRED>
  *
@@ -17,7 +17,7 @@ import { swaggerConfiguration } from '../configs/swagger.configuration';
  *
  */
 
-export const appConfigsObjects: any = [
+export const appConfigs: any = [
   // <GRAPHQL-PRISMA-INTEGRATION>
   environmentConfiguration,
   appConfiguration,

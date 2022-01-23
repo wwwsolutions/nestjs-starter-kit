@@ -1,5 +1,5 @@
-import { NestProvidersType } from '../nest.types';
-import { ApiCoreResolver } from '../api-core.resolver';
+import { NestProvidersType } from './types/nest.types';
+import { ApiCoreResolver } from './resolvers/api-core.resolver';
 
 /* <REQUIRED>
  *

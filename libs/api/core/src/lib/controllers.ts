@@ -1,6 +1,6 @@
-import { NestControllersType } from '../nest.types';
+import { NestControllersType } from './types/nest.types';
 
-import { ApiCoreController } from '../api-core.controller';
+import { ApiCoreController } from './controllers/api-core.controller';
 
 /* <OPTIONAL>
  *

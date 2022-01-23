@@ -1,4 +1,4 @@
-import { NestImportsType } from '../nest.types';
+import { NestImportsType } from './types/nest.types';
 
 import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 

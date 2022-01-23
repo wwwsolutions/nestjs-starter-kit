@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ApiConfigAppModule } from '@wwwsolutions/api/config/app';
-
 import {
-  ApiConfigFeaturesModule,
+  ApiConfigIntegrationsModule,
   mongoConfiguration,
   MongoConfiguration,
-} from '@wwwsolutions/api/config/features';
+} from '@wwwsolutions/api/config/integrations';
+
+import { ApiConfigFeaturesModule } from '@wwwsolutions/api/config/features';
 
 @Module({
   imports: [
-    ApiConfigAppModule,
+    ApiConfigIntegrationsModule,
     ApiConfigFeaturesModule,
 
     // DATA-LAYER CONFIGURATION

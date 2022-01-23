@@ -20,6 +20,9 @@ import {
   InjectPrismaConfig,
   PrismaConfiguration,
   PrismaLogLevel,
+} from '@wwwsolutions/api/config/integrations';
+
+import {
   InjectAdminConfig,
   AdminConfiguration,
 } from '@wwwsolutions/api/config/features';
