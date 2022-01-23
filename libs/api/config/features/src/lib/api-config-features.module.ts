@@ -3,15 +3,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigFactory, ConfigModule, ConfigObject } from '@nestjs/config';
 
-import { apiIntegrationConfigs } from './integration-configs';
-import { businessLogicConfigs } from './business-logic-configs';
+import { featuresConfigs } from './features-configs';
 
 import { validationSchema } from './validation.schema';
 
-const load: ConfigFactory<ConfigObject>[] | undefined = [
-  ...apiIntegrationConfigs,
-  ...businessLogicConfigs,
-];
+// const load: ConfigFactory<ConfigObject>[] | undefined = [
+//   ...businessLogicConfigs,
+// ];
+const load: ConfigFactory<ConfigObject>[] | undefined = featuresConfigs;
 
 @Module({
   imports: [
