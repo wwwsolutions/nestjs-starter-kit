@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { jwtConfiguration } from '../configs/jwt.configuration';
-import { adminConfiguration } from '../configs/admin.configuration';
+import { jwtConfiguration } from './configs/jwt.configuration';
+import { adminConfiguration } from './configs/admin.configuration';
 
 /* <OPTIONAL>
  *

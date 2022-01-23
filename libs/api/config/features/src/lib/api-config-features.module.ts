@@ -3,8 +3,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigFactory, ConfigModule, ConfigObject } from '@nestjs/config';
 
-import { apiIntegrationConfigs } from './registrations/integration-configs.registration';
-import { businessLogicConfigs } from './registrations/business-logic-configs.registration';
+import { apiIntegrationConfigs } from './integration-configs';
+import { businessLogicConfigs } from './business-logic-configs';
 
 import { validationSchema } from './validation.schema';
 
