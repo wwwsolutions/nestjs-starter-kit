@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-api',
+  displayName: 'shared-data-access-api',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/shared/api',
+  coverageDirectory: '../../../coverage/libs/shared/data-access-api',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
