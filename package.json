@@ -32,7 +32,8 @@
     "api:serve:production": "cross-env NODE_ENV=production WINSTON_LEVEL_CONSOLE=verbose WINSTON_PRETTY_PRINT=true WINSTON_LEVEL_FILE=silly API_INTEGRATION=ApiIntegrationGraphqlPrisma node ./dist/apps/api/main.js",
     "docker:build": "docker build . -t courses/api",
     "docker:run": "docker run -it -p 8000:3000 courses/api",
-    "api:deploy": "nx deploy api"
+    "api:deploy": "nx deploy api",
+    "api:generate:rest": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/api/data-access/api/src/lib -c openapiconfig.json"
   },
   "dependencies": {
     "@nestjs/common": "^8.2.0",
@@ -70,6 +71,7 @@
     "@angular/cli": "^13.1.2",
     "@nestjs/schematics": "^8.0.4",
     "@nestjs/testing": "^8.2.0",
+    "@nrwl/angular": "^13.5.1",
     "@nrwl/cli": "13.4.6",
     "@nrwl/eslint-plugin-nx": "13.4.6",
     "@nrwl/jest": "13.4.6",
@@ -79,6 +81,7 @@
     "@nrwl/node": "13.4.6",
     "@nrwl/tao": "13.4.6",
     "@nrwl/workspace": "13.4.6",
+    "@openapitools/openapi-generator-cli": "^2.4.25",
     "@prisma/client": "^3.8.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/jest": "^27.4.0",
