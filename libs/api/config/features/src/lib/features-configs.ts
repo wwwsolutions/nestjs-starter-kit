@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
+
+import { Configs } from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
@@ -15,4 +16,19 @@ import { adminConfiguration } from './configs/admin.configuration';
  *
  */
 
-export const featuresConfigs: any = [adminConfiguration, jwtConfiguration];
+export const featuresConfigs: Configs = [
+  /* <OPTIONAL> **********************************************************
+   *
+   * GRAPHQL-PRISMA-INTEGRATION - Features/Business logic configs
+   *
+   ***********************************************************************/
+  adminConfiguration,
+  jwtConfiguration,
+
+  /* <OPTIONAL> **********************************************************
+   *
+   * REST-MONGOOSE-INTEGRATION - Features/Business logic configs
+   *
+   ***********************************************************************/
+  //
+];

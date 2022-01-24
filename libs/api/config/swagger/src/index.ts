@@ -1,2 +1,1 @@
-// export * from './lib/api-config-swagger.module';
-export * from './lib/config-swagger';
+export * from './lib/configure-swagger';

@@ -1,9 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { graphqlConfiguration } from './configs/graphql.configuration';
 import { apolloServerPluginsConfiguration } from './configs/apollo-server-plugins.configuration';
 import { prismaConfiguration } from './configs/prisma.configuration';
 import { postgresConfiguration } from './configs/postgresql.configuration';
+
+import { swaggerConfiguration } from './configs/swagger.configuration';
 import { mongoConfiguration } from './configs/mongo.configuration';
+
+import { Configs } from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
@@ -18,21 +21,22 @@ import { mongoConfiguration } from './configs/mongo.configuration';
  *
  */
 
-export const apiIntegrationConfigs: any = [
+export const apiIntegrationConfigs: Configs = [
   /* <OPTIONAL> **********************************************************
    *
-   * API INTEGRATION - configs for `graphql-prisma` integration
+   * GRAPHQL-PRISMA-INTEGRATION - integration configs
    *
    ***********************************************************************/
   // graphqlConfiguration,
   // apolloServerPluginsConfiguration,
   // prismaConfiguration,
   // postgresConfiguration,
+
   /* <OPTIONAL> **********************************************************
    *
-   * API INTEGRATION - configs for `rest-mongoose` integration
-   * Registered in ApiConfigFeaturesModule
+   * REST-MONGOOSE-INTEGRATION - integration configs
    *
    ***********************************************************************/
+  swaggerConfiguration,
   mongoConfiguration,
 ];

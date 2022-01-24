@@ -1,9 +1,9 @@
-import { NestImportsTypes } from './types/nest.types';
-
 import { ApiDomainUsersFeatureModule } from '@wwwsolutions/api/domain/users/feature';
 import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/authentication/feature';
 
 import { ApiDomainArticleFeatureModule } from '@wwwsolutions/api/domain/article/feature';
+
+import { NestImportsTypes } from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
@@ -18,9 +18,18 @@ import { ApiDomainArticleFeatureModule } from '@wwwsolutions/api/domain/article/
  */
 
 export const domainModules: NestImportsTypes = [
-  /*** <GRAPHQL-PRISMA-INTEGRATION> ***/
+  /* <OPTIONAL> **********************************************************
+   *
+   * GRAPHQL-PRISMA-INTEGRATION - Business logic modules
+   *
+   ***********************************************************************/
   // ApiDomainUsersFeatureModule,
   // ApiDomainAuthenticationFeatureModule,
-  /*** <REST-MONGOOSE-INTEGRATION> ***/
+
+  /* <OPTIONAL> **********************************************************
+   *
+   * REST-MONGOOSE-INTEGRATION - Business logic modules
+   *
+   ***********************************************************************/
   ApiDomainArticleFeatureModule,
 ];

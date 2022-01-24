@@ -2,7 +2,8 @@
 import { environmentConfiguration } from './configs/environment.configuration';
 import { appConfiguration } from './configs/app.configuration';
 import { winstonConfiguration } from './configs/winston.configuration';
-import { swaggerConfiguration } from './configs/swagger.configuration';
+
+import { Configs } from '@wwwsolutions/shared/types';
 
 /* <REQUIRED>
  *
@@ -17,12 +18,8 @@ import { swaggerConfiguration } from './configs/swagger.configuration';
  *
  */
 
-export const appConfigs: any = [
-  /*** <GRAPHQL-PRISMA-INTEGRATION> ***/
+export const appConfigs: Configs = [
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,
-
-  /*** <REST-MONGOOSE-INTEGRATION> ***/
-  swaggerConfiguration,
 ];
