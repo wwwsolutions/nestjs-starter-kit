@@ -14,18 +14,11 @@ export class ArticleController {
   constructor(private readonly article: ArticleService) {}
 
   @Get()
-  // @ApiOkResponse({
-  //   type: Article,
-  //   isArray: true,
-  // })
   async getAllArticles(): Promise<Article[]> {
     return await this.article.getAll();
   }
 
   @Post()
-  // @ApiCreatedResponse({
-  //   type: Article,
-  // })
   async createArticle(@Body() article: CreateArticleDto): Promise<Article> {
     return await this.article.createArticle(article);
   }
