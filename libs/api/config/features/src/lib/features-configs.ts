@@ -1,6 +1,5 @@
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
-import { swaggerConfiguration } from './configs/swagger.configuration';
 
 /* <OPTIONAL>
  *
@@ -21,5 +20,5 @@ export const featuresConfigs: any = [
   jwtConfiguration,
 
   /*** <REST-MONGOOSE-INTEGRATION> ***/
-  swaggerConfiguration,
+  //
 ];

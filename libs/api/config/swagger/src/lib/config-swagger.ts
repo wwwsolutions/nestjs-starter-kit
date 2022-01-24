@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import {
   swaggerConfiguration,
   SwaggerConfiguration,
-} from '@wwwsolutions/api/config/features';
+} from '@wwwsolutions/api/config/integrations';
 
 export function configureSwagger(app: INestApplication) {
   const { domain, swaggerUIPath } = app.get<SwaggerConfiguration>(
