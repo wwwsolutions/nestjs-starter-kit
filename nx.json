@@ -32,13 +32,17 @@
   "defaultProject": "api",
   "generators": {
     "@nrwl/angular:application": {
+      "style": "css",
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
     },
     "@nrwl/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": {}
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
   }
 }
