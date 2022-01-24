@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
+import { swaggerConfiguration } from './configs/swagger.configuration';
 
 /* <OPTIONAL>
  *
@@ -15,4 +15,11 @@ import { adminConfiguration } from './configs/admin.configuration';
  *
  */
 
-export const featuresConfigs: any = [adminConfiguration, jwtConfiguration];
+export const featuresConfigs: any = [
+  /*** <GRAPHQL-PRISMA-INTEGRATION> ***/
+  adminConfiguration,
+  jwtConfiguration,
+
+  /*** <REST-MONGOOSE-INTEGRATION> ***/
+  swaggerConfiguration,
+];
