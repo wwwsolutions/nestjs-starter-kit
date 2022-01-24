@@ -33,7 +33,7 @@
     "docker:build": "docker build . -t courses/api",
     "docker:run": "docker run -it -p 8000:3000 courses/api",
     "api:deploy": "nx deploy api",
-    "api:generate:rest": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/api/data-access/api/src/lib -c openapiconfig.json",
+    "api:generate:rest": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/shared/data-access-api/src/lib -c openapiconfig.json",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
   "dependencies": {
