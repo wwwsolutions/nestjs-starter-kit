@@ -1,6 +1,8 @@
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
 
+import { Configs } from '@wwwsolutions/shared/types';
+
 /* <OPTIONAL>
  *
  * This is a configuration library powered by @nestjs/config and Joi.
@@ -14,11 +16,19 @@ import { adminConfiguration } from './configs/admin.configuration';
  *
  */
 
-export const featuresConfigs: any = [
-  /*** <GRAPHQL-PRISMA-INTEGRATION> ***/
+export const featuresConfigs: Configs = [
+  /* <OPTIONAL> **********************************************************
+   *
+   * GRAPHQL-PRISMA-INTEGRATION - Features/Business logic configs
+   *
+   ***********************************************************************/
   adminConfiguration,
   jwtConfiguration,
 
-  /*** <REST-MONGOOSE-INTEGRATION> ***/
+  /* <OPTIONAL> **********************************************************
+   *
+   * REST-MONGOOSE-INTEGRATION - Features/Business logic configs
+   *
+   ***********************************************************************/
   //
 ];

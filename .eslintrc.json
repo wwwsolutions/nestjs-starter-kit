@@ -36,7 +36,8 @@
                 "onlyDependOnLibsWithTags": [
                   "type:config",
                   "type:integration",
-                  "type:feature"
+                  "type:feature",
+                  "type:types"
                 ]
               },
               {
@@ -45,7 +46,8 @@
                   "type:config",
                   "type:data-access",
                   "type:util",
-                  "type:integration"
+                  "type:integration",
+                  "type:types"
                 ]
               },
               {

@@ -1,13 +1,9 @@
-// https://docs.nestjs.com/techniques/configuration
-
 import { Module } from '@nestjs/common';
-import { ConfigFactory, ConfigModule, ConfigObject } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 
 import { featuresConfigs } from './features-configs';
 
 import { validationSchema } from './validation.schema';
-
-const load: ConfigFactory<ConfigObject>[] | undefined = featuresConfigs;
 
 @Module({
   imports: [
@@ -18,7 +14,7 @@ const load: ConfigFactory<ConfigObject>[] | undefined = featuresConfigs;
         `apps/api/.env.${process.env['NODE' + '_ENV']}`,
       ],
       validationSchema,
-      load,
+      load: featuresConfigs,
     }),
   ],
 })

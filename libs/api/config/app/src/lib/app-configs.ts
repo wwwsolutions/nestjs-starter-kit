@@ -2,7 +2,8 @@
 import { environmentConfiguration } from './configs/environment.configuration';
 import { appConfiguration } from './configs/app.configuration';
 import { winstonConfiguration } from './configs/winston.configuration';
-// import { swaggerConfiguration } from './configs/swagger.configuration';
+
+import { Configs } from '@wwwsolutions/shared/types';
 
 /* <REQUIRED>
  *
@@ -17,7 +18,7 @@ import { winstonConfiguration } from './configs/winston.configuration';
  *
  */
 
-export const appConfigs: any = [
+export const appConfigs: Configs = [
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,

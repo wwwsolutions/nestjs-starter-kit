@@ -6,6 +6,8 @@ import { postgresConfiguration } from './configs/postgresql.configuration';
 import { swaggerConfiguration } from './configs/swagger.configuration';
 import { mongoConfiguration } from './configs/mongo.configuration';
 
+import { Configs } from '@wwwsolutions/shared/types';
+
 /* <OPTIONAL>
  *
  * This is a configuration library powered by @nestjs/config and Joi.
@@ -19,20 +21,20 @@ import { mongoConfiguration } from './configs/mongo.configuration';
  *
  */
 
-export const apiIntegrationConfigs: any = [
+export const apiIntegrationConfigs: Configs = [
   /* <OPTIONAL> **********************************************************
    *
-   * API INTEGRATION - configs for `graphql-prisma` integration
+   * GRAPHQL-PRISMA-INTEGRATION - integration configs
    *
    ***********************************************************************/
   // graphqlConfiguration,
   // apolloServerPluginsConfiguration,
   // prismaConfiguration,
   // postgresConfiguration,
-  //
+
   /* <OPTIONAL> **********************************************************
    *
-   * API INTEGRATION - configs for `rest-mongoose` integration
+   * REST-MONGOOSE-INTEGRATION - integration configs
    *
    ***********************************************************************/
   swaggerConfiguration,

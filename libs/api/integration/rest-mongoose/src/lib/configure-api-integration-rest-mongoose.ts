@@ -1,5 +1,4 @@
 import chalk from 'chalk';
-import { HttpAdapterHost } from '@nestjs/core';
 import { INestApplication, Logger, ValidationPipe } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 

@@ -5,6 +5,7 @@ import {
   Provider,
   Type,
 } from '@nestjs/common';
+import { ConfigFactory, ConfigObject } from '@nestjs/config';
 
 export type NestControllersType = Type<any>[] | undefined;
 
@@ -17,3 +18,5 @@ export type NestImportsType =
 export type NestImportsTypes = Array<NestImportsType>;
 
 export type NestProvidersType = Provider<any>[] | undefined;
+
+export type Configs = ConfigFactory<ConfigObject>[] | undefined;

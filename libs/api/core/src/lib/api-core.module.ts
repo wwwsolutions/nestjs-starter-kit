@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { WinstonModule } from 'nest-winston';
-import { NestControllersType, NestProvidersType } from './types/nest.types';
 
 import {
   ApiConfigAppModule,
@@ -11,8 +10,13 @@ import {
 import { domainModules } from './domains';
 import { integrationModule } from './integration';
 
-import { ApiCoreController } from './controllers/api-core.controller';
-import { ApiCoreResolver } from './resolvers/api-core.resolver';
+import { ApiCoreController } from './api-core.controller';
+import { ApiCoreResolver } from './api-core.resolver';
+
+import {
+  NestControllersType,
+  NestProvidersType,
+} from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
