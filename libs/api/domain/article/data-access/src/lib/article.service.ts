@@ -9,7 +9,6 @@ import { CreateArticleDto } from '@wwwsolutions/api/domain/article/dtos';
 @Injectable()
 export class ArticleService {
   constructor(
-    // inject model
     @InjectModel(Article.name) private readonly article: Model<ArticleDocument>
   ) {}
 
@@ -18,9 +17,7 @@ export class ArticleService {
   }
 
   async createArticle(dto: CreateArticleDto) {
-    // create a new model
     const article = new this.article(dto);
-    // push it to the database
     return await this.article.create(article);
   }
 }

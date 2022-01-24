@@ -24,7 +24,7 @@ import { Configs } from '@wwwsolutions/shared/types';
 export const apiIntegrationConfigs: Configs = [
   /* <OPTIONAL> **********************************************************
    *
-   * GRAPHQL-PRISMA-INTEGRATION - integration configs
+   * Graphql-Prisma-Integration [integration configs]
    *
    ***********************************************************************/
   // graphqlConfiguration,
@@ -34,7 +34,7 @@ export const apiIntegrationConfigs: Configs = [
 
   /* <OPTIONAL> **********************************************************
    *
-   * REST-MONGOOSE-INTEGRATION - integration configs
+   * Rest-Mongoose-Integration [integration configs]
    *
    ***********************************************************************/
   swaggerConfiguration,

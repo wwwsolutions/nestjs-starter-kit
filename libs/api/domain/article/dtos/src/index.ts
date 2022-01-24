@@ -1,1 +1,1 @@
-export * from './lib/create-article.dto';
+export * from './lib/article/create-article.dto';

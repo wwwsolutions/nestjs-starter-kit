@@ -10,7 +10,7 @@ import { PrismaProvider } from './constants/prisma.constants';
 export const validationSchema = Joi.object({
   /* --------------------------------------------------------------
   GRAPHQL
-  api/config/features/src/lib/configs/graphql.configuration.ts
+  api/config/integrations/src/lib/configs/graphql.configuration.ts
   --------------------------------------------------------------- */
 
   // OPTIONAL
@@ -40,7 +40,7 @@ export const validationSchema = Joi.object({
 
   /* --------------------------------------------------------------
   APOLLO SERVER PLUGINS
-  api/config/features/src/lib/configs/apollo-server-plugins.configuration.ts
+  api/config/integrations/src/lib/configs/apollo-server-plugins.configuration.ts
   --------------------------------------------------------------- */
 
   // OPTIONAL
@@ -94,7 +94,7 @@ export const validationSchema = Joi.object({
 
   /* --------------------------------------------------------------
   PRISMA
-  api/config/features/src/lib/configs/postgres.configuration.ts
+  api/config/integrations/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
   // OPTIONAL
@@ -120,7 +120,7 @@ export const validationSchema = Joi.object({
 
   /* --------------------------------------------------------------
   POSTGRES
-  api/config/features/src/lib/configs/postgres.configuration.ts
+  api/config/integrations/src/lib/configs/postgres.configuration.ts
   --------------------------------------------------------------- */
 
   // OPTIONAL
@@ -168,7 +168,7 @@ export const validationSchema = Joi.object({
 
   /* --------------------------------------------------------------
   MONGO
-  api/config/features/src/lib/configs/mongo.configuration.ts
+  api/config/integrations/src/lib/configs/mongo.configuration.ts
   --------------------------------------------------------------- */
 
   // OPTIONAL
@@ -194,11 +194,22 @@ export const validationSchema = Joi.object({
 
   /* --------------------------------------------------------------
   CACHE
-  api/config/features/src/lib/configs/cache.configuration.ts
+  api/config/integrations/src/lib/configs/cache.configuration.ts
   --------------------------------------------------------------- */
   // TODO: add cache validation fields
   // CACHE_DRIVER: Joi.string().default('in-memory').description('CACHE driver'),
   // CACHE_HOST: Joi.string().required().description('CACHE host'),
   // CACHE_PORT: Joi.number().port().required().description('CACHE port'),
   // CACHE_TTL: Joi.number().required().description('CACHE ttl'),
+
+  /* --------------------------------------------------------------
+  SWAGGER
+  api/config/app/src/lib/configs/swagger.configuration.ts
+  --------------------------------------------------------------- */
+
+  // OPTIONAL
+  SWAGGER_UI_DIR: Joi.string()
+    .lowercase()
+    .default('docs')
+    .description('SWAGGER UI directory'),
 });

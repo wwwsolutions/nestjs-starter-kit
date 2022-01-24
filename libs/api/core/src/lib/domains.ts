@@ -20,7 +20,7 @@ import { NestImportsTypes } from '@wwwsolutions/shared/types';
 export const domainModules: NestImportsTypes = [
   /* <OPTIONAL> **********************************************************
    *
-   * GRAPHQL-PRISMA-INTEGRATION - Business logic modules
+   * Graphql-Prisma-Integration [Business logic modules]
    *
    ***********************************************************************/
   // ApiDomainUsersFeatureModule,
@@ -28,7 +28,7 @@ export const domainModules: NestImportsTypes = [
 
   /* <OPTIONAL> **********************************************************
    *
-   * REST-MONGOOSE-INTEGRATION - Business logic modules
+   * Rest-Mongoose-Integration [Business logic modules]
    *
    ***********************************************************************/
   ApiDomainArticleFeatureModule,

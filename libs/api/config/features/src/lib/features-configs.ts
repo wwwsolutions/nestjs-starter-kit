@@ -19,7 +19,7 @@ import { Configs } from '@wwwsolutions/shared/types';
 export const featuresConfigs: Configs = [
   /* <OPTIONAL> **********************************************************
    *
-   * GRAPHQL-PRISMA-INTEGRATION - Features/Business logic configs
+   * Graphql-Prisma-Integration [Features/Business logic configs]
    *
    ***********************************************************************/
   adminConfiguration,
@@ -27,7 +27,7 @@ export const featuresConfigs: Configs = [
 
   /* <OPTIONAL> **********************************************************
    *
-   * REST-MONGOOSE-INTEGRATION - Features/Business logic configs
+   * Rest-Mongoose-Integration [Features/Business logic configs]
    *
    ***********************************************************************/
   //
