@@ -1,5 +1,9 @@
 node_modules
 
-# libs/api/data-access/models/src/lib/generated/*.ts
 **/generated
 
+libs/api/data-access/prisma/src/lib
+
+libs/api/data-access/models/src/lib
+
+libs/shared/data-access-api/src/lib
