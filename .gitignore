@@ -214,3 +214,5 @@ docker-compose-stack.development.yaml
 generated/docker/*
 **/generated
 
+
+.angular

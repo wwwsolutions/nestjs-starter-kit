@@ -23,6 +23,7 @@
               {
                 "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": [
+                  "scope:shared",
                   "type:core",
                   "type:config",
                   "type:data-access",
@@ -34,10 +35,10 @@
               {
                 "sourceTag": "type:core",
                 "onlyDependOnLibsWithTags": [
+                  "scope:shared",
                   "type:config",
                   "type:integration",
-                  "type:feature",
-                  "type:types"
+                  "type:feature"
                 ]
               },
               {
@@ -46,8 +47,7 @@
                   "type:config",
                   "type:data-access",
                   "type:util",
-                  "type:integration",
-                  "type:types"
+                  "type:integration"
                 ]
               },
               {

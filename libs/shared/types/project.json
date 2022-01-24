@@ -30,5 +30,5 @@
       }
     }
   },
-  "tags": ["type:types", "scope:api"]
+  "tags": ["type:data-access", "scope:shared"]
 }
