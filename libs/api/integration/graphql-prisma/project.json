@@ -28,6 +28,44 @@
         "jestConfig": "libs/api/integration/graphql-prisma/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "codegen-resolvers-signature": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma/src/lib/codegen/resolvers-signature.yaml"
+        ]
+      }
+    },
+    "codegen-apollo-angular-components": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma/src/lib/codegen/apollo-angular-components.yaml"
+        ]
+      }
+    },
+    "codegen-schema-types": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "graphql-codegen --config libs/api/integration/graphql-prisma/src/lib/codegen/schema-types.yaml"
+        ]
+      }
+    },
+    "codegen-all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-integration-graphql-prisma:codegen-resolvers-signature",
+          "nx run api-integration-graphql-prisma:codegen-apollo-angular-components",
+          "nx run api-integration-graphql-prisma:codegen-schema-types"
+        ]
+      }
     }
   },
   "tags": ["type:integration", "scope:api"]
