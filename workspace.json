@@ -3,7 +3,6 @@
   "projects": {
     "api": "apps/api",
     "api-config-app": "libs/api/config/app",
-    "api-config-codegen": "libs/api/config/codegen",
     "api-config-docker": "libs/api/config/docker",
     "api-config-features": "libs/api/config/features",
     "api-config-integrations": "libs/api/config/integrations",
