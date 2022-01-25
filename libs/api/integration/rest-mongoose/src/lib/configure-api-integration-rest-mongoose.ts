@@ -2,8 +2,7 @@ import chalk from 'chalk';
 import { INestApplication, Logger, ValidationPipe } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { configureSwagger } from '@wwwsolutions/api/config/swagger';
+import { configureSwagger } from '../lib/swagger/configure-swagger';
 
 import { HttpExceptionFilter } from '@wwwsolutions/shared/utils';
 

@@ -29,9 +29,6 @@
     "strictPropertyInitialization": true,
     "paths": {
       "@wwwsolutions/api/config/app": ["libs/api/config/app/src/index.ts"],
-      "@wwwsolutions/api/config/codegen": [
-        "libs/api/config/codegen/src/index.ts"
-      ],
       "@wwwsolutions/api/config/docker": [
         "libs/api/config/docker/src/index.ts"
       ],
@@ -40,9 +37,6 @@
       ],
       "@wwwsolutions/api/config/integrations": [
         "libs/api/config/integrations/src/index.ts"
-      ],
-      "@wwwsolutions/api/config/swagger": [
-        "libs/api/config/swagger/src/index.ts"
       ],
       "@wwwsolutions/api/core": ["libs/api/core/src/index.ts"],
       "@wwwsolutions/api/data-access/core": [
