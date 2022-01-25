@@ -5,7 +5,9 @@
 
 <ul id="myUL">
   <li *ngFor="let article of articles$ | async">
-    <span>Author: <b>{{ article.author }}</b></span>
+    <span
+      >Author: <b>{{ article.author }}</b></span
+    >
     <p>
       Title: <b>{{ article.text }}</b>
     </p>
