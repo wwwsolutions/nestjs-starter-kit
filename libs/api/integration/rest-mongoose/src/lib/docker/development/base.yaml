@@ -1,0 +1,27 @@
+version: '2.4'
+services:
+  postgres:
+    container_name: postgresdev
+    # image: postgres:14.1-alpine
+    build: # "context" and "dockerfile" fields have to be under "build"
+      context: ../../libs/api/config/docker/src/development/seeds/postgres
+      dockerfile: ./demo/Dockerfile.demo
+      # dockerfile: ./northwind/Dockerfile.northwind
+    restart: always
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-q', '-d', 'postgres', '-U', 'root']
+      timeout: 45s
+      interval: 10s
+      retries: 10
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+
+  redis:
+    image: redis:alpine
+    container_name: redisdev
+
+  mongodb:
+    image: mongo:4.4.11
+    container_name: mongodev
