@@ -1,3 +1,4 @@
+import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/rest-mongoose';
 
 import { NestImportsType } from '@wwwsolutions/shared/types';
@@ -15,4 +16,4 @@ import { NestImportsType } from '@wwwsolutions/shared/types';
  */
 
 export const integrationModule: NestImportsType =
-  ApiIntegrationRestMongooseModule;
+  ApiIntegrationGraphqlPrismaModule;
