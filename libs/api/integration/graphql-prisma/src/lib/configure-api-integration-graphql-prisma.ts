@@ -5,16 +5,18 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-
-import { AllExceptionsFilter } from '@wwwsolutions/shared/utils';
 import { HttpAdapterHost } from '@nestjs/core';
 import { UserInputError } from 'apollo-server-express';
 import chalk from 'chalk';
 
+import { AllExceptionsFilter } from '@wwwsolutions/shared/utils';
+
+import { GraphqlPrisma } from '@wwwsolutions/api/config/app';
+
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
 export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
-  integration: string
+  { integration }: GraphqlPrisma
 ) {
   /******************************************************
    *            ENABLE CUSTOM LOGGER                    *
@@ -36,7 +38,6 @@ export function configureApiIntegrationGraphqlPrisma(
   /******************************************************
    *      ENABLE CUSTOM GLOBAL ERROR HANDLING           *
    ******************************************************/
-  // TODO: fix --> to work with graphql
   const { httpAdapter } = app.get(HttpAdapterHost);
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
 

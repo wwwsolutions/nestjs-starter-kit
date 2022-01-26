@@ -33,7 +33,7 @@ async function bootstrap() {
   );
 
   // APPLICATION CONFIGURATION
-  const { integration, type, domain, path, prefix, port } =
+  const { integration, type, domain, path, globalPrefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   /******************************************************
@@ -46,19 +46,18 @@ async function bootstrap() {
   /******************************************************
    *              SET GLOBAL PREFIX                     *
    ******************************************************/
-  if (prefix) {
-    app.setGlobalPrefix(prefix);
+  if (globalPrefix) {
+    app.setGlobalPrefix(globalPrefix);
   }
 
   /******************************************************
    *        ENABLE/CONFIGURE API INTEGRATION            *
    ******************************************************/
-
   if (integration === graphqlPrisma.integration)
-    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma.integration);
+    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma);
 
   if (integration === restMongoose.integration)
-    configureApiIntegrationRestMongoose(app, restMongoose.integration);
+    configureApiIntegrationRestMongoose(app, restMongoose);
 
   // SERVER
   await app.listen(port, () => {

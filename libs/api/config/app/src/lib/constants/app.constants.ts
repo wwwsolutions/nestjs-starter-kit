@@ -28,7 +28,7 @@ export enum GlobalPrefix {
   API = 'api',
 }
 
-export type Api<
+export type ApiConfiguration<
   T = ApiType,
   I = Integration,
   L = Label,
@@ -39,25 +39,23 @@ export type Api<
   type: T;
   integration: I;
   label: L;
-  protocol?: P;
-  hostname?: H;
-  port?: number;
-  globalPrefix?: GP;
+  protocol: P;
+  hostname: H;
+  port: number;
+  domain: string;
+  globalPrefix: GP;
+  path: string;
 };
 
-export const graphqlPrisma: Api = {
+export const graphqlPrisma: Partial<ApiConfiguration> = {
   type: ApiType.GRAPHQL_API,
   integration: Integration.GRAPHQL_PRISMA,
   label: Label.GPI,
-  // protocol: Protocol.HTTP,
-  // hostname: Hostname.LOCALHOST,
-  // port: 3333,
-  // globalPrefix: GlobalPrefix.GRAPHQL,
 };
 
 export type GraphqlPrisma = typeof graphqlPrisma;
 
-export const restMongoose: Api = {
+export const restMongoose: Partial<ApiConfiguration> = {
   type: ApiType.REST_API,
   integration: Integration.REST_MONGOOSE,
   label: Label.RMI,
