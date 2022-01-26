@@ -14,7 +14,7 @@ import chalk from 'chalk';
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
 export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
-  integrationType: string
+  integration: string
 ) {
   /******************************************************
    *            ENABLE CUSTOM LOGGER                    *
@@ -22,7 +22,7 @@ export function configureApiIntegrationGraphqlPrisma(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(integrationType)} start`),
+    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} start`),
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
@@ -71,7 +71,7 @@ export function configureApiIntegrationGraphqlPrisma(
   );
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(integrationType)} done`),
+    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} done`),
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 }

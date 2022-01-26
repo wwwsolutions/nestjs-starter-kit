@@ -4,7 +4,7 @@ import { Env } from './constants/environment.constants';
 import {
   ApiType,
   Integration,
-  Protocols,
+  Protocol,
   Hostname,
 } from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
@@ -41,8 +41,8 @@ export const validationSchema = Joi.object({
   // OPTIONAL
   API_PROTOCOL: Joi.string()
     .lowercase()
-    .valid(Protocols.HTTP, Protocols.HTTPS)
-    .default(Protocols.HTTP)
+    .valid(Protocol.HTTP, Protocol.HTTPS)
+    .default(Protocol.HTTP)
     .description('API protocol'),
   API_HOSTNAME: Joi.string()
     .hostname()
