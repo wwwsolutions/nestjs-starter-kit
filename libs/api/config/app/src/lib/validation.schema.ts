@@ -4,8 +4,9 @@ import { Env } from './constants/environment.constants';
 import {
   ApiType,
   Integration,
-  Protocols,
+  Protocol,
   Hostname,
+  Label,
 } from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
@@ -37,12 +38,16 @@ export const validationSchema = Joi.object({
     .required()
     .valid(Integration.GRAPHQL_PRISMA, Integration.REST_MONGOOSE)
     .description('API type'),
+  API_INTEGRATION_LABEL: Joi.string()
+    .required()
+    .valid(Label.GPI, Label.RMI)
+    .description('API label'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()
     .lowercase()
-    .valid(Protocols.HTTP, Protocols.HTTPS)
-    .default(Protocols.HTTP)
+    .valid(Protocol.HTTP, Protocol.HTTPS)
+    .default(Protocol.HTTP)
     .description('API protocol'),
   API_HOSTNAME: Joi.string()
     .hostname()

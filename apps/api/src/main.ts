@@ -10,7 +10,8 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  Integration,
+  graphqlPrisma,
+  restMongoose,
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
@@ -32,7 +33,7 @@ async function bootstrap() {
   );
 
   // APPLICATION CONFIGURATION
-  const { integrationType, type, domain, path, prefix, port } =
+  const { integration, type, domain, path, globalPrefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   /******************************************************
@@ -45,18 +46,18 @@ async function bootstrap() {
   /******************************************************
    *              SET GLOBAL PREFIX                     *
    ******************************************************/
-  if (prefix) {
-    app.setGlobalPrefix(prefix);
+  if (globalPrefix) {
+    app.setGlobalPrefix(globalPrefix);
   }
 
   /******************************************************
    *        ENABLE/CONFIGURE API INTEGRATION            *
    ******************************************************/
-  if (integrationType === Integration.GRAPHQL_PRISMA)
-    configureApiIntegrationGraphqlPrisma(app, integrationType);
+  if (integration === graphqlPrisma.integration)
+    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma);
 
-  if (integrationType === Integration.REST_MONGOOSE)
-    configureApiIntegrationRestMongoose(app, integrationType);
+  if (integration === restMongoose.integration)
+    configureApiIntegrationRestMongoose(app, restMongoose);
 
   // SERVER
   await app.listen(port, () => {
