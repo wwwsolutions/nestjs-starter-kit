@@ -10,6 +10,8 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
+  // graphqlPrisma,
+  // restMongoose,
   graphqlPrisma,
   restMongoose,
 } from '@wwwsolutions/api/config/app';
@@ -54,10 +56,10 @@ async function bootstrap() {
    *        ENABLE/CONFIGURE API INTEGRATION            *
    ******************************************************/
   if (integration === graphqlPrisma.integration)
-    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma);
+    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma.integration);
 
   if (integration === restMongoose.integration)
-    configureApiIntegrationRestMongoose(app, restMongoose);
+    configureApiIntegrationRestMongoose(app, restMongoose.integration);
 
   // SERVER
   await app.listen(port, () => {

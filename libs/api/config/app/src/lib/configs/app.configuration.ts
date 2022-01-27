@@ -1,39 +1,35 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
+// import { Api, Type, GlobalPrefix } from '../constants/app.constants';
 import {
-  ApiConfiguration,
-  ApiType,
-  GlobalPrefix,
-  Label,
+  Prefix,
+  graphqlPrisma,
+  restMongoose,
 } from '../constants/app.constants';
 
-export const generateGlobalPrefix = (apiType: string): GlobalPrefix =>
-  apiType === ApiType.REST_API ? GlobalPrefix.API : GlobalPrefix.GRAPHQL;
+export const generateGlobalPrefix = (apiType: string): Prefix =>
+  apiType === restMongoose.type ? restMongoose.prefix : graphqlPrisma.prefix;
 
-export const appConfiguration = registerAs(
-  'app',
-  () =>
-    ({
-      type: process.env.API_TYPE,
-      integration: process.env.API_INTEGRATION,
-      label: process.env.API_INTEGRATION_LABEL,
-      protocol: process.env.API_PROTOCOL,
-      hostname: process.env.API_HOSTNAME,
-      port: Number(process.env.API_PORT),
+export const appConfiguration = registerAs('app', () => ({
+  type: process.env.API_TYPE,
+  integration: process.env.API_INTEGRATION,
+  label: process.env.API_INTEGRATION_LABEL,
+  protocol: process.env.API_PROTOCOL,
+  hostname: process.env.API_HOSTNAME,
+  port: Number(process.env.API_PORT),
 
-      get domain() {
-        return `${this.protocol}://${this.hostname}:${this.port}`;
-      },
+  get domain() {
+    return `${this.protocol}://${this.hostname}:${this.port}`;
+  },
 
-      get globalPrefix() {
-        return generateGlobalPrefix(`${this.type}`);
-      },
+  get globalPrefix() {
+    return generateGlobalPrefix(`${this.type}`);
+  },
 
-      get path() {
-        return this.globalPrefix;
-      },
-    } as ApiConfiguration)
-);
+  get path() {
+    return this.globalPrefix;
+  },
+}));
 
 export type AppConfiguration = ConfigType<typeof appConfiguration>;
 

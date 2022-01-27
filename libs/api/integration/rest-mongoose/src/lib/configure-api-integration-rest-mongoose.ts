@@ -6,12 +6,12 @@ import { configureSwagger } from '../lib/swagger/configure-swagger';
 
 import { HttpExceptionFilter } from '@wwwsolutions/shared/utils';
 
-import { RestMongoose } from '@wwwsolutions/api/config/app';
+// import { RestMongoose } from '@wwwsolutions/api/config/app';
 
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
 export function configureApiIntegrationRestMongoose(
   app: INestApplication,
-  restMongoose: RestMongoose
+  integration: string
 ) {
   /******************************************************
    *            ENABLE CUSTOM LOGGER                    *
@@ -19,7 +19,7 @@ export function configureApiIntegrationRestMongoose(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(restMongoose.integration)} start`),
+    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} start`),
     chalk.gray(configureApiIntegrationRestMongoose.name)
   );
 
@@ -71,7 +71,7 @@ export function configureApiIntegrationRestMongoose(
   );
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(restMongoose.integration)} done`),
+    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} done`),
     chalk.gray(configureApiIntegrationRestMongoose.name)
   );
 }

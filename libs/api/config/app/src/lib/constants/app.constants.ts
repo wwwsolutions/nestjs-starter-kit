@@ -1,19 +1,19 @@
-export enum ApiType {
+enum ApiType {
   GRAPHQL_API = 'GraphQL',
   REST_API = 'REST',
 }
 
-export enum Integration {
+enum ApiIntegration {
   GRAPHQL_PRISMA = 'Graphql-Prisma-Integration',
   REST_MONGOOSE = 'Rest-Mongoose-Integration',
 }
 
-export enum Label {
+enum IntegrationLabel {
   GPI = 'GPI',
   RMI = 'RMI',
 }
 
-export enum Protocol {
+export enum ApiProtocol {
   HTTP = 'http',
   HTTPS = 'https',
 }
@@ -23,42 +23,35 @@ export enum Hostname {
   LOCALHOST = 'localhost',
 }
 
-export enum GlobalPrefix {
+export enum Prefix {
   GRAPHQL = 'graphql',
-  API = 'api',
+  REST = 'api',
 }
 
-export type ApiConfiguration<
+// INTEGRATIONS
+
+export type Integration<
   T = ApiType,
-  I = Integration,
-  L = Label,
-  P = Protocol,
-  H = Hostname,
-  GP = GlobalPrefix
+  I = ApiIntegration,
+  L = IntegrationLabel,
+  P = Prefix
 > = {
   type: T;
   integration: I;
   label: L;
-  protocol: P;
-  hostname: H;
-  port: number;
-  domain: string;
-  globalPrefix: GP;
-  path: string;
+  prefix: P;
 };
 
-export const graphqlPrisma: Partial<ApiConfiguration> = {
+export const graphqlPrisma: Integration = {
   type: ApiType.GRAPHQL_API,
-  integration: Integration.GRAPHQL_PRISMA,
-  label: Label.GPI,
+  integration: ApiIntegration.GRAPHQL_PRISMA,
+  label: IntegrationLabel.GPI,
+  prefix: Prefix.GRAPHQL,
 };
 
-export type GraphqlPrisma = typeof graphqlPrisma;
-
-export const restMongoose: Partial<ApiConfiguration> = {
+export const restMongoose: Integration = {
   type: ApiType.REST_API,
-  integration: Integration.REST_MONGOOSE,
-  label: Label.RMI,
+  integration: ApiIntegration.REST_MONGOOSE,
+  label: IntegrationLabel.RMI,
+  prefix: Prefix.REST,
 };
-
-export type RestMongoose = typeof restMongoose;
