@@ -28,7 +28,7 @@ export enum GlobalPrefix {
   API = 'api',
 }
 
-export type ApiConfiguration<
+export type Api<
   T = ApiType,
   I = Integration,
   L = Label,
@@ -47,7 +47,7 @@ export type ApiConfiguration<
   path: string;
 };
 
-export const graphqlPrisma: Partial<ApiConfiguration> = {
+export const graphqlPrisma: Partial<Api> = {
   type: ApiType.GRAPHQL_API,
   integration: Integration.GRAPHQL_PRISMA,
   label: Label.GPI,
@@ -55,7 +55,7 @@ export const graphqlPrisma: Partial<ApiConfiguration> = {
 
 export type GraphqlPrisma = typeof graphqlPrisma;
 
-export const restMongoose: Partial<ApiConfiguration> = {
+export const restMongoose: Partial<Api> = {
   type: ApiType.REST_API,
   integration: Integration.REST_MONGOOSE,
   label: Label.RMI,

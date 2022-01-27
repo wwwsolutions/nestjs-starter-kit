@@ -1,11 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
-import {
-  ApiConfiguration,
-  ApiType,
-  GlobalPrefix,
-  Label,
-} from '../constants/app.constants';
+import { Api, ApiType, GlobalPrefix } from '../constants/app.constants';
 
 export const generateGlobalPrefix = (apiType: string): GlobalPrefix =>
   apiType === ApiType.REST_API ? GlobalPrefix.API : GlobalPrefix.GRAPHQL;
@@ -32,7 +27,7 @@ export const appConfiguration = registerAs(
       get path() {
         return this.globalPrefix;
       },
-    } as ApiConfiguration)
+    } as Api)
 );
 
 export type AppConfiguration = ConfigType<typeof appConfiguration>;
