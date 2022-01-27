@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
-// import { Api, Type, GlobalPrefix } from '../constants/app.constants';
+
 import {
   Prefix,
   graphqlPrisma,
