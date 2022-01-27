@@ -11,12 +11,10 @@ import chalk from 'chalk';
 
 import { AllExceptionsFilter } from '@wwwsolutions/shared/utils';
 
-import { GraphqlPrisma } from '@wwwsolutions/api/config/app';
-
 // CONFIGURATION SPECIFIC TO THIS INTEGRATION
 export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
-  { integration }: GraphqlPrisma
+  integration: string
 ) {
   /******************************************************
    *            ENABLE CUSTOM LOGGER                    *
