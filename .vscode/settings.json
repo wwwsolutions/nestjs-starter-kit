@@ -24,5 +24,5 @@
     "MD004": { "style": "consistent" },
     "MD040": false
   },
-  "cSpell.words": ["rootpassword"]
+  "cSpell.words": ["mongodev", "postgresdev", "redisdev", "rootpassword"]
 }
