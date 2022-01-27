@@ -4,7 +4,6 @@ services:
     container_name: postgresdev
     # image: postgres:14.1-alpine
     build: # "context" and "dockerfile" fields have to be under "build"
-      # context: ../../libs/api/config/docker/src/development/seeds/postgres
       context: ../../libs/api/integration/graphql-prisma/src/lib/docker/development/seeds/postgres
       dockerfile: ./demo/Dockerfile.demo
       # dockerfile: ./northwind/Dockerfile.northwind
@@ -22,7 +21,3 @@ services:
   redis:
     image: redis:alpine
     container_name: redisdev
-
-  mongodb:
-    image: mongo:4.4.11
-    container_name: mongodev

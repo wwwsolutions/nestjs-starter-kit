@@ -11,16 +11,10 @@ services:
       - postgresql-bin:/usr/lib/postgresql
       - pgadmin-root-prefs:/root/.pgadmin
 
-  mongodb:
-    volumes:
-      - mongodb-data:/data/db
-
 volumes:
   pg-data:
     driver: local
   postgresql-bin:
     driver: local
   pgadmin-root-prefs:
-    driver: local
-  mongodb-data:
     driver: local
