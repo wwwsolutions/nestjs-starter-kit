@@ -35,7 +35,7 @@
         "parallel": false,
         "cwd": "libs/api/integration/rest-mongoose/src/lib/docker",
         "commands": [
-          "docker-compose --project-name rmi-{args.mode} --verbose --env-file ../../../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
+          "docker-compose --project-name rest-mongo-integration-{args.mode} --verbose --env-file ../../../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
         ]
       }
     },
@@ -44,7 +44,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name rmi-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
+          "docker-compose --project-name rest-mongo-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
         ]
       }
     },
@@ -53,7 +53,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name rmi-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
+          "docker-compose --project-name rest-mongo-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
         ]
       }
     },

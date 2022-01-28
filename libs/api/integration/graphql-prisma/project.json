@@ -71,18 +71,19 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "cwd": "libs/api/integration/graphql-prisma/src",
+        "cwd": "libs/api/integration/graphql-prisma/src/lib/docker",
         "commands": [
-          "docker-compose --project-name gpi-{args.mode} --verbose --env-file ../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose --env-file ../../../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
         ]
       }
     },
+
     "docker-up": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name gpi-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
         ]
       }
     },
@@ -91,7 +92,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "docker-compose --project-name gpi-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
         ]
       }
     },
