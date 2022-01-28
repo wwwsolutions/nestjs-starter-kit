@@ -66,6 +66,95 @@
           "nx run api-integration-graphql-prisma:codegen-schema-types"
         ]
       }
+    },
+    "docker-compose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "libs/api/integration/graphql-prisma/src/lib/docker",
+        "commands": [
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose --env-file ../../../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
+        ]
+      }
+    },
+
+    "docker-up": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml up --build -d"
+        ]
+      }
+    },
+    "docker-down": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose --project-name graphql-prisma-integration-{args.mode} --verbose -f generated/docker/docker-compose-stack.{args.mode}.yaml down --volumes --remove-orphans"
+        ]
+      }
+    },
+    "docker-clean": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx rimraf -lf generated/docker/docker-compose-stack.{args.mode}.yaml",
+          "npx rimraf generated/docker/volumes"
+        ]
+      }
+    },
+    "docker-config": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose -f generated/docker/docker-compose-stack.{args.mode}.yaml config"
+        ]
+      }
+    },
+    "docker-logs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose  -f generated/docker/docker-compose-stack.{args.mode}.yaml logs -f -t --tail 30"
+        ]
+      }
+    },
+    "docker-logs-save": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "docker-compose -f generated/docker/docker-compose-stack.{args.mode}.yaml logs -f -t >> .docker/logs/myDockerCompose.log"
+        ]
+      }
+    },
+    "docker-system-prune": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": ["docker system prune -a --volumes -f"]
+      }
+    },
+    "docker-list-of-all-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-integration-graphql-prisma:docker-compose --mode=development",
+          "nx run api-integration-graphql-prisma:docker-up --mode=development",
+          "nx run api-integration-graphql-prisma:docker-down --mode=development",
+          "nx run api-integration-graphql-prisma:docker-clean --mode=development",
+          "nx run api-integration-graphql-prisma:docker-config --mode=development",
+          "nx run api-integration-graphql-prisma:docker-logs --mode=development",
+          "nx run api-integration-graphql-prisma:docker-logs-save --mode=development",
+          "nx run api-integration-graphql-prisma:docker-system-prune"
+        ]
+      }
     }
   },
   "tags": ["type:integration", "scope:api"]

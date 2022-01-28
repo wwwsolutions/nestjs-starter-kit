@@ -2,17 +2,12 @@ import * as Joi from 'joi';
 
 import { Env } from './constants/environment.constants';
 import {
-  // Type,
-  // Integration,
-  // graphqlPrisma,
   ApiProtocol,
-  Hostname,
-  // Label,
-  // restApiType,
-  // graphqlApiType,
-  // restApiPrefix,
+  ApiHostname,
   graphqlPrisma,
   restMongoose,
+  graphqlApiType,
+  restApiType,
 } from './constants/app.constants';
 import { WinstonLogLevel } from './constants/winston.constants';
 
@@ -38,7 +33,7 @@ export const validationSchema = Joi.object({
   // REQUIRED
   API_TYPE: Joi.string()
     .required()
-    .valid(graphqlPrisma.type, restMongoose.type)
+    .valid(graphqlApiType.type, restApiType.type)
     .description('API type'),
   API_INTEGRATION: Joi.string()
     .required()
@@ -57,9 +52,8 @@ export const validationSchema = Joi.object({
     .description('API protocol'),
   API_HOSTNAME: Joi.string()
     .hostname()
-    .default(Hostname.LOCALHOST)
+    .default(ApiHostname.LOCALHOST)
     .description('API host'),
-
   API_PORT: Joi.number().port().default(3000).description('API port'),
 
   /* --------------------------------------------------------------

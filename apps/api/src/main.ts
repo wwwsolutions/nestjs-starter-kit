@@ -10,8 +10,6 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  // graphqlPrisma,
-  // restMongoose,
   graphqlPrisma,
   restMongoose,
 } from '@wwwsolutions/api/config/app';

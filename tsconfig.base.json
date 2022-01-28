@@ -29,9 +29,6 @@
     "strictPropertyInitialization": true,
     "paths": {
       "@wwwsolutions/api/config/app": ["libs/api/config/app/src/index.ts"],
-      "@wwwsolutions/api/config/docker": [
-        "libs/api/config/docker/src/index.ts"
-      ],
       "@wwwsolutions/api/config/features": [
         "libs/api/config/features/src/index.ts"
       ],

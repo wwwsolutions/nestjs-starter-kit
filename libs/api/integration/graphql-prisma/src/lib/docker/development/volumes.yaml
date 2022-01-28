@@ -4,16 +4,12 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
       - postgresql-bin:/usr/lib/postgresql
-      - ../../../../../../generated/docker/volumes/files:/files
+      - ../../../../../../../../generated/docker/volumes/files:/files
 
   pgadmin:
     volumes:
       - postgresql-bin:/usr/lib/postgresql
       - pgadmin-root-prefs:/root/.pgadmin
-
-  mongodb:
-    volumes:
-      - mongodb-data:/data/db
 
 volumes:
   pg-data:
@@ -21,6 +17,4 @@ volumes:
   postgresql-bin:
     driver: local
   pgadmin-root-prefs:
-    driver: local
-  mongodb-data:
     driver: local
