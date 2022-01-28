@@ -71,7 +71,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "cwd": "libs/api/config/docker/src",
+        "cwd": "libs/api/integration/graphql-prisma/src",
         "commands": [
           "docker-compose --project-name gpi-{args.mode} --verbose --env-file ../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
         ]

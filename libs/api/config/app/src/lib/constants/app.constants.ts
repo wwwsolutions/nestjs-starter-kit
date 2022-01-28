@@ -48,8 +48,6 @@ export const restApiType: RestApiType = { type: ApiType.REST };
 type Http = Pick<Api<ApiProtocol.HTTP>, 'protocol'>;
 export const http: Http = { protocol: ApiProtocol.HTTP };
 
-console.log('>>>>>>>>>', graphqlApiType.type, restApiType.type);
-
 // INTEGRATIONS
 export type Integration<
   T = ApiType,
