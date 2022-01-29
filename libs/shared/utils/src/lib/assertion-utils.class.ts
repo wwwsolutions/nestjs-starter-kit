@@ -6,6 +6,15 @@ import { AssertionError } from 'assert';
 type ErrorMessage = { message: string };
 
 export class AssertionUtils {
+  static assert(
+    condition: unknown,
+    errorMessage: ErrorMessage = { message: 'Is not true!' }
+  ): asserts condition {
+    if (!condition) {
+      throw new AssertionError(errorMessage);
+    }
+  }
+
   static assertIsNumber(
     val: unknown,
     errorMessage: ErrorMessage = { message: 'Not a number!' }
