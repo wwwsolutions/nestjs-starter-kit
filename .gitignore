@@ -1,7 +1,7 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,angular,dotenv,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,angular,dotenv,node
+# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,node,dotenv,angular
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,node,dotenv,angular
 
 ### Angular ###
 ## Angular ##
@@ -26,6 +26,7 @@ libpeerconnection.log/
 npm-debug.log
 testem.log
 typings/
+.angular/
 
 # e2e
 e2e/*.js
@@ -33,6 +34,9 @@ e2e/*.map
 
 # System Files
 .DS_Store/
+
+### dotenv ###
+.env
 
 ### Node ###
 # Logs
@@ -90,6 +94,9 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+# Optional stylelint cache
+.stylelintcache
+
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -105,9 +112,11 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env.test
-.env.production
+# dotenv environment variable files
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -129,6 +138,12 @@ dist
 
 # vuepress build output
 .vuepress/dist
+
+# vuepress v2.x temp and cache directory
+.temp
+
+# Docusaurus cache and generated files
+.docusaurus
 
 # Serverless directories
 .serverless/
@@ -152,21 +167,35 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
+# Optional stylelint cache
+
+# SvelteKit build / generate output
+.svelte-kit
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
+
+# Built Visual Studio Code Extensions
+*.vsix
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
 .ionide
+
+# Support for Project snippet scope
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -194,19 +223,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-### dotenv ###
-.env
-.env.local
-.local.env
-.env.development
-.env.production
-.env.staging
-.env.testing
-
-
-# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,angular,dotenv,node
+# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,node,dotenv,angular
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+
 desktop.ini
 .angular/
 docker-compose-stack.development.yaml
