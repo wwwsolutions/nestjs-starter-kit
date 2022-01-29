@@ -77,7 +77,6 @@
         ]
       }
     },
-
     "docker-up": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
