@@ -8,16 +8,24 @@ type ErrorMessage = { message: string };
 export class AssertionUtils {
   static assert(
     condition: unknown,
-    errorMessage: ErrorMessage = { message: 'Is not true!' }
+    errorMessage: ErrorMessage = { message: `Expected 'val' to be truthy!` }
   ): asserts condition {
     if (!condition) {
       throw new AssertionError(errorMessage);
     }
   }
 
+  static assertIsDefined<T>(val: T): asserts val is NonNullable<T> {
+    if (val === undefined || val === null) {
+      throw new AssertionError({
+        message: `Expected 'val' to be defined, but received ${val}`,
+      });
+    }
+  }
+
   static assertIsNumber(
     val: unknown,
-    errorMessage: ErrorMessage = { message: 'Not a number!' }
+    errorMessage: ErrorMessage = { message: `Expected 'val' to be a number!` }
   ): asserts val is number {
     if (typeof val !== 'number') {
       throw new AssertionError(errorMessage);
@@ -26,7 +34,7 @@ export class AssertionUtils {
 
   static assertIsString(
     val: unknown,
-    errorMessage: ErrorMessage = { message: 'Not a string!' }
+    errorMessage: ErrorMessage = { message: `Expected 'val' to be a string!` }
   ): asserts val is string {
     if (typeof val !== 'string') {
       throw new AssertionError(errorMessage);
@@ -35,7 +43,7 @@ export class AssertionUtils {
 
   static assertIsObject(
     val: unknown,
-    errorMessage: ErrorMessage = { message: 'Not a object!' }
+    errorMessage: ErrorMessage = { message: `Expected 'val' to be an object!` }
   ): asserts val is object {
     if (typeof val !== 'object' || val === null) {
       throw new AssertionError(errorMessage);
@@ -45,7 +53,7 @@ export class AssertionUtils {
   static assertIsNonEmptyArrayOfStrings(
     val: unknown,
     errorMessage: ErrorMessage = {
-      message: 'Not empty array or is not an array of string!',
+      message: `Expected 'val' to be an array of strings or not empty array!`,
     }
   ): asserts val is object {
     if (
