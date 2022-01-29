@@ -1,7 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AssertionError } from 'assert';
 
-// see @hqoss/guards
+// source
+// https://www.npmjs.com/package/@hqoss/guards
+
+// TODO: fix error
+// TODO: write tests
 
 type ErrorMessage = { message: string };
 
@@ -61,6 +64,17 @@ export class AssertionUtils {
       val.length > 0 &&
       val.every((item) => typeof item === 'string')
     ) {
+      throw new AssertionError(errorMessage);
+    }
+  }
+
+  static assertIsNonEmptyArray<T, U>(
+    val: Array<T> | U,
+    errorMessage: ErrorMessage = {
+      message: `Expected 'val' not to be an empty array!`,
+    }
+  ): asserts val is Array<T> {
+    if (Array.isArray(val) && val.length > 0) {
       throw new AssertionError(errorMessage);
     }
   }
