@@ -25,10 +25,25 @@ export class AssertionUtils {
   }
 
   static assertIsObject(
-    obj: unknown,
+    val: unknown,
     errorMessage: ErrorMessage = { message: 'Not a object!' }
-  ): asserts obj is object {
-    if (typeof obj !== 'object' || obj === null) {
+  ): asserts val is object {
+    if (typeof val !== 'object' || val === null) {
+      throw new AssertionError(errorMessage);
+    }
+  }
+
+  static assertIsNonEmptyArrayOfStrings(
+    val: unknown,
+    errorMessage: ErrorMessage = {
+      message: 'Not empty array or is not an array of string!',
+    }
+  ): asserts val is object {
+    if (
+      Array.isArray(val) &&
+      val.length > 0 &&
+      val.every((item) => typeof item === 'string')
+    ) {
       throw new AssertionError(errorMessage);
     }
   }
