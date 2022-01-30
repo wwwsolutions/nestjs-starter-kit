@@ -36,23 +36,32 @@ async function bootstrap() {
   const { integration, type, domain, path, globalPrefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
-  /******************************************************
-   *                  ENABLE CORS                       *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                     ENABLE CORS                            ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   if (environment) {
     app.enableCors();
   }
 
-  /******************************************************
-   *              SET GLOBAL PREFIX                     *
-   ******************************************************/
+  /*
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                  SET GLOBAL PREFIX                         ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   if (globalPrefix) {
     app.setGlobalPrefix(globalPrefix);
   }
 
-  /******************************************************
-   *        ENABLE/CONFIGURE API INTEGRATION            *
-   ******************************************************/
+  /*
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓             ENABLE/CONFIGURE API INTEGRATION               ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   if (integration === graphqlPrisma.integration)
     configureApiIntegrationGraphqlPrisma(app, graphqlPrisma.integration);
 

@@ -17,6 +17,20 @@ import { NestImportsTypes } from '@wwwsolutions/shared/types';
  *
  */
 
+/*
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▓                                                            ▓
+▓             REGISTER DOMAIN FEATURE MODULES                ▓
+▓                WHICH HOLD BUSINESS LOGIC                   ▓
+▓                                                            ▓
+▓ <examples>                                                 ▓
+▓                                                            ▓
+▓    ApiDomainUsersFeatureModule                             ▓
+▓    ApiDomainAuthenticationFeatureModule                    ▓
+▓                                                            ▓
+▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+*/
+
 export const domainModules: NestImportsTypes = [
   /* <OPTIONAL> **********************************************************
    *

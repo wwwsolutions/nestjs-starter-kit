@@ -16,9 +16,12 @@ export function configureApiIntegrationGraphqlPrisma(
   app: INestApplication,
   integration: string
 ) {
-  /******************************************************
-   *            ENABLE CUSTOM LOGGER                    *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                  ENABLE CUSTOM LOGGER                      ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
@@ -33,9 +36,12 @@ export function configureApiIntegrationGraphqlPrisma(
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
-  /******************************************************
-   *      ENABLE CUSTOM GLOBAL ERROR HANDLING           *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓            ENABLE CUSTOM GLOBAL ERROR HANDLING             ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   const { httpAdapter } = app.get(HttpAdapterHost);
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
 
@@ -48,9 +54,12 @@ export function configureApiIntegrationGraphqlPrisma(
     chalk.gray(configureApiIntegrationGraphqlPrisma.name)
   );
 
-  /******************************************************
-   *              ENABLE GLOBAL PIPES                   *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                  ENABLE GLOBAL PIPES                       ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
