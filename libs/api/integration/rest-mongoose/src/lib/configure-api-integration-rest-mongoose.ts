@@ -13,9 +13,12 @@ export function configureApiIntegrationRestMongoose(
   app: INestApplication,
   integration: string
 ) {
-  /******************************************************
-   *            ENABLE CUSTOM LOGGER                    *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                  ENABLE CUSTOM LOGGER                      ▓
+  █▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅█
+  */
+
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
@@ -30,9 +33,12 @@ export function configureApiIntegrationRestMongoose(
     chalk.gray(configureApiIntegrationRestMongoose.name)
   );
 
-  /******************************************************
-   *            ENABLE SWAGGER                          *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                     ENABLE SWAGGER                         ▓
+  █▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅█
+  */
+
   const swagger = configureSwagger(app);
 
   Logger.log(
@@ -44,9 +50,12 @@ export function configureApiIntegrationRestMongoose(
     chalk.gray(configureApiIntegrationRestMongoose.name)
   );
 
-  /******************************************************
-   *      ENABLE CUSTOM GLOBAL ERROR HANDLING           *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓            ENABLE CUSTOM GLOBAL ERROR HANDLING             ▓
+  █▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅█
+  */
+
   app.useGlobalFilters(new HttpExceptionFilter());
 
   Logger.log(
@@ -58,9 +67,12 @@ export function configureApiIntegrationRestMongoose(
     chalk.gray(configureApiIntegrationRestMongoose.name)
   );
 
-  /******************************************************
-   *              ENABLE GLOBAL PIPES                   *
-   ******************************************************/
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓                  ENABLE GLOBAL PIPES                       ▓
+  █▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅█
+  */
+
   app.useGlobalPipes(new ValidationPipe());
 
   Logger.log(
