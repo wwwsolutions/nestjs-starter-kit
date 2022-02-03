@@ -27,3 +27,4 @@ Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrat
 - [x] bump prisma
 - [ ] fix prisma config for migrations - env variables DATABASE_URL & DATABASE_URL_PROD
 - [ ] fix env environment config loading
+- [ ] Configure and test error handling: graphql-prisma-integration vs rest-mongoose-integration
