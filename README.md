@@ -18,3 +18,11 @@ Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrat
 [<img alt="ioredis" src="https://img.shields.io/github/package-json/dependency-version/bkonkle/nestjs-example-caster-api/ioredis?logo=redis&style=flat&color=a51f17" />](https://github.com/luin/ioredis)
 
 **See [wiki](https://github.com/wwwsolutions/nestjs-starter-kit/wiki) for details.**
+
+---
+
+## TODOS
+
+- [ ] bump workspace
+- [ ] bump prisma
+- [ ] fix prisma config env variables + env environment config loading
