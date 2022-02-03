@@ -24,6 +24,6 @@ Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrat
 ## TODOS
 
 - [x] bump workspace
-- [ ] bump prisma
+- [x] bump prisma
 - [ ] fix prisma config for migrations - env variables DATABASE_URL & DATABASE_URL_PROD
 - [ ] fix env environment config loading
