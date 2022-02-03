@@ -113,7 +113,7 @@
     "husky": "^7.0.0",
     "jest": "^27.4.7",
     "jest-preset-angular": "^10.1.0",
-    "lint-staged": "^12.3.1",
+    "lint-staged": "^12.3.3",
     "ng-packagr": "13.2.1",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
