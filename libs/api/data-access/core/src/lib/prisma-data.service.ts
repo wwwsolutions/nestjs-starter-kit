@@ -60,13 +60,16 @@ export class PrismaDataService
     readonly prismaConfiguration: PrismaConfiguration
   ) {
     super({
-      datasources: prismaConfiguration.schemaDatasourcesUrlOverride,
+      datasources:
+        environmentConfiguration.env === Env.PRODUCTION
+          ? prismaConfiguration.schemaDatasourcesUrlOverride
+          : prismaConfiguration.schemaDatasourcesUrlOverride,
       log:
-        environmentConfiguration.env === Env.DEVELOPMENT
-          ? [PrismaLogLevel.QUERY, PrismaLogLevel.ERROR, PrismaLogLevel.WARN]
-          : [PrismaLogLevel.ERROR],
+        environmentConfiguration.env === Env.PRODUCTION
+          ? [PrismaLogLevel.ERROR]
+          : [PrismaLogLevel.QUERY, PrismaLogLevel.ERROR, PrismaLogLevel.WARN],
       errorFormat:
-        environmentConfiguration.env === Env.DEVELOPMENT ? 'pretty' : 'minimal',
+        environmentConfiguration.env === Env.PRODUCTION ? 'minimal' : 'pretty',
     });
 
     this.defaultAdmin = this.adminConfiguration.admin.defaultAdmin;

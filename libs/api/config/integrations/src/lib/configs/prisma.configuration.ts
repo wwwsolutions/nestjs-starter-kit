@@ -4,9 +4,7 @@ import { ConfigType, registerAs } from '@nestjs/config';
 
 import { PrismaProvider } from '../constants/prisma.constants';
 
-const composeDatabaseConnectionUrl = (
-  prismaProvider: PrismaProvider
-): string => {
+const composePrismaDatasourceUrl = (prismaProvider: PrismaProvider): string => {
   // 'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'
   switch (prismaProvider) {
     case PrismaProvider.SQLITE:
@@ -29,7 +27,7 @@ const composeDatabaseConnectionUrl = (
       return 'cockroachdb_connection_'; // TODO: create connection string
 
     default:
-      throw 'No Prisma Providers passed to composeDatabaseConnectionUrl fn!';
+      throw 'No Prisma Providers passed to composePrismaDatasourceUrl fn!';
   }
 };
 
@@ -43,7 +41,7 @@ export const prismaConfiguration = registerAs('prisma', () => ({
     else {
       return {
         [this.provider]: {
-          url: composeDatabaseConnectionUrl(this.provider),
+          url: composePrismaDatasourceUrl(this.provider),
         },
       };
     }
