@@ -36,8 +36,21 @@ export const prismaConfiguration = registerAs('prisma', () => ({
   shadowDatabaseUrl: process.env.PRISMA_DATASOURCE_SHADOW_URL,
   referentialIntegrity: process.env.PRISMA_DATASOURCE_REF_INTEGRITY,
 
-  get schemaDatasourcesUrlOverride() {
-    if (!this.provider) throw 'Prisma provider is not defined';
+  get prodSchemaDatasourcesUrlOverride() {
+    if (!this.provider)
+      throw 'Prisma provider in PRODUCTION mode is not defined';
+    else {
+      return {
+        [this.provider]: {
+          url: composePrismaDatasourceUrl(this.provider),
+        },
+      };
+    }
+  },
+
+  get devSchemaDatasourcesUrlOverride() {
+    if (!this.provider)
+      throw 'Prisma provider in DEVELOPMENT mode is not defined';
     else {
       return {
         [this.provider]: {

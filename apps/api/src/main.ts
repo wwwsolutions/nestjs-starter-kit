@@ -21,8 +21,8 @@ import { DebugUtils } from '@wwwsolutions/shared/utils';
 
 async function bootstrap() {
   // HELPER --> DEBUG ENV VARIABLES
-  DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
-  DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
+  // DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
+  // DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
