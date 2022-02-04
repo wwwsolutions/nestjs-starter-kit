@@ -24,6 +24,10 @@ const composeDatabaseConnectionUrl = (
 
     case PrismaProvider.MONGODB:
       return 'mongodb_connection_'; // TODO: create connection string
+
+    case PrismaProvider.COCKROACHDB:
+      return 'cockroachdb_connection_'; // TODO: create connection string
+
     default:
       throw 'No Prisma Providers passed to composeDatabaseConnectionUrl fn!';
   }
