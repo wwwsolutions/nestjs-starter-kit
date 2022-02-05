@@ -4,14 +4,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
 import {
+  ChalkConfiguration,
+  chalkConfiguration,
   EnvironmentConfiguration,
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  graphqlPrisma,
-  restMongoose,
-  ChalkConfiguration,
-  chalkConfiguration,
+  graphqlPrismaIntegration,
+  restMongooseIntegration,
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
@@ -65,11 +65,17 @@ async function bootstrap() {
   ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
   */
 
-  if (integration === graphqlPrisma.integration)
-    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma.integration);
+  if (integration === graphqlPrismaIntegration.integration)
+    configureApiIntegrationGraphqlPrisma(
+      app,
+      graphqlPrismaIntegration.integration
+    );
 
-  if (integration === restMongoose.integration)
-    configureApiIntegrationRestMongoose(app, restMongoose.integration);
+  if (integration === restMongooseIntegration.integration)
+    configureApiIntegrationRestMongoose(
+      app,
+      restMongooseIntegration.integration
+    );
 
   // SERVER
   await app.listen(port, () => {

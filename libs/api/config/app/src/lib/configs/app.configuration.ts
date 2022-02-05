@@ -3,12 +3,14 @@ import { ConfigType, registerAs } from '@nestjs/config';
 
 import {
   Prefix,
-  graphqlPrisma,
-  restMongoose,
+  graphqlPrismaIntegration,
+  restMongooseIntegration,
 } from '../constants/app.constants';
 
 export const generateGlobalPrefix = (apiType: string): Prefix =>
-  apiType === restMongoose.type ? restMongoose.prefix : graphqlPrisma.prefix;
+  apiType === restMongooseIntegration.type
+    ? restMongooseIntegration.prefix
+    : graphqlPrismaIntegration.prefix;
 
 export const appConfiguration = registerAs('app', () => ({
   type: process.env.API_TYPE,

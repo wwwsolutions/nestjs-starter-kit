@@ -26,7 +26,6 @@ export const chalkConfiguration = registerAs('chalk', () => ({
   colorBlack: process.env.THEME_COLOR_BLACK as string,
 
   get info() {
-    // return chalk.bold.hex(this.black).bgHex(this.gray);
     return chalk.bold.hex(this.colorBlack).bgHex(this.colorYellow);
   },
 

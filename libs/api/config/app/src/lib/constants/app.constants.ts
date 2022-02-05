@@ -61,14 +61,14 @@ export type Integration<
   prefix: P;
 };
 
-export const graphqlPrisma: Integration = {
+export const graphqlPrismaIntegration: Integration = {
   type: ApiType.GRAPHQL,
   integration: ApiIntegration.GRAPHQL_PRISMA,
   label: ApiIntegrationLabel.GPI,
   prefix: Prefix.GRAPHQL,
 };
 
-export const restMongoose: Integration = {
+export const restMongooseIntegration: Integration = {
   type: ApiType.REST,
   integration: ApiIntegration.REST_MONGOOSE,
   label: ApiIntegrationLabel.RMI,

@@ -4,8 +4,8 @@ import { Env } from './constants/environment.constants';
 import {
   ApiProtocol,
   ApiHostname,
-  graphqlPrisma,
-  restMongoose,
+  graphqlPrismaIntegration,
+  restMongooseIntegration,
   graphqlApiType,
   restApiType,
 } from './constants/app.constants';
@@ -38,11 +38,14 @@ export const validationSchema = Joi.object({
     .description('API type'),
   API_INTEGRATION: Joi.string()
     .required()
-    .valid(graphqlPrisma.integration, restMongoose.integration)
+    .valid(
+      graphqlPrismaIntegration.integration,
+      restMongooseIntegration.integration
+    )
     .description('API integration'),
   API_INTEGRATION_LABEL: Joi.string()
     .required()
-    .valid(graphqlPrisma.label, restMongoose.label)
+    .valid(graphqlPrismaIntegration.label, restMongooseIntegration.label)
     .description('API label'),
 
   // OPTIONAL
