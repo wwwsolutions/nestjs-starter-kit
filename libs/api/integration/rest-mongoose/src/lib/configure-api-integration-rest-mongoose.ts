@@ -53,7 +53,9 @@ export function configureApiIntegrationRestMongoose(
   Logger.log(
     chalk.success(
       `🔒 ${chalk.warning(
-        `Swagger Docs: ${swagger.domain}${swagger.swaggerUIPath}`
+        `Swagger Docs: ${chalk.warningClickable(
+          swagger.domain + swagger.swaggerUIPath
+        )}`
       )} implemented`
     ),
     chalk.info(configureApiIntegrationRestMongoose.name)
