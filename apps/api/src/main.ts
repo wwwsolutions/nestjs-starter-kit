@@ -1,8 +1,6 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import chalk from 'chalk';
-
 import { AppModule } from './app/app.module';
 
 import {
@@ -12,6 +10,8 @@ import {
   appConfiguration,
   graphqlPrisma,
   restMongoose,
+  ChalkConfiguration,
+  chalkConfiguration,
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
@@ -26,6 +26,9 @@ async function bootstrap() {
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
+
+  // ENVIRONMENT CONFIGURATION
+  const chalk = app.get<ChalkConfiguration>(chalkConfiguration.KEY);
 
   // ENVIRONMENT CONFIGURATION
   const { env: environment } = app.get<EnvironmentConfiguration>(
@@ -71,19 +74,19 @@ async function bootstrap() {
   // SERVER
   await app.listen(port, () => {
     Logger.log(
-      chalk.gray(
-        `🚀 Server ready at: ${chalk.bgYellow.black(domain + '/' + path)}`
+      chalk.success(
+        `🚀 Server ready at: ${chalk.warning(domain + '/' + path)}`
       ),
-      chalk.gray(bootstrap.name)
+      chalk.info(bootstrap.name)
     );
 
     Logger.log(
-      chalk.gray(
-        `🚀 Running ${chalk.bgYellow.black(
-          type
-        )} API, in ${chalk.bgYellow.black(environment)} mode`
+      chalk.success(
+        `🚀 Running ${chalk.warning(type)} API, in ${chalk.warning(
+          environment
+        )} mode`
       ),
-      chalk.gray(bootstrap.name)
+      chalk.info(bootstrap.name)
     );
   });
 }

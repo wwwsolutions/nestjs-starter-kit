@@ -12,37 +12,38 @@ export const chalkConfiguration = registerAs('chalk', () => ({
   // dangerColor: process.env.THEME_DANGER_COLOR as string,
   // lightColor: process.env.THEME_LIGHT_COLOR as string,
   // darkColor: process.env.THEME_DARK_COLOR as string,
-  blue: process.env.THEME_COLOR_BLUE as string,
-  indigo: process.env.THEME_COLOR_INDIGO as string,
-  purple: process.env.THEME_COLOR_PURPLE as string,
-  pink: process.env.THEME_COLOR_PINK as string,
-  red: process.env.THEME_COLOR_RED as string,
-  orange: process.env.THEME_COLOR_ORANGE as string,
-  yellow: process.env.THEME_COLOR_YELLOW as string,
-  green: process.env.THEME_COLOR_GREEN as string,
-  teal: process.env.THEME_COLOR_TEAL as string,
-  cyan: process.env.THEME_COLOR_CYAN as string,
-  gray: process.env.THEME_COLOR_GRAY as string,
-  black: process.env.THEME_COLOR_BLACK as string,
+  colorBlue: process.env.THEME_COLOR_BLUE as string,
+  colorIndigo: process.env.THEME_COLOR_INDIGO as string,
+  colorPurple: process.env.THEME_COLOR_PURPLE as string,
+  colorPink: process.env.THEME_COLOR_PINK as string,
+  colorRed: process.env.THEME_COLOR_RED as string,
+  colorOrange: process.env.THEME_COLOR_ORANGE as string,
+  colorYellow: process.env.THEME_COLOR_YELLOW as string,
+  colorGreen: process.env.THEME_COLOR_GREEN as string,
+  colorTeal: process.env.THEME_COLOR_TEAL as string,
+  colorCyan: process.env.THEME_COLOR_CYAN as string,
+  colorGray: process.env.THEME_COLOR_GRAY as string,
+  colorBlack: process.env.THEME_COLOR_BLACK as string,
 
   get info() {
-    return chalk.bold.hex(this.black).bgHex(this.gray);
+    // return chalk.bold.hex(this.black).bgHex(this.gray);
+    return chalk.bold.hex(this.colorBlack).bgHex(this.colorYellow);
   },
 
   get success() {
-    return chalk.bold.hex(this.black).bgHex(this.green);
+    return chalk.bold.hex(this.colorBlack).bgHex(this.colorGreen);
   },
 
   get warning() {
-    return chalk.bold.hex(this.black).bgHex(this.orange);
+    return chalk.bold.hex(this.colorBlack).bgHex(this.colorOrange);
   },
 
   get danger() {
-    return chalk.bold.hex(this.black).bgHex(this.red);
+    return chalk.bold.hex(this.colorBlack).bgHex(this.colorRed);
   },
 
   get result() {
-    return chalk.bold.hex(this.purple).bgHex(this.black);
+    return chalk.bold.hex(this.colorPurple).bgHex(this.colorBlack);
   },
 }));
 
