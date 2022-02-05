@@ -61,6 +61,7 @@ export type Integration<
   prefix: P;
 };
 
+// INTEGRATIONS
 export const graphqlPrismaIntegration: Integration = {
   type: ApiType.GRAPHQL,
   integration: ApiIntegration.GRAPHQL_PRISMA,

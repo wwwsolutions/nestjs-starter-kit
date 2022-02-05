@@ -27,7 +27,7 @@ async function bootstrap() {
   // APPLICATION
   const app = await NestFactory.create(AppModule);
 
-  // ENVIRONMENT CONFIGURATION
+  // CHALK CONFIGURATION
   const chalk = app.get<ChalkConfiguration>(chalkConfiguration.KEY);
 
   // ENVIRONMENT CONFIGURATION
@@ -79,21 +79,17 @@ async function bootstrap() {
 
   // SERVER
   await app.listen(port, () => {
-    Logger.log(
-      chalk.success(
-        `🚀 Server ready at: ${chalk.warning(domain + '/' + path)}`
-      ),
-      chalk.info(bootstrap.name)
-    );
+    console.log(`
+    
+    [${chalk.info(bootstrap.name)}]
+    
+    🚀 Running ${chalk.warning(type)} API /w ${chalk.warning(
+      integration
+    )}, in ${chalk.warning(environment)} mode
 
-    Logger.log(
-      chalk.success(
-        `🚀 Running ${chalk.warning(type)} API, in ${chalk.warning(
-          environment
-        )} mode`
-      ),
-      chalk.info(bootstrap.name)
-    );
+    🚀 Server ready at: ${chalk.warningClickable(domain + '/' + path)}
+
+    `);
   });
 }
 

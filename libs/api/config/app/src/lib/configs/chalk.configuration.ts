@@ -26,7 +26,8 @@ export const chalkConfiguration = registerAs('chalk', () => ({
   colorBlack: process.env.THEME_COLOR_BLACK as string,
 
   get info() {
-    return chalk.bold.hex(this.colorBlack).bgHex(this.colorYellow);
+    // return chalk.bold.hex(this.colorBlack).bgHex(this.colorYellow);
+    return chalk.hex(this.colorGray);
   },
 
   get success() {
@@ -35,6 +36,10 @@ export const chalkConfiguration = registerAs('chalk', () => ({
 
   get warning() {
     return chalk.bold.hex(this.colorBlack).bgHex(this.colorOrange);
+  },
+
+  get warningClickable() {
+    return chalk.bold.hex(this.colorBlack).bgHex(this.colorOrange).underline;
   },
 
   get danger() {
