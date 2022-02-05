@@ -62,16 +62,16 @@ export type Integration<
 };
 
 // INTEGRATIONS
-export const graphqlPrismaIntegration: Integration = {
-  type: ApiType.GRAPHQL,
-  integration: ApiIntegration.GRAPHQL_PRISMA,
-  label: ApiIntegrationLabel.GPI,
-  prefix: Prefix.GRAPHQL,
-};
+// export const graphqlPrismaIntegration: Integration = {
+//   type: ApiType.GRAPHQL,
+//   integration: ApiIntegration.GRAPHQL_PRISMA,
+//   label: ApiIntegrationLabel.GPI,
+//   prefix: Prefix.GRAPHQL,
+// };
 
-export const restMongooseIntegration: Integration = {
-  type: ApiType.REST,
-  integration: ApiIntegration.REST_MONGOOSE,
-  label: ApiIntegrationLabel.RMI,
-  prefix: Prefix.REST,
-};
+// export const restMongooseIntegration: Integration = {
+//   type: ApiType.REST,
+//   integration: ApiIntegration.REST_MONGOOSE,
+//   label: ApiIntegrationLabel.RMI,
+//   prefix: Prefix.REST,
+// };

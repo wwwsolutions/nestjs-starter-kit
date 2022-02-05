@@ -2,7 +2,7 @@
 import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 
-import { PrismaProvider } from '../constants/prisma.constants';
+import { PrismaProvider } from '@wwwsolutions/shared/types';
 
 const composePrismaDatasourceUrl = (prismaProvider: PrismaProvider): string => {
   // 'PRISMA: Connection URL including authentication info. Most connectors use the syntax provided by the database.'

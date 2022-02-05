@@ -5,7 +5,7 @@ import {
   Prefix,
   graphqlPrismaIntegration,
   restMongooseIntegration,
-} from '../constants/app.constants';
+} from '@wwwsolutions/shared/types';
 
 export const generateGlobalPrefix = (apiType: string): Prefix =>
   apiType === restMongooseIntegration.type

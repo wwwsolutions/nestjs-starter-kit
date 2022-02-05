@@ -1,14 +1,14 @@
-export enum Colors {
-  blue = '#0d6efd',
-  indigo = '#6610f2',
-  purple = '#6f42c1',
-  pink = '#d63384',
-  red = '#dc3545',
-  orange = '#fd7e14',
-  yellow = '#ffc107',
-  green = '#198754',
-  teal = '#20c997',
-  cyan = '#0dcaf0',
-  gray = '#adb5bd',
-  black = '#000000',
-}
+// export enum Colors {
+//   blue = '#0d6efd',
+//   indigo = '#6610f2',
+//   purple = '#6f42c1',
+//   pink = '#d63384',
+//   red = '#dc3545',
+//   orange = '#fd7e14',
+//   yellow = '#ffc107',
+//   green = '#198754',
+//   teal = '#20c997',
+//   cyan = '#0dcaf0',
+//   gray = '#adb5bd',
+//   black = '#000000',
+// }

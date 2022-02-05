@@ -10,9 +10,14 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
+  // graphqlPrismaIntegration,
+  // restMongooseIntegration,
+} from '@wwwsolutions/api/config/app';
+
+import {
   graphqlPrismaIntegration,
   restMongooseIntegration,
-} from '@wwwsolutions/api/config/app';
+} from '@wwwsolutions/shared/types';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
 import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
