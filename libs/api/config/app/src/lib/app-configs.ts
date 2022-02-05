@@ -2,6 +2,7 @@
 import { environmentConfiguration } from './configs/environment.configuration';
 import { appConfiguration } from './configs/app.configuration';
 import { winstonConfiguration } from './configs/winston.configuration';
+import { chalkConfiguration } from './configs/chalk.configuration';
 
 import { Configs } from '@wwwsolutions/shared/types';
 
@@ -24,4 +25,5 @@ export const appConfigs: Configs = [
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,
+  chalkConfiguration,
 ];

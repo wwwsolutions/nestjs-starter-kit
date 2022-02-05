@@ -23,8 +23,15 @@ Nx Monorepo **NestJS** starter with various **RestAPI** and **GraphQL** integrat
 
 ## TODOS
 
+- [ ] Integrate CerBos (authorization) with NestJS
 - [x] bump workspace
 - [x] bump prisma
 - [ ] fix prisma config for migrations - env variables DATABASE_URL & DATABASE_URL_PROD
 - [ ] fix env environment config loading
 - [ ] Configure and test error handling: graphql-prisma-integration vs rest-mongoose-integration
+
+## IMPORTANT
+
+### CHALK
+
+Chalk 5 is ESM. If you want to use Chalk with TypeScript or a build tool, you will probably want to use Chalk 4 for now. [Read more](https://github.com/chalk/chalk/releases/tag/v5.0.0)

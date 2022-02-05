@@ -11,4 +11,5 @@ export enum PrismaProvider {
   MYSQL = 'mysql',
   SQLSERVER = 'sqlserver',
   MONGODB = 'mongodb',
+  COCKROACHDB = 'cockroachdb',
 }

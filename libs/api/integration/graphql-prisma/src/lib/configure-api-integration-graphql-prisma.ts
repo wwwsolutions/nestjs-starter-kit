@@ -7,7 +7,11 @@ import {
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { HttpAdapterHost } from '@nestjs/core';
 import { UserInputError } from 'apollo-server-express';
-import chalk from 'chalk';
+
+import {
+  chalkConfiguration,
+  ChalkConfiguration,
+} from '@wwwsolutions/api/config/app';
 
 import { AllExceptionsFilter } from '@wwwsolutions/shared/utils';
 
@@ -18,6 +22,14 @@ export function configureApiIntegrationGraphqlPrisma(
 ) {
   /* 
   █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+  ▓             ENABLE COLORING CONSOLE OUTPUT                 ▓
+  ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
+  */
+
+  const chalk = app.get<ChalkConfiguration>(chalkConfiguration.KEY);
+
+  /* 
+  █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
   ▓                  ENABLE CUSTOM LOGGER                      ▓
   ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
   */
@@ -25,15 +37,13 @@ export function configureApiIntegrationGraphqlPrisma(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} start`),
-    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
+    chalk.success(`🔒 ${chalk.warning(integration)} start`),
+    chalk.info(configureApiIntegrationGraphqlPrisma.name)
   );
 
   Logger.log(
-    chalk.gray(
-      `🔒 ${chalk.bgYellow.black('Custom Logger: Winston')} implemented`
-    ),
-    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
+    chalk.success(`🔒 ${chalk.warning('Custom Logger: Winston')} implemented`),
+    chalk.info(configureApiIntegrationGraphqlPrisma.name)
   );
 
   /* 
@@ -46,12 +56,12 @@ export function configureApiIntegrationGraphqlPrisma(
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter as never));
 
   Logger.log(
-    chalk.gray(
-      `🔒 ${chalk.bgYellow.black(
+    chalk.success(
+      `🔒 ${chalk.warning(
         'Global Exception Filter: AllExceptionsFilter'
       )} implemented`
     ),
-    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
+    chalk.info(configureApiIntegrationGraphqlPrisma.name)
   );
 
   /* 
@@ -72,14 +82,14 @@ export function configureApiIntegrationGraphqlPrisma(
   );
 
   Logger.log(
-    chalk.gray(
-      `🔒 ${chalk.bgYellow.black('Global Pipes: ValidationPipe')} implemented`
+    chalk.success(
+      `🔒 ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
     ),
-    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
+    chalk.info(configureApiIntegrationGraphqlPrisma.name)
   );
 
   Logger.log(
-    chalk.gray(`🔒 ${chalk.bgYellow.black(integration)} done`),
-    chalk.gray(configureApiIntegrationGraphqlPrisma.name)
+    chalk.success(`🔒 ${chalk.warning(integration)} done`),
+    chalk.info(configureApiIntegrationGraphqlPrisma.name)
   );
 }

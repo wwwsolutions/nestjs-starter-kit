@@ -105,7 +105,8 @@ export const validationSchema = Joi.object({
       PrismaProvider.POSTGRESQL,
       PrismaProvider.MYSQL,
       PrismaProvider.SQLSERVER,
-      PrismaProvider.MONGODB
+      PrismaProvider.MONGODB,
+      PrismaProvider.COCKROACHDB
     )
     .default(PrismaProvider.POSTGRESQL)
     .description('PRISMA: Describes which data source connectors to use.'),

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 // https://notiz.dev/blog/how-to-connect-nestjs-with-prisma
-import chalk from 'chalk';
+// import chalk from 'chalk';
 
 import {
   INestApplication,
@@ -14,6 +14,8 @@ import {
   InjectEnvironmentConfig,
   EnvironmentConfiguration,
   Env,
+  InjectChalkConfig,
+  ChalkConfiguration,
 } from '@wwwsolutions/api/config/app';
 
 import {
@@ -45,11 +47,14 @@ export class PrismaDataService
   extends PrismaClient
   implements OnModuleInit, OnModuleDestroy
 {
-  private readonly logger = new Logger(chalk.gray(PrismaDataService.name));
+  private readonly logger = new Logger(this.chalk.info(PrismaDataService.name));
 
   private readonly defaultAdmin: UserCreateInput | undefined;
 
   constructor(
+    @InjectChalkConfig()
+    private readonly chalk: ChalkConfiguration,
+
     @InjectEnvironmentConfig()
     readonly environmentConfiguration: EnvironmentConfiguration,
 
@@ -60,24 +65,45 @@ export class PrismaDataService
     readonly prismaConfiguration: PrismaConfiguration
   ) {
     super({
-      datasources: prismaConfiguration.schemaDatasourcesUrlOverride,
+      datasources:
+        environmentConfiguration.env === Env.PRODUCTION
+          ? prismaConfiguration.prodSchemaDatasourcesUrlOverride
+          : prismaConfiguration.devSchemaDatasourcesUrlOverride,
       log:
-        environmentConfiguration.env === Env.DEVELOPMENT
-          ? [PrismaLogLevel.QUERY, PrismaLogLevel.ERROR, PrismaLogLevel.WARN]
-          : [PrismaLogLevel.ERROR],
+        environmentConfiguration.env === Env.PRODUCTION
+          ? [PrismaLogLevel.ERROR]
+          : [PrismaLogLevel.QUERY, PrismaLogLevel.ERROR, PrismaLogLevel.WARN],
       errorFormat:
-        environmentConfiguration.env === Env.DEVELOPMENT ? 'pretty' : 'minimal',
+        environmentConfiguration.env === Env.PRODUCTION ? 'minimal' : 'pretty',
     });
 
     this.defaultAdmin = this.adminConfiguration.admin.defaultAdmin;
 
     this.logger.log(
-      chalk.magenta(
-        `🔶 Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
+      chalk.result(
+        `🔶 ${environmentConfiguration.env} mode: Load default admin user from .env via adminConfiguration, '${this.defaultAdmin.email}'`
       )
     );
 
-    this.logger.log(this.prismaConfiguration.schemaDatasourcesUrlOverride);
+    environmentConfiguration.env === Env.PRODUCTION
+      ? this.logger.log(
+          chalk.result(
+            `🔶 ${
+              environmentConfiguration.env
+            } mode: datasource config, '${JSON.stringify(
+              this.prismaConfiguration.prodSchemaDatasourcesUrlOverride
+            )}'`
+          )
+        )
+      : this.logger.log(
+          chalk.result(
+            `🔶 ${
+              environmentConfiguration.env
+            } mode: datasource config, '${JSON.stringify(
+              this.prismaConfiguration.devSchemaDatasourcesUrlOverride
+            )}'`
+          )
+        );
   }
 
   /**
@@ -85,7 +111,11 @@ export class PrismaDataService
    */
   async onModuleInit(): Promise<void> {
     await this.$connect();
-    this.logger.log(chalk.magenta(`🔶 Prisma connected`));
+    this.logger.log(
+      this.chalk.success(
+        `🔶 ${this.environmentConfiguration.env} mode: connected`
+      )
+    );
     await this.ensureDefaultAdminUser();
   }
 
@@ -93,13 +123,21 @@ export class PrismaDataService
    * Disconnect from the database when the application is shutting down.
    */
   async onModuleDestroy(): Promise<void> {
-    this.logger.log(chalk.magenta(`🔶 Prisma disconnected`));
+    this.logger.log(
+      this.chalk.success(
+        `🔶 ${this.environmentConfiguration.env} mode: disconnected`
+      )
+    );
     await this.$disconnect(); // `PrismaClient` method
   }
 
   async enableShutdownHooks(app: INestApplication) {
     this.$on('beforeExit', async () => {
-      this.logger.log(chalk.magenta(`🔶 App closed`));
+      this.logger.log(
+        this.chalk.success(
+          `🔶 ${this.environmentConfiguration.env} mode: app closed`
+        )
+      );
       await app.close();
     });
   }
@@ -107,8 +145,12 @@ export class PrismaDataService
   async findManyUsers({ orderBy }: FindManyUserArgs): Promise<User[]> {
     const found = await this.user.findMany({ orderBy }); // `PrismaClient` method
     this.logger.log(
-      chalk.magenta(
-        `🔶 findManyUsers, '${found.map((user: { id: unknown }) => user.id)}'`
+      this.chalk.result(
+        `🔶 ${
+          this.environmentConfiguration.env
+        } mode: findManyUsers, '${found.map(
+          (user: { id: unknown }) => user.id
+        )}'`
       )
     );
     return found;
@@ -118,20 +160,33 @@ export class PrismaDataService
   async createUser(createOneUserArgs: CreateOneUserArgs): Promise<User> {
     const created = await this.user.create(createOneUserArgs); // `PrismaClient` method
     this.logger.log(
-      chalk.magenta(`🔶 createUser, '${created.id}', '${created.email}'`)
+      this.chalk.result(
+        `🔶 ${this.environmentConfiguration.env} mode: createUser, '${created.id}', '${created.email}'`
+      )
     );
+
     return created;
   }
 
   async findUserByEmail(email: string): Promise<User | null> {
     const found = await this.user.findUnique({ where: { email } }); // `PrismaClient` method
-    this.logger.log(chalk.magenta(`🔶 findUserByEmail, '${found?.email}'`));
+    this.logger.log(
+      this.chalk.result(
+        `🔶 ${this.environmentConfiguration.env} mode: findUserByEmail, '${found?.email}'`
+      )
+    );
+
     return found;
   }
 
   async findUserById(id: number): Promise<User | null> {
     const found = await this.user.findUnique({ where: { id } }); // `PrismaClient` method
-    this.logger.log(chalk.magenta(`🔶 findUserById, '${found?.id}'`));
+    this.logger.log(
+      this.chalk.result(
+        `🔶 ${this.environmentConfiguration.env} mode: findUserById, '${found?.id}'`
+      )
+    );
+
     return found;
   }
 
@@ -147,8 +202,11 @@ export class PrismaDataService
 
     if (found) {
       this.logger.log(
-        chalk.magenta(`🤓 Existing default admin user: '${found.email}'`)
+        this.chalk.result(
+          `🤓 ${this.environmentConfiguration.env} mode: Existing default admin user, '${found.email}'`
+        )
       );
+
       return true;
     }
 
@@ -158,7 +216,9 @@ export class PrismaDataService
     });
 
     this.logger.log(
-      chalk.magenta(`🤓 Created default admin user: '${created.email}'`)
+      this.chalk.result(
+        `🤓 ${this.environmentConfiguration.env} mode: Created default admin user: '${created.email}'`
+      )
     );
 
     return true;

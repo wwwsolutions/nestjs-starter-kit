@@ -1,17 +1,17 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import chalk from 'chalk';
-
 import { AppModule } from './app/app.module';
 
 import {
+  ChalkConfiguration,
+  chalkConfiguration,
   EnvironmentConfiguration,
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  graphqlPrisma,
-  restMongoose,
+  graphqlPrismaIntegration,
+  restMongooseIntegration,
 } from '@wwwsolutions/api/config/app';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
@@ -21,11 +21,14 @@ import { DebugUtils } from '@wwwsolutions/shared/utils';
 
 async function bootstrap() {
   // HELPER --> DEBUG ENV VARIABLES
-  DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
-  DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
+  // DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
+  // DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
+
+  // CHALK CONFIGURATION
+  const chalk = app.get<ChalkConfiguration>(chalkConfiguration.KEY);
 
   // ENVIRONMENT CONFIGURATION
   const { env: environment } = app.get<EnvironmentConfiguration>(
@@ -62,29 +65,31 @@ async function bootstrap() {
   ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
   */
 
-  if (integration === graphqlPrisma.integration)
-    configureApiIntegrationGraphqlPrisma(app, graphqlPrisma.integration);
+  if (integration === graphqlPrismaIntegration.integration)
+    configureApiIntegrationGraphqlPrisma(
+      app,
+      graphqlPrismaIntegration.integration
+    );
 
-  if (integration === restMongoose.integration)
-    configureApiIntegrationRestMongoose(app, restMongoose.integration);
+  if (integration === restMongooseIntegration.integration)
+    configureApiIntegrationRestMongoose(
+      app,
+      restMongooseIntegration.integration
+    );
 
   // SERVER
   await app.listen(port, () => {
-    Logger.log(
-      chalk.gray(
-        `🚀 Server ready at: ${chalk.bgYellow.black(domain + '/' + path)}`
-      ),
-      chalk.gray(bootstrap.name)
-    );
+    console.log(`
+    
+    [${chalk.info(bootstrap.name)}]
+    
+    🚀 Running ${chalk.warning(type)} API /w ${chalk.warning(
+      integration
+    )}, in ${chalk.warning(environment)} mode
 
-    Logger.log(
-      chalk.gray(
-        `🚀 Running ${chalk.bgYellow.black(
-          type
-        )} API, in ${chalk.bgYellow.black(environment)} mode`
-      ),
-      chalk.gray(bootstrap.name)
-    );
+    🚀 Server ready at: ${chalk.warningClickable(domain + '/' + path)}
+
+    `);
   });
 }
 
