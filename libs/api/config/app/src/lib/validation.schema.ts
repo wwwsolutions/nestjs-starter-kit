@@ -6,11 +6,11 @@ import {
   ApiHostname,
   graphqlPrismaIntegration,
   restMongooseIntegration,
-  graphqlApiType,
-  restApiType,
+  apiGraphql,
+  apiRest,
   WinstonLogLevel,
   Colors,
-} from '@wwwsolutions/shared/types';
+} from '@wwwsolutions/api/common/types';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE
@@ -32,10 +32,6 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // REQUIRED
-  API_TYPE: Joi.string()
-    .required()
-    .valid(graphqlApiType.type, restApiType.type)
-    .description('API type'),
   API_INTEGRATION: Joi.string()
     .required()
     .valid(
@@ -43,10 +39,6 @@ export const validationSchema = Joi.object({
       restMongooseIntegration.integration
     )
     .description('API integration'),
-  API_INTEGRATION_LABEL: Joi.string()
-    .required()
-    .valid(graphqlPrismaIntegration.label, restMongooseIntegration.label)
-    .description('API label'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()

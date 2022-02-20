@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-common-types": "libs/api/common/types",
     "api-config-app": "libs/api/config/app",
     "api-config-features": "libs/api/config/features",
     "api-config-integrations": "libs/api/config/integrations",
@@ -17,10 +18,12 @@
     "api-domain-users-data-access": "libs/api/domain/users/data-access",
     "api-domain-users-feature": "libs/api/domain/users/feature",
     "api-integration-graphql-prisma": "libs/api/integration/graphql-prisma",
+    "api-integration-graphql-prisma-postgres-codegen": "libs/api/integration/graphql-prisma-postgres/codegen",
+    "api-integration-graphql-prisma-postgres-docker": "libs/api/integration/graphql-prisma-postgres/docker",
+    "api-integration-graphql-prisma-postgres-feature": "libs/api/integration/graphql-prisma-postgres/feature",
     "api-integration-rest-mongoose": "libs/api/integration/rest-mongoose",
-    "api-shared-data-access-api": "libs/api/shared/data-access-api",
     "client-angular": "apps/client-angular",
-    "shared-types": "libs/shared/types",
+    "shared-data-access-api": "libs/shared/data-access-api",
     "shared-utils": "libs/shared/utils"
   }
 }

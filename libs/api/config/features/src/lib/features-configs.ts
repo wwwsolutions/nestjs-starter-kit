@@ -1,7 +1,7 @@
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
 
-import { Configs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/api/common/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
@@ -18,10 +18,10 @@ import { Configs } from '@wwwsolutions/shared/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const featuresConfigs: Configs = [
+export const featuresConfigs: NestConfigs = [
   /* <OPTIONAL> **********************************************************
    *
-   * Graphql-Prisma-Integration [Features/Business logic configs]
+   * GraphQL-Prisma-Postgres-Integration [Features/Business logic configs]
    *
    ***********************************************************************/
   adminConfiguration,

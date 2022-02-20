@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 import joiPassword from 'joi-password';
 
-import { PrismaProvider, ApiHostname } from '@wwwsolutions/shared/types';
+import { PrismaProvider, ApiHostname } from '@wwwsolutions/api/common/types';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE

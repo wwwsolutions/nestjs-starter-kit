@@ -17,9 +17,9 @@ import {
 import {
   graphqlPrismaIntegration,
   restMongooseIntegration,
-} from '@wwwsolutions/shared/types';
+} from '@wwwsolutions/api/common/types';
 
-import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
+import { configureApiIntegrationGraphqlPrismaPostgres } from '@wwwsolutions/api/integration/graphql-prisma-postgres/feature';
 import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
@@ -41,7 +41,7 @@ async function bootstrap() {
   );
 
   // APPLICATION CONFIGURATION
-  const { integration, type, domain, path, globalPrefix, port } =
+  const { integration, apiType, domain, path, globalPrefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   /* 
@@ -71,7 +71,7 @@ async function bootstrap() {
   */
 
   if (integration === graphqlPrismaIntegration.integration)
-    configureApiIntegrationGraphqlPrisma(
+    configureApiIntegrationGraphqlPrismaPostgres(
       app,
       graphqlPrismaIntegration.integration
     );
@@ -88,7 +88,7 @@ async function bootstrap() {
     
     [${chalk.info(bootstrap.name)}]
     
-    🚀 Running ${chalk.warning(type)} API /w ${chalk.warning(
+    🚀 Running ${chalk.warning(apiType)} API /w ${chalk.warning(
       integration
     )}, in ${chalk.warning(environment)} mode
 

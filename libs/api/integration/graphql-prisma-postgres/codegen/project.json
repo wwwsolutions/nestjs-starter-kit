@@ -1,0 +1,65 @@
+{
+  "root": "libs/api/integration/graphql-prisma-postgres/codegen",
+  "sourceRoot": "libs/api/integration/graphql-prisma-postgres/codegen/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/integration/graphql-prisma-postgres/codegen",
+        "main": "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts",
+        "tsConfig": "libs/api/integration/graphql-prisma-postgres/codegen/tsconfig.lib.json",
+        "assets": ["libs/api/integration/graphql-prisma-postgres/codegen/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/integration/graphql-prisma-postgres/codegen/**/*.ts"
+        ]
+      }
+    },
+    "resolvers-signature": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/resolvers-signature.yaml"
+        ]
+      }
+    },
+    "apollo-angular-components": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/apollo-angular-components.yaml"
+        ]
+      }
+    },
+    "schema-types": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/schema-types.yaml"
+        ]
+      }
+    },
+    "list-of-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-integration-graphql-prisma-postgres-codegen:resolvers-signature",
+          "nx run api-integration-graphql-prisma-postgres-codegen:apollo-angular-components",
+          "nx run api-integration-graphql-prisma-postgres-codegen:schema-types"
+        ]
+      }
+    }
+  },
+  "tags": ["type:config", "scope:api"]
+}

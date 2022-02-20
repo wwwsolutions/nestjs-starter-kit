@@ -1,0 +1,116 @@
+# FROM node:14.18.0-alpine AS base
+# WORKDIR /app
+# # COPY package*.json yarn.lock ./
+# # ENV GENERATE_SOURCEMAP=false
+# # ENV NODE_OPTIONS=--max-old-space-size=2048
+
+# # RUN npm install && npm cache clean --force
+# # RUN npm install; exit 0
+# # RUN npm install
+
+# # #####################################
+# # #        BACKEND ENVIRONMENT        #
+# # #####################################
+
+# # FROM base AS backend-base
+# # COPY backend/package.json backend/yarn.lock ./
+# # COPY ../../../../../../../../package.json ../../../../../../../../package-lock.json ./
+# # COPY ../../../../../../../../package.json ../../../../../../../../yarn-lock ./
+# # COPY xyz ./
+# FROM base AS backend-base
+# COPY package*.json yarn.lock ./
+
+# # # FROM backend-base AS backend-dev
+# # # RUN yarn install && yarn cache clean
+# # # CMD ["npm", "run", "dev"]
+# # FROM backend-base AS backend-dev
+# # COPY ./dist/apps/api .
+# # ENV PORT=3333
+# # EXPOSE ${PORT}
+# # # RUN npm install --production
+# # RUN yarn install && yarn cache clean
+# # # dependencies that nestjs needs
+# # # RUN npm install reflect-metadata@^0.1.13 tslib@^2.3.1 rxjs@^7.1.0 @nestjs/platform-express@^8.2.0
+# # # RUN yarn add reflect-metadata@^0.1.13 tslib@^2.3.1 rxjs@^7.1.0 @nestjs/platform-express@^8.2.0 --save
+# # CMD node ./main.js
+
+# FROM backend-base AS backend-dev
+# RUN npm install && npm cache clean --force
+# # CMD ["npm", "run", "start:dev"]
+# RUN npm run start:dev
+
+# FROM backend-base AS backend-prod
+# RUN npm install && npm cache clean --force
+# # CMD ["npm", "run", "start:dev"]
+# RUN npm run start:prod
+
+
+# # # #####################################
+# # # #       FRONTEND ENVIRONMENT        #
+# # # #####################################
+
+# # # # FROM base AS frontend-base
+# # # # COPY frontend/package.json frontend/yarn.lock ./
+# # # # RUN yarn install && yarn cache clean
+# # # # CMD ["yarn", "start"]
+# # # FROM base AS frontend-base
+# # # COPY ./dist/apps/html .
+# # # ENV PORT=3334
+# # # EXPOSE ${PORT}
+# # # RUN npm install --production
+# # # RUN npm install reflect-metadata tslib rxjs hbs
+# # # CMD node ./main.js
+
+# # FROM base AS frontend-base
+# # RUN yarn install && yarn cache clean
+# # CMD ["yarn", "start:dev"]
+
+
+# # # # FROM frontend-base AS frontend-final
+# # # # COPY frontend/public ./public
+# # # # COPY frontend/src ./src
+# # # # RUN yarn build
+
+# # # #####################################
+# # # #       COMBINED ENVIRONMENT        #
+# # # #####################################
+
+# # # # FROM backend-base AS final
+# # # # RUN yarn install --production && yarn cache clean
+# # # # COPY backend/src ./src
+# # # # COPY --from=frontend-final /app/build /app/src/static
+# # # # CMD ["node", "/app/src/index.js"]
+
+# FROM backend-base AS final
+
+
+# ### NESTJS https://www.youtube.com/watch?v=NG2GPsxN3Ec
+
+# # FROM node:14.18.0-alpine AS development
+
+# # WORKDIR /usr/src/app
+
+# # COPY package*.json ./
+
+# # RUN npm install
+
+# # COPY . .
+
+# # RUN npm run build
+
+# # FROM node:14.18.0-alpine as production
+
+# # ARG NODE_ENV=production
+# # ENV NODE_ENV=${NODE_ENV}
+
+# # WORKDIR /usr/src/app
+
+# # COPY package*.json ./
+
+# # RUN npm install --only=production
+
+# # COPY . .
+
+# # COPY --from=development /usr/src/app/dist ./dist
+
+# # CMD ["yarn", "start:prod"]

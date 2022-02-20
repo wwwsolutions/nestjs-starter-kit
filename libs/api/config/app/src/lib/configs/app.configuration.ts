@@ -2,34 +2,51 @@ import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 
 import {
-  Prefix,
+  ApiPrefix,
   graphqlPrismaIntegration,
   restMongooseIntegration,
-} from '@wwwsolutions/shared/types';
+} from '@wwwsolutions/api/common/types';
 
-export const generateGlobalPrefix = (apiType: string): Prefix =>
+export const generateGlobalPrefix = (apiType: string): ApiPrefix =>
   apiType === restMongooseIntegration.type
     ? restMongooseIntegration.prefix
     : graphqlPrismaIntegration.prefix;
 
+export const generateLabel = (apiIntegration: string): string =>
+  apiIntegration
+    .split('-')
+    .map((word: string) => word.charAt(0))
+    .join('');
+
+export const generateApiType = (apiIntegration: string): string =>
+  apiIntegration.split('-')[0];
+
 export const appConfiguration = registerAs('app', () => ({
-  type: process.env.API_TYPE,
   integration: process.env.API_INTEGRATION,
-  label: process.env.API_INTEGRATION_LABEL,
   protocol: process.env.API_PROTOCOL,
   hostname: process.env.API_HOSTNAME,
   port: Number(process.env.API_PORT),
+
+  get apiType() {
+    if (!this.integration) throw `env variable 'API_INTEGRATION' is undefined`;
+    return generateApiType(this.integration);
+  },
+
+  get globalPrefix() {
+    return generateGlobalPrefix(this.apiType);
+  },
+
+  get path() {
+    return this.globalPrefix;
+  },
 
   get domain() {
     return `${this.protocol}://${this.hostname}:${this.port}`;
   },
 
-  get globalPrefix() {
-    return generateGlobalPrefix(`${this.type}`);
-  },
-
-  get path() {
-    return this.globalPrefix;
+  get label() {
+    if (!this.integration) throw `env variable 'API_INTEGRATION' is undefined`;
+    return generateLabel(`${this.integration}`);
   },
 }));
 
