@@ -73,8 +73,8 @@
       "@wwwsolutions/api/integration/rest-mongoose": [
         "libs/api/integration/rest-mongoose/src/index.ts"
       ],
-      "@wwwsolutions/api/shared/data-access-api": [
-        "libs/api/shared/data-access-api/src/index.ts"
+      "@wwwsolutions/shared/data-access-api": [
+        "libs/shared/data-access-api/src/index.ts"
       ],
       "@wwwsolutions/shared/utils": ["libs/shared/utils/src/index.ts"]
     }

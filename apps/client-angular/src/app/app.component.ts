@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { ArticlesApiService } from '@wwwsolutions/api/shared/data-access-api';
+import { ArticlesApiService } from '@wwwsolutions/shared/data-access-api';
 
 @Component({
   selector: 'demo-root',

@@ -1,5 +1,5 @@
 {
-  "name": "@wwwsolutions/api/shared/data-access-api",
+  "name": "@wwwsolutions/shared-data-access-api",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
