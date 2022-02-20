@@ -13,24 +13,21 @@ import { integrationModule } from './integration';
 import { ApiCoreController } from './api-core.controller';
 import { ApiCoreResolver } from './api-core.resolver';
 
-import {
-  NestControllersType,
-  NestProvidersType,
-} from '@wwwsolutions/shared/types';
+import { NestControllers, NestProviders } from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
  * Register controllers.
  *
  */
-const controllers: NestControllersType = [ApiCoreController];
+const controllers: NestControllers = [ApiCoreController];
 
 /* <OPTIONAL>
  *
  * Register resolvers.
  *
  */
-const providers: NestProvidersType = [ApiCoreResolver];
+const providers: NestProviders = [ApiCoreResolver];
 
 /* <DO NOT CHANGE>
  *
