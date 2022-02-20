@@ -97,4 +97,4 @@ import { ApiConfigFeaturesModule } from '@wwwsolutions/api/config/features';
     // libs/api/data-access/core/src/lib/prisma-data.service.ts
   ],
 })
-export class ApiIntegrationGraphqlPrismaModule {}
+export class ApiIntegrationGraphqlPrismaPostgresFeatureModule {}

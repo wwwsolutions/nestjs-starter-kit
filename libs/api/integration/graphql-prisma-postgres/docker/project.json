@@ -1,0 +1,38 @@
+{
+  "root": "libs/api/integration/graphql-prisma-postgres/docker",
+  "sourceRoot": "libs/api/integration/graphql-prisma-postgres/docker/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/integration/graphql-prisma-postgres/docker",
+        "tsConfig": "libs/api/integration/graphql-prisma-postgres/docker/tsconfig.lib.json",
+        "packageJson": "libs/api/integration/graphql-prisma-postgres/docker/package.json",
+        "main": "libs/api/integration/graphql-prisma-postgres/docker/src/index.ts",
+        "assets": ["libs/api/integration/graphql-prisma-postgres/docker/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/integration/graphql-prisma-postgres/docker/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/api/integration/graphql-prisma-postgres/docker"
+      ],
+      "options": {
+        "jestConfig": "libs/api/integration/graphql-prisma-postgres/docker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:config", "scope:api"]
+}
