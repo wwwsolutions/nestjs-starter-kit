@@ -5,8 +5,10 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import {
   environmentConfiguration,
   EnvironmentConfiguration,
-  Env,
+  // Env,
 } from '@wwwsolutions/api/config/app';
+
+import { Env } from '@wwwsolutions/shared/types';
 
 import {
   ApiConfigIntegrationsModule,

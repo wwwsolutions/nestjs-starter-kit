@@ -1,16 +1,16 @@
 import * as Joi from 'joi';
 
-import { Env } from './constants/environment.constants';
 import {
+  Env,
   ApiProtocol,
   ApiHostname,
   graphqlPrismaIntegration,
   restMongooseIntegration,
   graphqlApiType,
   restApiType,
-} from './constants/app.constants';
-import { WinstonLogLevel } from './constants/winston.constants';
-import { Colors } from './constants/theme.constants';
+  WinstonLogLevel,
+  Colors,
+} from '@wwwsolutions/shared/types';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE

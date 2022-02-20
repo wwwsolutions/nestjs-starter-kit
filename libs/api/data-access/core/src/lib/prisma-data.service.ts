@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 // https://notiz.dev/blog/how-to-connect-nestjs-with-prisma
-// import chalk from 'chalk';
 
 import {
   INestApplication,
@@ -10,10 +9,11 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 
+import { Env, PrismaLogLevel } from '@wwwsolutions/shared/types';
+
 import {
   InjectEnvironmentConfig,
   EnvironmentConfiguration,
-  Env,
   InjectChalkConfig,
   ChalkConfiguration,
 } from '@wwwsolutions/api/config/app';
@@ -21,7 +21,6 @@ import {
 import {
   InjectPrismaConfig,
   PrismaConfiguration,
-  PrismaLogLevel,
 } from '@wwwsolutions/api/config/integrations';
 
 import {
