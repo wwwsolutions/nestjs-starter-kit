@@ -7,3 +7,9 @@ libs/api/data-access/prisma/src/lib
 libs/api/data-access/models/src/lib
 
 libs/shared/data-access-api/src/lib
+
+libs/shared/data-access-api/src/lib
+
+libs/api/integration/graphql-prisma-postgres/codegen/src/lib
+
+libs/api/integration/graphql-prisma-postgres/docker/src/lib

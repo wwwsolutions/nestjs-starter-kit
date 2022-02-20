@@ -26,7 +26,7 @@ import { NestConfigs } from '@wwwsolutions/api/common/types';
 export const apiIntegrationConfigs: NestConfigs = [
   /* <OPTIONAL> **********************************************************
    *
-   * Graphql-Prisma-Integration [integration configs]
+   * Graphql-Prisma-Postgres-Integration [integration configs]
    *
    ***********************************************************************/
   graphqlConfiguration,

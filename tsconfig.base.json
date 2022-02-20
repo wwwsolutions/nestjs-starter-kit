@@ -28,6 +28,9 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "paths": {
+      "@wwwsolutions/api-integration-graphql-prisma-postgres-codegen": [
+        "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts"
+      ],
       "@wwwsolutions/api/common/types": ["libs/api/common/types/src/index.ts"],
       "@wwwsolutions/api/config/app": ["libs/api/config/app/src/index.ts"],
       "@wwwsolutions/api/config/features": [
@@ -69,9 +72,6 @@
       ],
       "@wwwsolutions/api/integration/graphql-prisma": [
         "libs/api/integration/graphql-prisma/src/index.ts"
-      ],
-      "@wwwsolutions/api/integration/graphql-prisma-postgres/codegen": [
-        "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts"
       ],
       "@wwwsolutions/api/integration/graphql-prisma-postgres/docker": [
         "libs/api/integration/graphql-prisma-postgres/docker/src/index.ts"

@@ -4,13 +4,12 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/api/integration/graphql-prisma-postgres/codegen",
-        "tsConfig": "libs/api/integration/graphql-prisma-postgres/codegen/tsconfig.lib.json",
-        "packageJson": "libs/api/integration/graphql-prisma-postgres/codegen/package.json",
         "main": "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts",
+        "tsConfig": "libs/api/integration/graphql-prisma-postgres/codegen/tsconfig.lib.json",
         "assets": ["libs/api/integration/graphql-prisma-postgres/codegen/*.md"]
       }
     },
@@ -21,16 +20,6 @@
         "lintFilePatterns": [
           "libs/api/integration/graphql-prisma-postgres/codegen/**/*.ts"
         ]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/api/integration/graphql-prisma-postgres/codegen"
-      ],
-      "options": {
-        "jestConfig": "libs/api/integration/graphql-prisma-postgres/codegen/jest.config.js",
-        "passWithNoTests": true
       }
     },
     "resolvers-signature": {

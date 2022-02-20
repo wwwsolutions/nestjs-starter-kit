@@ -43,10 +43,6 @@ export const validationSchema = Joi.object({
       restMongooseIntegration.integration
     )
     .description('API integration'),
-  API_INTEGRATION_LABEL: Joi.string()
-    .required()
-    .valid(graphqlPrismaIntegration.label, restMongooseIntegration.label)
-    .description('API label'),
 
   // OPTIONAL
   API_PROTOCOL: Joi.string()
