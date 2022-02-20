@@ -2,12 +2,12 @@ import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 
 import {
-  Prefix,
+  ApiPrefix,
   graphqlPrismaIntegration,
   restMongooseIntegration,
 } from '@wwwsolutions/shared/types';
 
-export const generateGlobalPrefix = (apiType: string): Prefix =>
+export const generateGlobalPrefix = (apiType: string): ApiPrefix =>
   apiType === restMongooseIntegration.type
     ? restMongooseIntegration.prefix
     : graphqlPrismaIntegration.prefix;

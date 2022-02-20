@@ -6,8 +6,8 @@ import {
   ApiHostname,
   graphqlPrismaIntegration,
   restMongooseIntegration,
-  graphqlApiType,
-  restApiType,
+  apiGraphql,
+  apiRest,
   WinstonLogLevel,
   Colors,
 } from '@wwwsolutions/shared/types';
@@ -34,7 +34,7 @@ export const validationSchema = Joi.object({
   // REQUIRED
   API_TYPE: Joi.string()
     .required()
-    .valid(graphqlApiType.type, restApiType.type)
+    .valid(apiGraphql.type, apiRest.type)
     .description('API type'),
   API_INTEGRATION: Joi.string()
     .required()
