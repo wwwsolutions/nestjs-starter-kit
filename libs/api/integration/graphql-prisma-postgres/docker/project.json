@@ -105,7 +105,7 @@
         "commands": ["docker system prune -a --volumes -f"]
       }
     },
-    "docker-list-of-all-commands": {
+    "list-of-commands": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,

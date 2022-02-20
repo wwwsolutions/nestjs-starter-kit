@@ -32,6 +32,44 @@
         "jestConfig": "libs/api/integration/graphql-prisma-postgres/codegen/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "resolvers-signature": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/resolvers-signature.yaml"
+        ]
+      }
+    },
+    "apollo-angular-components": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/apollo-angular-components.yaml"
+        ]
+      }
+    },
+    "schema-types": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "graphql-codegen --config libs/api/integration/graphql-prisma-postgres/src/configs/schema-types.yaml"
+        ]
+      }
+    },
+    "list-of-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run api-integration-graphql-prisma-postgres-codegen:resolvers-signature",
+          "nx run api-integration-graphql-prisma-postgres-codegen:apollo-angular-components",
+          "nx run api-integration-graphql-prisma-postgres-codegen:schema-types"
+        ]
+      }
     }
   },
   "tags": ["type:config", "scope:api"]
