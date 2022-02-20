@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { DynamicModule, ForwardReference, Type } from '@nestjs/common';
+import { NestImport } from './nest-import.type';
 
-export type NestImportsType =
-  | Type<any>
-  | DynamicModule
-  | Promise<DynamicModule>
-  | ForwardReference;
+export type NestImports = Array<NestImport>;

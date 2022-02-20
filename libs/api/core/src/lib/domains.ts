@@ -3,7 +3,7 @@ import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/a
 
 import { ApiDomainArticleFeatureModule } from '@wwwsolutions/api/domain/article/feature';
 
-import { NestImportsTypes } from '@wwwsolutions/shared/types';
+import { NestImports } from '@wwwsolutions/shared/types';
 
 /* <OPTIONAL>
  *
@@ -31,7 +31,7 @@ import { NestImportsTypes } from '@wwwsolutions/shared/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const domainModules: NestImportsTypes = [
+export const domainModules: NestImports = [
   /* <OPTIONAL> **********************************************************
    *
    * Graphql-Prisma-Integration [Business logic modules]
