@@ -6,4 +6,4 @@ libs/api/data-access/prisma/src/lib
 
 libs/api/data-access/models/src/lib
 
-libs/shared/data-access-api/src/lib
+libs/api/shared/data-access-api/src/lib
