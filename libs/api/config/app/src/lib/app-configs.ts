@@ -4,7 +4,7 @@ import { appConfiguration } from './configs/app.configuration';
 import { winstonConfiguration } from './configs/winston.configuration';
 import { chalkConfiguration } from './configs/chalk.configuration';
 
-import { Configs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/shared/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
@@ -21,7 +21,7 @@ import { Configs } from '@wwwsolutions/shared/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const appConfigs: Configs = [
+export const appConfigs: NestConfigs = [
   environmentConfiguration,
   appConfiguration,
   winstonConfiguration,

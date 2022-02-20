@@ -6,7 +6,7 @@ import { postgresConfiguration } from './configs/postgresql.configuration';
 import { swaggerConfiguration } from './configs/swagger.configuration';
 import { mongoConfiguration } from './configs/mongo.configuration';
 
-import { Configs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/shared/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
@@ -23,7 +23,7 @@ import { Configs } from '@wwwsolutions/shared/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const apiIntegrationConfigs: Configs = [
+export const apiIntegrationConfigs: NestConfigs = [
   /* <OPTIONAL> **********************************************************
    *
    * Graphql-Prisma-Integration [integration configs]
