@@ -7,13 +7,13 @@ import {
   WinstonConfiguration,
 } from '@wwwsolutions/api/config/app';
 
-import { domainModules } from './domains';
-import { integrationModule } from './integration';
-
-import { ApiCoreController } from './api-core.controller';
-import { ApiCoreResolver } from './api-core.resolver';
-
 import { NestControllers, NestProviders } from '@wwwsolutions/api/common/types';
+
+import { ApiCoreController } from './controllers/api-core.controller';
+import { ApiCoreResolver } from './resolvers/api-core.resolver';
+
+import { domainIntegrationModules } from './integrations/domain-integration-modules.integration';
+import { apiIntegrationModule } from './integrations/api-integration-module.integration';
 
 /* <OPTIONAL>
  *
@@ -33,7 +33,7 @@ const providers: NestProviders = [ApiCoreResolver];
  *
  * API Core.
  *
- * app base: (ApiConfigAppModule + WinstonModule) + (integrationModule + domainModules).
+ * app base: (ApiConfigAppModule + WinstonModule) + (apiIntegrationModules + domainIntegrationModules).
  *
  */
 @Module({
@@ -45,8 +45,8 @@ const providers: NestProviders = [ApiCoreResolver];
       }),
       inject: [winstonConfiguration.KEY],
     }),
-    integrationModule,
-    ...domainModules,
+    apiIntegrationModule,
+    ...domainIntegrationModules,
   ],
   providers,
   controllers,

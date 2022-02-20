@@ -31,7 +31,7 @@ import { NestImports } from '@wwwsolutions/api/common/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const domainModules: NestImports = [
+export const domainIntegrationModules: NestImports = [
   /* <OPTIONAL> **********************************************************
    *
    * Graphql-Prisma-Integration [Business logic modules]

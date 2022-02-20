@@ -17,5 +17,6 @@ import { NestImport } from '@wwwsolutions/api/common/types';
 ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 */
 
-export const integrationModule: NestImport = ApiIntegrationGraphqlPrismaModule;
+export const apiIntegrationModule: NestImport =
+  ApiIntegrationGraphqlPrismaModule;
 // ApiIntegrationRestMongooseModule;
