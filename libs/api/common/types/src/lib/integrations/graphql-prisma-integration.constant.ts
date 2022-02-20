@@ -6,7 +6,7 @@ import { Integration } from './integration.type';
 
 export const graphqlPrismaIntegration: Integration = {
   type: ApiType.GRAPHQL,
-  integration: ApiIntegration.GRAPHQL_PRISMA,
-  label: ApiIntegrationLabel.GPI,
+  integration: ApiIntegration.GRAPHQL_PRISMA_POSTGRES,
+  label: ApiIntegrationLabel.GPPI,
   prefix: ApiPrefix.GRAPHQL,
 };

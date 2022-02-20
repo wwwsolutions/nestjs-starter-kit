@@ -34,7 +34,7 @@ import { NestImports } from '@wwwsolutions/api/common/types';
 export const domainIntegrationModules: NestImports = [
   /* <OPTIONAL> **********************************************************
    *
-   * Graphql-Prisma-Postgres-Integration [Business logic modules]
+   * GraphQL-Prisma-Postgres-Integration [Business logic modules]
    *
    ***********************************************************************/
   ApiDomainUsersFeatureModule,

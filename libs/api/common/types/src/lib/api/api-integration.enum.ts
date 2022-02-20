@@ -1,4 +1,4 @@
 export enum ApiIntegration {
-  GRAPHQL_PRISMA = 'Graphql-Prisma-Postgres-Integration',
+  GRAPHQL_PRISMA_POSTGRES = 'GraphQL-Prisma-Postgres-Integration',
   REST_MONGOOSE = 'Rest-Mongoose-Integration',
 }

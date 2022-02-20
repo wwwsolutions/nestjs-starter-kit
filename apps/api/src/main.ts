@@ -41,7 +41,7 @@ async function bootstrap() {
   );
 
   // APPLICATION CONFIGURATION
-  const { integration, type, domain, path, globalPrefix, port } =
+  const { integration, apiType, domain, path, globalPrefix, port } =
     app.get<AppConfiguration>(appConfiguration.KEY);
 
   /* 
@@ -88,7 +88,7 @@ async function bootstrap() {
     
     [${chalk.info(bootstrap.name)}]
     
-    🚀 Running ${chalk.warning(type)} API /w ${chalk.warning(
+    🚀 Running ${chalk.warning(apiType)} API /w ${chalk.warning(
       integration
     )}, in ${chalk.warning(environment)} mode
 

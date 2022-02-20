@@ -32,10 +32,6 @@ export const validationSchema = Joi.object({
   --------------------------------------------------------------- */
 
   // REQUIRED
-  API_TYPE: Joi.string()
-    .required()
-    .valid(apiGraphql.type, apiRest.type)
-    .description('API type'),
   API_INTEGRATION: Joi.string()
     .required()
     .valid(

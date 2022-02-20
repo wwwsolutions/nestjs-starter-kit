@@ -1,4 +1,4 @@
 export enum ApiIntegrationLabel {
-  GPI = 'GPI',
+  GPPI = 'GPPI',
   RMI = 'RMI',
 }
