@@ -10,7 +10,7 @@ import {
   apiRest,
   WinstonLogLevel,
   Colors,
-} from '@wwwsolutions/shared/types';
+} from '@wwwsolutions/api/common/types';
 
 // VALIDATES ENVIRONMENT VARIABLES SET IN `.env` FILE
 // SET DEFAULT VALUES HERE

@@ -17,7 +17,7 @@ import {
 import {
   graphqlPrismaIntegration,
   restMongooseIntegration,
-} from '@wwwsolutions/shared/types';
+} from '@wwwsolutions/api/common/types';
 
 import { configureApiIntegrationGraphqlPrisma } from '@wwwsolutions/api/integration/graphql-prisma';
 import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';

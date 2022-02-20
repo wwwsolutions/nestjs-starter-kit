@@ -4,7 +4,7 @@ import { appConfiguration } from './configs/app.configuration';
 import { winstonConfiguration } from './configs/winston.configuration';
 import { chalkConfiguration } from './configs/chalk.configuration';
 
-import { NestConfigs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/api/common/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█

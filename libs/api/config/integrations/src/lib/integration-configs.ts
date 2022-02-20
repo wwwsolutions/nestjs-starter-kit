@@ -6,7 +6,7 @@ import { postgresConfiguration } from './configs/postgresql.configuration';
 import { swaggerConfiguration } from './configs/swagger.configuration';
 import { mongoConfiguration } from './configs/mongo.configuration';
 
-import { NestConfigs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/api/common/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█

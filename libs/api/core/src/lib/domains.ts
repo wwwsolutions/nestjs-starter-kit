@@ -3,7 +3,7 @@ import { ApiDomainAuthenticationFeatureModule } from '@wwwsolutions/api/domain/a
 
 import { ApiDomainArticleFeatureModule } from '@wwwsolutions/api/domain/article/feature';
 
-import { NestImports } from '@wwwsolutions/shared/types';
+import { NestImports } from '@wwwsolutions/api/common/types';
 
 /* <OPTIONAL>
  *

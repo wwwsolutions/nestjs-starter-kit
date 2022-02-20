@@ -13,7 +13,7 @@ import { integrationModule } from './integration';
 import { ApiCoreController } from './api-core.controller';
 import { ApiCoreResolver } from './api-core.resolver';
 
-import { NestControllers, NestProviders } from '@wwwsolutions/shared/types';
+import { NestControllers, NestProviders } from '@wwwsolutions/api/common/types';
 
 /* <OPTIONAL>
  *

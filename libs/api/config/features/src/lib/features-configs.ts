@@ -1,7 +1,7 @@
 import { jwtConfiguration } from './configs/jwt.configuration';
 import { adminConfiguration } from './configs/admin.configuration';
 
-import { NestConfigs } from '@wwwsolutions/shared/types';
+import { NestConfigs } from '@wwwsolutions/api/common/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█

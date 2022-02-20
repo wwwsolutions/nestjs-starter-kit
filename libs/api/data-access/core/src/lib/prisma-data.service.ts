@@ -9,7 +9,7 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 
-import { Env, PrismaLogLevel } from '@wwwsolutions/shared/types';
+import { Env, PrismaLogLevel } from '@wwwsolutions/api/common/types';
 
 import {
   InjectEnvironmentConfig,

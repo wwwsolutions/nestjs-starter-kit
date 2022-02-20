@@ -1,7 +1,7 @@
 import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/rest-mongoose';
 
-import { NestImport } from '@wwwsolutions/shared/types';
+import { NestImport } from '@wwwsolutions/api/common/types';
 
 /*
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█

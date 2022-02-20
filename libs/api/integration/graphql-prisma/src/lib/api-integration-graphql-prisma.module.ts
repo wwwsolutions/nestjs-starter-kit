@@ -8,7 +8,7 @@ import {
   // Env,
 } from '@wwwsolutions/api/config/app';
 
-import { Env } from '@wwwsolutions/shared/types';
+import { Env } from '@wwwsolutions/api/common/types';
 
 import {
   ApiConfigIntegrationsModule,

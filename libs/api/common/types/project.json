@@ -1,0 +1,34 @@
+{
+  "root": "libs/api/common/types",
+  "sourceRoot": "libs/api/common/types/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/common/types",
+        "tsConfig": "libs/api/common/types/tsconfig.lib.json",
+        "packageJson": "libs/api/common/types/package.json",
+        "main": "libs/api/common/types/src/index.ts",
+        "assets": ["libs/api/common/types/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/common/types/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/common/types"],
+      "options": {
+        "jestConfig": "libs/api/common/types/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:shared"]
+}

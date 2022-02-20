@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-common-types": "libs/api/common/types",
     "api-config-app": "libs/api/config/app",
     "api-config-features": "libs/api/config/features",
     "api-config-integrations": "libs/api/config/integrations",
@@ -20,7 +21,6 @@
     "api-integration-rest-mongoose": "libs/api/integration/rest-mongoose",
     "api-shared-data-access-api": "libs/api/shared/data-access-api",
     "client-angular": "apps/client-angular",
-    "shared-types": "libs/shared/types",
     "shared-utils": "libs/shared/utils"
   }
 }
