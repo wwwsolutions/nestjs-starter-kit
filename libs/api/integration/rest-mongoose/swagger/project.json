@@ -1,0 +1,27 @@
+{
+  "root": "libs/api/integration/rest-mongoose/swagger",
+  "sourceRoot": "libs/api/integration/rest-mongoose/swagger/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/integration/rest-mongoose/swagger",
+        "main": "libs/api/integration/rest-mongoose/swagger/src/index.ts",
+        "tsConfig": "libs/api/integration/rest-mongoose/swagger/tsconfig.lib.json",
+        "assets": ["libs/api/integration/rest-mongoose/swagger/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/integration/rest-mongoose/swagger/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": ["type:config", "scope:api"]
+}

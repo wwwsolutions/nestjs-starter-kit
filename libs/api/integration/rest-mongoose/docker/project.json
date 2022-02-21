@@ -1,0 +1,27 @@
+{
+  "root": "libs/api/integration/rest-mongoose/docker",
+  "sourceRoot": "libs/api/integration/rest-mongoose/docker/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/integration/rest-mongoose/docker",
+        "main": "libs/api/integration/rest-mongoose/docker/src/index.ts",
+        "tsConfig": "libs/api/integration/rest-mongoose/docker/tsconfig.lib.json",
+        "assets": ["libs/api/integration/rest-mongoose/docker/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/integration/rest-mongoose/docker/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": ["type:config", "scope:api"]
+}

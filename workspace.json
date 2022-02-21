@@ -21,6 +21,9 @@
     "api-integration-graphql-prisma-postgres-codegen": "libs/api/integration/graphql-prisma-postgres/codegen",
     "api-integration-graphql-prisma-postgres-docker": "libs/api/integration/graphql-prisma-postgres/docker",
     "api-integration-graphql-prisma-postgres-feature": "libs/api/integration/graphql-prisma-postgres/feature",
+    "api-integration-rest-mongoose-docker": "libs/api/integration/rest-mongoose/docker",
+    "api-integration-rest-mongoose-feature": "libs/api/integration/rest-mongoose/feature",
+    "api-integration-rest-mongoose-swagger": "libs/api/integration/rest-mongoose/swagger",
     "client-angular": "apps/client-angular",
     "shared-data-access-api": "libs/shared/data-access-api",
     "shared-utils": "libs/shared/utils"

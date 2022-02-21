@@ -79,6 +79,15 @@
       "@wwwsolutions/api/integration/graphql-prisma-postgres/feature": [
         "libs/api/integration/graphql-prisma-postgres/feature/src/index.ts"
       ],
+      "@wwwsolutions/api/integration/rest-mongoose/docker": [
+        "libs/api/integration/rest-mongoose/docker/src/index.ts"
+      ],
+      "@wwwsolutions/api/integration/rest-mongoose/feature": [
+        "libs/api/integration/rest-mongoose/feature/src/index.ts"
+      ],
+      "@wwwsolutions/api/integration/rest-mongoose/swagger": [
+        "libs/api/integration/rest-mongoose/swagger/src/index.ts"
+      ],
       "@wwwsolutions/shared/data-access-api": [
         "libs/shared/data-access-api/src/index.ts"
       ],
