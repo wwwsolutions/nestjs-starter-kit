@@ -15,7 +15,10 @@ generator nestgraphql {
 datasource postgresql {
   provider = "postgresql"
   url      = env("PRISMA_DATASOURCE_URL")
+  // url      = "postgresql://root:root@127.0.0.1:5432/demo"
 }
+
+
 
 model User {
   id        Int      @id @default(autoincrement())
