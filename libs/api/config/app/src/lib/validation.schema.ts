@@ -4,7 +4,7 @@ import {
   Env,
   ApiProtocol,
   ApiHostname,
-  graphqlPrismaIntegration,
+  graphqlPrismaPostgresIntegration,
   restMongooseIntegration,
   apiGraphql,
   apiRest,
@@ -35,7 +35,7 @@ export const validationSchema = Joi.object({
   API_INTEGRATION: Joi.string()
     .required()
     .valid(
-      graphqlPrismaIntegration.integration,
+      graphqlPrismaPostgresIntegration.integration,
       restMongooseIntegration.integration
     )
     .description('API integration'),

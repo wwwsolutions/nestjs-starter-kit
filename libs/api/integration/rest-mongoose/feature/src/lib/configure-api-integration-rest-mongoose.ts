@@ -33,12 +33,14 @@ export function configureApiIntegrationRestMongoose(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} start`),
+    `⚙️ ${chalk.success(`${chalk.warning(integration)} start`)}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning('Custom Logger: Winston')} implemented`),
+    `⚙️ ${chalk.success(
+      `${chalk.warning('Custom Logger: Winston')} implemented`
+    )}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
@@ -51,13 +53,13 @@ export function configureApiIntegrationRestMongoose(
   const swagger = configureSwagger(app);
 
   Logger.log(
-    chalk.success(
-      `🔒 ${chalk.warning(
+    `🚀 ${chalk.success(
+      `${chalk.warning(
         `Swagger Docs: ${chalk.warningClickable(
           swagger.domain + swagger.swaggerUIPath
         )}`
       )} implemented`
-    ),
+    )}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
@@ -70,11 +72,11 @@ export function configureApiIntegrationRestMongoose(
   app.useGlobalFilters(new HttpExceptionFilter());
 
   Logger.log(
-    chalk.success(
-      `🔒 ${chalk.warning(
+    `⚙️ ${chalk.success(
+      `${chalk.warning(
         'Global Exception Filter: HttpExceptionFilter'
       )} implemented`
-    ),
+    )}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
@@ -87,14 +89,14 @@ export function configureApiIntegrationRestMongoose(
   app.useGlobalPipes(new ValidationPipe());
 
   Logger.log(
-    chalk.success(
-      `🔒 ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
-    ),
+    `⚙️ ${chalk.success(
+      `${chalk.warning('Global Pipes: ValidationPipe')} implemented`
+    )}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} done`),
+    `⚙️ ${chalk.success(`${chalk.warning(integration)} done`)}`,
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 }

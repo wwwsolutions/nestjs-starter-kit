@@ -37,12 +37,12 @@ export function configureApiIntegrationGraphqlPrismaPostgres(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} start`),
+    chalk.success(` 🔒 ${chalk.warning(integration)} start`),
     chalk.info(configureApiIntegrationGraphqlPrismaPostgres.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning('Custom Logger: Winston')} implemented`),
+    chalk.success(` ⚙️ ${chalk.warning('Custom Logger: Winston')} implemented`),
     chalk.info(configureApiIntegrationGraphqlPrismaPostgres.name)
   );
 
@@ -57,7 +57,7 @@ export function configureApiIntegrationGraphqlPrismaPostgres(
 
   Logger.log(
     chalk.success(
-      `🔒 ${chalk.warning(
+      ` ⚙️ ${chalk.warning(
         'Global Exception Filter: AllExceptionsFilter'
       )} implemented`
     ),
@@ -83,13 +83,13 @@ export function configureApiIntegrationGraphqlPrismaPostgres(
 
   Logger.log(
     chalk.success(
-      `🔒 ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
+      ` ⚙️ ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
     ),
     chalk.info(configureApiIntegrationGraphqlPrismaPostgres.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} done`),
+    chalk.success(` 🔒 ${chalk.warning(integration)} done`),
     chalk.info(configureApiIntegrationGraphqlPrismaPostgres.name)
   );
 }

@@ -33,12 +33,12 @@ export function configureApiIntegrationRestMongoose(
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} start`),
+    chalk.success(`⚙️ ${chalk.warning(integration)} start`),
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning('Custom Logger: Winston')} implemented`),
+    chalk.success(`⚙️ ${chalk.warning('Custom Logger: Winston')} implemented`),
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
@@ -52,7 +52,7 @@ export function configureApiIntegrationRestMongoose(
 
   Logger.log(
     chalk.success(
-      `🔒 ${chalk.warning(
+      `🚀${chalk.warning(
         `Swagger Docs: ${chalk.warningClickable(
           swagger.domain + swagger.swaggerUIPath
         )}`
@@ -71,7 +71,7 @@ export function configureApiIntegrationRestMongoose(
 
   Logger.log(
     chalk.success(
-      `🔒 ${chalk.warning(
+      `⚙️ ${chalk.warning(
         'Global Exception Filter: HttpExceptionFilter'
       )} implemented`
     ),
@@ -88,13 +88,13 @@ export function configureApiIntegrationRestMongoose(
 
   Logger.log(
     chalk.success(
-      `🔒 ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
+      `⚙️ ${chalk.warning('Global Pipes: ValidationPipe')} implemented`
     ),
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 
   Logger.log(
-    chalk.success(`🔒 ${chalk.warning(integration)} done`),
+    chalk.success(`⚙️ ${chalk.warning(integration)} done`),
     chalk.info(configureApiIntegrationRestMongoose.name)
   );
 }

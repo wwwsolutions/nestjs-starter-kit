@@ -2,29 +2,37 @@ import { Inject } from '@nestjs/common';
 import { ConfigType, registerAs } from '@nestjs/config';
 
 import {
+  ApiHostname,
+  ApiIntegration,
   ApiPrefix,
-  graphqlPrismaIntegration,
+  ApiProtocol,
+  ApiType,
+  ApiPort,
+  graphqlPrismaPostgresIntegration,
   restMongooseIntegration,
 } from '@wwwsolutions/api/common/types';
 
-export const generateGlobalPrefix = (apiType: string): ApiPrefix =>
-  apiType === restMongooseIntegration.type
-    ? restMongooseIntegration.prefix
-    : graphqlPrismaIntegration.prefix;
+// API_INTEGRATION='GraphQL-Prisma-Postgres-Integration'
+// API_INTEGRATION='Rest-Mongoose-Integration'
 
-export const generateLabel = (apiIntegration: string): string =>
-  apiIntegration
+export const generateApiType = (integration: ApiIntegration): ApiType =>
+  integration.split('-')[0] as ApiType;
+
+export const generateGlobalPrefix = (apiType: string): ApiPrefix | string =>
+  apiType === graphqlPrismaPostgresIntegration.type
+    ? graphqlPrismaPostgresIntegration.prefix
+    : 'api';
+
+export const generateLabel = (integration: ApiIntegration): string =>
+  integration
     .split('-')
     .map((word: string) => word.charAt(0))
     .join('');
 
-export const generateApiType = (apiIntegration: string): string =>
-  apiIntegration.split('-')[0];
-
 export const appConfiguration = registerAs('app', () => ({
-  integration: process.env.API_INTEGRATION,
-  protocol: process.env.API_PROTOCOL,
-  hostname: process.env.API_HOSTNAME,
+  integration: process.env.API_INTEGRATION as ApiIntegration,
+  protocol: process.env.API_PROTOCOL as ApiProtocol,
+  hostname: process.env.API_HOSTNAME as ApiHostname,
   port: Number(process.env.API_PORT),
 
   get apiType() {
@@ -46,7 +54,7 @@ export const appConfiguration = registerAs('app', () => ({
 
   get label() {
     if (!this.integration) throw `env variable 'API_INTEGRATION' is undefined`;
-    return generateLabel(`${this.integration}`);
+    return generateLabel(this.integration);
   },
 }));
 
