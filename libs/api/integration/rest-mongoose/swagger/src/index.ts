@@ -1,1 +1,1 @@
-export * from './lib/api-integration-rest-mongoose-swagger';
+export * from './lib/configure-swagger';
