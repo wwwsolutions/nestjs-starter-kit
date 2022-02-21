@@ -1,6 +1,5 @@
-// import { ApiIntegrationGraphqlPrismaModule } from '@wwwsolutions/api/integration/graphql-prisma';
 import { ApiIntegrationGraphqlPrismaPostgresFeatureModule } from '@wwwsolutions/api/integration/graphql-prisma-postgres/feature';
-import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api/integration/rest-mongoose';
+import { ApiIntegrationRestMongooseModule } from '@wwwsolutions/api-integration-___rest-mongoose';
 
 import { NestImport } from '@wwwsolutions/api/common/types';
 
@@ -19,6 +18,5 @@ import { NestImport } from '@wwwsolutions/api/common/types';
 */
 
 export const apiIntegrationModule: NestImport =
-  // ApiIntegrationGraphqlPrismaModule;
-  ApiIntegrationGraphqlPrismaPostgresFeatureModule;
-// ApiIntegrationRestMongooseModule;
+  // ApiIntegrationGraphqlPrismaPostgresFeatureModule;
+  ApiIntegrationRestMongooseModule;

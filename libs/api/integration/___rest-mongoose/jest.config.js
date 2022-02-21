@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'api-integration-rest-mongoose',
+  displayName: 'api-integration-___rest-mongoose',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +11,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/integration/rest-mongoose',
+  coverageDirectory:
+    '../../../../coverage/libs/api/integration/___rest-mongoose',
 };

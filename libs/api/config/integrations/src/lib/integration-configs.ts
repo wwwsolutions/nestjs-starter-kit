@@ -29,16 +29,16 @@ export const apiIntegrationConfigs: NestConfigs = [
    * GraphQL-Prisma-Postgres-Integration [integration configs]
    *
    ***********************************************************************/
-  graphqlConfiguration,
-  apolloServerPluginsConfiguration,
-  prismaConfiguration,
-  postgresConfiguration,
+  // graphqlConfiguration,
+  // apolloServerPluginsConfiguration,
+  // prismaConfiguration,
+  // postgresConfiguration,
 
   /* <OPTIONAL> **********************************************************
    *
    * Rest-Mongoose-Integration [integration configs]
    *
    ***********************************************************************/
-  // swaggerConfiguration,
-  // mongoConfiguration,
+  swaggerConfiguration,
+  mongoConfiguration,
 ];

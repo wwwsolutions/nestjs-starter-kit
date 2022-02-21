@@ -17,7 +17,7 @@ import {
 } from '@wwwsolutions/api/common/types';
 
 import { configureApiIntegrationGraphqlPrismaPostgres } from '@wwwsolutions/api/integration/graphql-prisma-postgres/feature';
-import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
+import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api-integration-___rest-mongoose';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
 

@@ -1,31 +1,31 @@
 {
-  "root": "libs/api/integration/rest-mongoose",
-  "sourceRoot": "libs/api/integration/rest-mongoose/src",
+  "root": "libs/api/integration/___rest-mongoose",
+  "sourceRoot": "libs/api/integration/___rest-mongoose/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/api/integration/rest-mongoose",
-        "tsConfig": "libs/api/integration/rest-mongoose/tsconfig.lib.json",
-        "packageJson": "libs/api/integration/rest-mongoose/package.json",
-        "main": "libs/api/integration/rest-mongoose/src/index.ts",
-        "assets": ["libs/api/integration/rest-mongoose/*.md"]
+        "outputPath": "dist/libs/api/integration/___rest-mongoose",
+        "tsConfig": "libs/api/integration/___rest-mongoose/tsconfig.lib.json",
+        "packageJson": "libs/api/integration/___rest-mongoose/package.json",
+        "main": "libs/api/integration/___rest-mongoose/src/index.ts",
+        "assets": ["libs/api/integration/___rest-mongoose/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/api/integration/rest-mongoose/**/*.ts"]
+        "lintFilePatterns": ["libs/api/integration/___rest-mongoose/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/integration/rest-mongoose"],
+      "outputs": ["coverage/libs/api/integration/___rest-mongoose"],
       "options": {
-        "jestConfig": "libs/api/integration/rest-mongoose/jest.config.js",
+        "jestConfig": "libs/api/integration/___rest-mongoose/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -33,7 +33,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "cwd": "libs/api/integration/rest-mongoose/src/lib/docker",
+        "cwd": "libs/api/integration/___rest-mongoose/src/lib/docker",
         "commands": [
           "docker-compose --project-name rest-mongo-integration-{args.mode} --verbose --env-file ../../../../../../../apps/api/.env.{args.mode} -f ./{args.mode}/base.yaml -f ./{args.mode}/environment.yaml -f ./{args.mode}/volumes.yaml -f ./{args.mode}/ports.yaml -f ./{args.mode}/networks.yaml config > ../../../../../../../generated/docker/docker-compose-stack.{args.mode}.yaml"
         ]
@@ -106,14 +106,14 @@
       "options": {
         "parallel": false,
         "commands": [
-          "nx run api-integration-rest-mongoose:docker-compose --mode=development",
-          "nx run api-integration-rest-mongoose:docker-up --mode=development",
-          "nx run api-integration-rest-mongoose:docker-down --mode=development",
-          "nx run api-integration-rest-mongoose:docker-clean --mode=development",
-          "nx run api-integration-rest-mongoose:docker-config --mode=development",
-          "nx run api-integration-rest-mongoose:docker-logs --mode=development",
-          "nx run api-integration-rest-mongoose:docker-logs-save --mode=development",
-          "nx run api-integration-rest-mongoose:docker-system-prune"
+          "nx run api-integration-___rest-mongoose:docker-compose --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-up --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-down --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-clean --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-config --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-logs --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-logs-save --mode=development",
+          "nx run api-integration-___rest-mongoose:docker-system-prune"
         ]
       }
     }

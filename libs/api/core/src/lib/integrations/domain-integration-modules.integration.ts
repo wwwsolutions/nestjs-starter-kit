@@ -37,13 +37,13 @@ export const domainIntegrationModules: NestImports = [
    * GraphQL-Prisma-Postgres-Integration [Business logic modules]
    *
    ***********************************************************************/
-  ApiDomainUsersFeatureModule,
-  ApiDomainAuthenticationFeatureModule,
+  // ApiDomainUsersFeatureModule,
+  // ApiDomainAuthenticationFeatureModule,
 
   /* <OPTIONAL> **********************************************************
    *
    * Rest-Mongoose-Integration [Business logic modules]
    *
    ***********************************************************************/
-  // ApiDomainArticleFeatureModule,
+  ApiDomainArticleFeatureModule,
 ];
