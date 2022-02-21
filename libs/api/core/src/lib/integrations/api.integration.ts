@@ -18,5 +18,5 @@ import { NestImport } from '@wwwsolutions/api/common/types';
 */
 
 export const apiIntegrationModule: NestImport =
-  // ApiIntegrationGraphqlPrismaPostgresFeatureModule;
-  ApiIntegrationRestMongooseFeatureModule;
+  ApiIntegrationGraphqlPrismaPostgresFeatureModule;
+// ApiIntegrationRestMongooseFeatureModule;

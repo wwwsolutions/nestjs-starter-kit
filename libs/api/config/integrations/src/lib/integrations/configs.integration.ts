@@ -1,10 +1,10 @@
-import { graphqlConfiguration } from './configs/graphql.configuration';
-import { apolloServerPluginsConfiguration } from './configs/apollo-server-plugins.configuration';
-import { prismaConfiguration } from './configs/prisma.configuration';
-import { postgresConfiguration } from './configs/postgresql.configuration';
+import { graphqlConfiguration } from '../configs/graphql.configuration';
+import { apolloServerPluginsConfiguration } from '../configs/apollo-server-plugins.configuration';
+import { prismaConfiguration } from '../configs/prisma.configuration';
+import { postgresConfiguration } from '../configs/postgresql.configuration';
 
-import { swaggerConfiguration } from './configs/swagger.configuration';
-import { mongoConfiguration } from './configs/mongo.configuration';
+import { swaggerConfiguration } from '../configs/swagger.configuration';
+import { mongoConfiguration } from '../configs/mongo.configuration';
 
 import { NestConfigs } from '@wwwsolutions/api/common/types';
 
@@ -29,16 +29,16 @@ export const apiIntegrationConfigs: NestConfigs = [
    * GraphQL-Prisma-Postgres-Integration [integration configs]
    *
    ***********************************************************************/
-  // graphqlConfiguration,
-  // apolloServerPluginsConfiguration,
-  // prismaConfiguration,
-  // postgresConfiguration,
+  graphqlConfiguration,
+  apolloServerPluginsConfiguration,
+  prismaConfiguration,
+  postgresConfiguration,
 
   /* <OPTIONAL> **********************************************************
    *
    * Rest-Mongoose-Integration [integration configs]
    *
    ***********************************************************************/
-  swaggerConfiguration,
-  mongoConfiguration,
+  // swaggerConfiguration,
+  // mongoConfiguration,
 ];
