@@ -28,8 +28,8 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "paths": {
-      "@wwwsolutions/api-integration-graphql-prisma-postgres-codegen": [
-        "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts"
+      "@wwwsolutions/api-integration-___rest-mongoose": [
+        "libs/api/integration/___rest-mongoose/src/index.ts"
       ],
       "@wwwsolutions/api/common/types": ["libs/api/common/types/src/index.ts"],
       "@wwwsolutions/api/config/app": ["libs/api/config/app/src/index.ts"],
@@ -70,8 +70,8 @@
       "@wwwsolutions/api/domain/users/feature": [
         "libs/api/domain/users/feature/src/index.ts"
       ],
-      "@wwwsolutions/api/integration/graphql-prisma": [
-        "libs/api/integration/graphql-prisma/src/index.ts"
+      "@wwwsolutions/api/integration/graphql-prisma-postgres/codegen": [
+        "libs/api/integration/graphql-prisma-postgres/codegen/src/index.ts"
       ],
       "@wwwsolutions/api/integration/graphql-prisma-postgres/docker": [
         "libs/api/integration/graphql-prisma-postgres/docker/src/index.ts"
@@ -79,8 +79,14 @@
       "@wwwsolutions/api/integration/graphql-prisma-postgres/feature": [
         "libs/api/integration/graphql-prisma-postgres/feature/src/index.ts"
       ],
-      "@wwwsolutions/api/integration/rest-mongoose": [
-        "libs/api/integration/rest-mongoose/src/index.ts"
+      "@wwwsolutions/api/integration/rest-mongoose/docker": [
+        "libs/api/integration/rest-mongoose/docker/src/index.ts"
+      ],
+      "@wwwsolutions/api/integration/rest-mongoose/feature": [
+        "libs/api/integration/rest-mongoose/feature/src/index.ts"
+      ],
+      "@wwwsolutions/api/integration/rest-mongoose/swagger": [
+        "libs/api/integration/rest-mongoose/swagger/src/index.ts"
       ],
       "@wwwsolutions/shared/data-access-api": [
         "libs/shared/data-access-api/src/index.ts"

@@ -1,4 +1,3 @@
-import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
@@ -10,24 +9,22 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  // graphqlPrismaIntegration,
-  // restMongooseIntegration,
 } from '@wwwsolutions/api/config/app';
 
 import {
-  graphqlPrismaIntegration,
+  graphqlPrismaPostgresIntegration,
   restMongooseIntegration,
 } from '@wwwsolutions/api/common/types';
 
 import { configureApiIntegrationGraphqlPrismaPostgres } from '@wwwsolutions/api/integration/graphql-prisma-postgres/feature';
-import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose';
+import { configureApiIntegrationRestMongoose } from '@wwwsolutions/api/integration/rest-mongoose/feature';
 
 import { DebugUtils } from '@wwwsolutions/shared/utils';
 
 async function bootstrap() {
   // HELPER --> DEBUG ENV VARIABLES
-  // DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
-  // DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
+  DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
+  DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
@@ -70,10 +67,10 @@ async function bootstrap() {
   ▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
   */
 
-  if (integration === graphqlPrismaIntegration.integration)
+  if (integration === graphqlPrismaPostgresIntegration.integration)
     configureApiIntegrationGraphqlPrismaPostgres(
       app,
-      graphqlPrismaIntegration.integration
+      graphqlPrismaPostgresIntegration.integration
     );
 
   if (integration === restMongooseIntegration.integration)
@@ -93,6 +90,8 @@ async function bootstrap() {
     )}, in ${chalk.warning(environment)} mode
 
     🚀 Server ready at: ${chalk.warningClickable(domain + '/' + path)}
+    
+    ⚙️ Get server uptime at: ${domain + '/' + path + '/uptime'}
 
     `);
   });

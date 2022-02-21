@@ -4,7 +4,7 @@ import { ApiPrefix } from '../api/api-prefix.enum';
 import { ApiType } from '../api/api-type.enum';
 import { Integration } from './integration.type';
 
-export const graphqlPrismaIntegration: Integration = {
+export const graphqlPrismaPostgresIntegration: Integration = {
   type: ApiType.GRAPHQL,
   integration: ApiIntegration.GRAPHQL_PRISMA_POSTGRES,
   label: ApiIntegrationLabel.GPPI,

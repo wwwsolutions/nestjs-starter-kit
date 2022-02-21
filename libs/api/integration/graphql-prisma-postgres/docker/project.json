@@ -33,7 +33,7 @@
         "passWithNoTests": true
       }
     },
-    "compose": {
+    "generate": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
@@ -110,7 +110,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "nx run api-integration-graphql-prisma-postgres-docker:compose --mode=development",
+          "nx run api-integration-graphql-prisma-postgres-docker:generate --mode=development",
           "nx run api-integration-graphql-prisma-postgres-docker:up --mode=development",
           "nx run api-integration-graphql-prisma-postgres-docker:down --mode=development",
           "nx run api-integration-graphql-prisma-postgres-docker:clean --mode=development",

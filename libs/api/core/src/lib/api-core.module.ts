@@ -12,8 +12,8 @@ import { NestControllers, NestProviders } from '@wwwsolutions/api/common/types';
 import { ApiCoreController } from './controllers/api-core.controller';
 import { ApiCoreResolver } from './resolvers/api-core.resolver';
 
-import { domainIntegrationModules } from './integrations/domain-integration-modules.integration';
-import { apiIntegrationModule } from './integrations/api-integration-module.integration';
+import { domainIntegrationModules } from './integrations/domain.integration';
+import { apiIntegrationModule } from './integrations/api.integration';
 
 /* <OPTIONAL>
  *
