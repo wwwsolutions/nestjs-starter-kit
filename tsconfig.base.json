@@ -70,9 +70,6 @@
       "@wwwsolutions/api/domain/users/feature": [
         "libs/api/domain/users/feature/src/index.ts"
       ],
-      "@wwwsolutions/api/integration/graphql-prisma": [
-        "libs/api/integration/graphql-prisma/src/index.ts"
-      ],
       "@wwwsolutions/api/integration/graphql-prisma-postgres/docker": [
         "libs/api/integration/graphql-prisma-postgres/docker/src/index.ts"
       ],

@@ -1,4 +1,3 @@
-import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
@@ -10,8 +9,6 @@ import {
   environmentConfiguration,
   AppConfiguration,
   appConfiguration,
-  // graphqlPrismaIntegration,
-  // restMongooseIntegration,
 } from '@wwwsolutions/api/config/app';
 
 import {
@@ -26,8 +23,8 @@ import { DebugUtils } from '@wwwsolutions/shared/utils';
 
 async function bootstrap() {
   // HELPER --> DEBUG ENV VARIABLES
-  // DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
-  // DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
+  DebugUtils.debugEnvVariables('apps/api/.env.local', bootstrap.name);
+  DebugUtils.debugEnvVariables('apps/api/.env.development', bootstrap.name);
 
   // APPLICATION
   const app = await NestFactory.create(AppModule);
