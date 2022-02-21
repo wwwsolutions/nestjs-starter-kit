@@ -17,7 +17,6 @@
     "api-domain-authentication-feature": "libs/api/domain/authentication/feature",
     "api-domain-users-data-access": "libs/api/domain/users/data-access",
     "api-domain-users-feature": "libs/api/domain/users/feature",
-    "api-integration-___rest-mongoose": "libs/api/integration/___rest-mongoose",
     "api-integration-graphql-prisma-postgres-codegen": "libs/api/integration/graphql-prisma-postgres/codegen",
     "api-integration-graphql-prisma-postgres-docker": "libs/api/integration/graphql-prisma-postgres/docker",
     "api-integration-graphql-prisma-postgres-feature": "libs/api/integration/graphql-prisma-postgres/feature",

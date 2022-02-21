@@ -1,9 +1,0 @@
-version: '2.4'
-services:
-  mongodb:
-    volumes:
-      - mongodb-data:/data/db
-
-volumes:
-  mongodb-data:
-    driver: local

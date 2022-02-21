@@ -1,7 +1,0 @@
-version: '2.4'
-# services:
-### use it in production mode
-# mongodb:
-#   environment:
-#     - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME} # MongoServerError command find requires authentication
-#     - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_USERNAME} # MongoServerError command find requires authentication
