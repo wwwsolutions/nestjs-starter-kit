@@ -18,8 +18,6 @@ datasource postgresql {
   // url      = "postgresql://root:root@127.0.0.1:5432/demo"
 }
 
-
-
 model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
