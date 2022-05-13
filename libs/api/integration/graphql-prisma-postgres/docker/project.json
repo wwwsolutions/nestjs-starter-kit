@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/integration/graphql-prisma-postgres/docker",
   "sourceRoot": "libs/api/integration/graphql-prisma-postgres/docker/src",
   "projectType": "library",
   "targets": {
@@ -29,7 +28,7 @@
         "coverage/libs/api/integration/graphql-prisma-postgres/docker"
       ],
       "options": {
-        "jestConfig": "libs/api/integration/graphql-prisma-postgres/docker/jest.config.js",
+        "jestConfig": "libs/api/integration/graphql-prisma-postgres/docker/jest.config.ts",
         "passWithNoTests": true
       }
     },

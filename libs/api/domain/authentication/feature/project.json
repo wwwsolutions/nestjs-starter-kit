@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/domain/authentication/feature",
   "sourceRoot": "libs/api/domain/authentication/feature/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/domain/authentication/feature"],
       "options": {
-        "jestConfig": "libs/api/domain/authentication/feature/jest.config.js",
+        "jestConfig": "libs/api/domain/authentication/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

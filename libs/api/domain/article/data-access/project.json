@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/domain/article/data-access",
   "sourceRoot": "libs/api/domain/article/data-access/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/domain/article/data-access"],
       "options": {
-        "jestConfig": "libs/api/domain/article/data-access/jest.config.js",
+        "jestConfig": "libs/api/domain/article/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

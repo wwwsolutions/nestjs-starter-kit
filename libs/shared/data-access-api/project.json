@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/shared/data-access-api",
   "sourceRoot": "libs/shared/data-access-api/src",
   "prefix": "wwwsolutions",
   "targets": {
@@ -24,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/shared/data-access-api"],
       "options": {
-        "jestConfig": "libs/shared/data-access-api/jest.config.js",
+        "jestConfig": "libs/shared/data-access-api/jest.config.ts",
         "passWithNoTests": true
       }
     },

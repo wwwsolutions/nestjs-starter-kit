@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/data-access/prisma",
   "sourceRoot": "libs/api/data-access/prisma/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/data-access/prisma"],
       "options": {
-        "jestConfig": "libs/api/data-access/prisma/jest.config.js",
+        "jestConfig": "libs/api/data-access/prisma/jest.config.ts",
         "passWithNoTests": true
       }
     },

@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-integration-graphql-prisma-postgres-docker',
+/* eslint-disable */
+export default {
+  displayName: 'api-domain-users-feature',
   preset: '../../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,6 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory:
-    '../../../../../coverage/libs/api/integration/graphql-prisma-postgres/docker',
+  coverageDirectory: '../../../../../coverage/libs/api/domain/users/feature',
 };

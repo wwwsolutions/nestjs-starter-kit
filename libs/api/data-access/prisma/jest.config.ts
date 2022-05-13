@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-data-access-models',
+/* eslint-disable */
+export default {
+  displayName: 'api-data-access-prisma',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/data-access/models',
+  coverageDirectory: '../../../../coverage/libs/api/data-access/prisma',
 };

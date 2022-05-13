@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'api-config-app',
-  preset: '../../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'api-domain-authentication-feature',
+  preset: '../../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +12,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/config/app',
+  coverageDirectory:
+    '../../../../../coverage/libs/api/domain/authentication/feature',
 };

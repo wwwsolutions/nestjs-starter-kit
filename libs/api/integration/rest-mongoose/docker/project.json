@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/integration/rest-mongoose/docker",
   "sourceRoot": "libs/api/integration/rest-mongoose/docker/src",
   "projectType": "library",
   "targets": {

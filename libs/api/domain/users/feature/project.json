@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/domain/users/feature",
   "sourceRoot": "libs/api/domain/users/feature/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/domain/users/feature"],
       "options": {
-        "jestConfig": "libs/api/domain/users/feature/jest.config.js",
+        "jestConfig": "libs/api/domain/users/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

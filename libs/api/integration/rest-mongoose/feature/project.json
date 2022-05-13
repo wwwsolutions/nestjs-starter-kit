@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/integration/rest-mongoose/feature",
   "sourceRoot": "libs/api/integration/rest-mongoose/feature/src",
   "projectType": "library",
   "targets": {
@@ -27,7 +26,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/integration/rest-mongoose/feature"],
       "options": {
-        "jestConfig": "libs/api/integration/rest-mongoose/feature/jest.config.js",
+        "jestConfig": "libs/api/integration/rest-mongoose/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }

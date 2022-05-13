@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/integration/graphql-prisma-postgres/codegen",
   "sourceRoot": "libs/api/integration/graphql-prisma-postgres/codegen/src",
   "projectType": "library",
   "targets": {
