@@ -1,3 +1,5 @@
+// https://github.com/nrwl/nx/issues/869
+
 module.exports = {
   '*': (filesArray) => {
     const files = filesArray.join();
