@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-domain-authentication-data-access',
+/* eslint-disable */
+export default {
+  displayName: 'api-domain-users-data-access',
   preset: '../../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +13,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory:
-    '../../../../../coverage/libs/api/domain/authentication/data-access',
+    '../../../../../coverage/libs/api/domain/users/data-access',
 };

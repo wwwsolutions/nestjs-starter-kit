@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-domain-users-feature',
+/* eslint-disable */
+export default {
+  displayName: 'api-integration-rest-mongoose-feature',
   preset: '../../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../../coverage/libs/api/domain/users/feature',
+  coverageDirectory:
+    '../../../../../coverage/libs/api/integration/rest-mongoose/feature',
 };

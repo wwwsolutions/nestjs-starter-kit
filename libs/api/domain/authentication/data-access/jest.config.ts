@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-integration-rest-mongoose-feature',
+/* eslint-disable */
+export default {
+  displayName: 'api-domain-authentication-data-access',
   preset: '../../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +13,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory:
-    '../../../../../coverage/libs/api/integration/rest-mongoose/feature',
+    '../../../../../coverage/libs/api/domain/authentication/data-access',
 };

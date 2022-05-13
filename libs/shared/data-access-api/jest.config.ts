@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'client-angular',
-  preset: '../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'shared-data-access-api',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/client-angular',
+  coverageDirectory: '../../../coverage/libs/shared/data-access-api',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

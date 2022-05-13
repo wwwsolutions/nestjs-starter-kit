@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/config/integrations",
   "sourceRoot": "libs/api/config/integrations/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/config/integrations"],
       "options": {
-        "jestConfig": "libs/api/config/integrations/jest.config.js",
+        "jestConfig": "libs/api/config/integrations/jest.config.ts",
         "passWithNoTests": true
       }
     }

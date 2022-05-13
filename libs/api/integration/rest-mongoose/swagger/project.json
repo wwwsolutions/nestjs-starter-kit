@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/integration/rest-mongoose/swagger",
   "sourceRoot": "libs/api/integration/rest-mongoose/swagger/src",
   "projectType": "library",
   "targets": {

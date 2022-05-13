@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'api-domain-article-data-access',
-  preset: '../../../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'api-core',
+  preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,6 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory:
-    '../../../../../coverage/libs/api/domain/article/data-access',
+  coverageDirectory: '../../../coverage/libs/api/core',
 };

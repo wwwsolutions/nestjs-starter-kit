@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/client-angular",
   "sourceRoot": "apps/client-angular/src",
   "prefix": "demo",
   "targets": {
@@ -87,7 +86,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/client-angular"],
       "options": {
-        "jestConfig": "apps/client-angular/jest.config.js",
+        "jestConfig": "apps/client-angular/jest.config.ts",
         "passWithNoTests": true
       }
     }

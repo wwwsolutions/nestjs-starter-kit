@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-common-types',
+/* eslint-disable */
+export default {
+  displayName: 'api-config-app',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/common/types',
+  coverageDirectory: '../../../../coverage/libs/api/config/app',
 };

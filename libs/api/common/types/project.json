@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/common/types",
   "sourceRoot": "libs/api/common/types/src",
   "projectType": "library",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/common/types"],
       "options": {
-        "jestConfig": "libs/api/common/types/jest.config.js",
+        "jestConfig": "libs/api/common/types/jest.config.ts",
         "passWithNoTests": true
       }
     }
