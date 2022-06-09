@@ -1,4 +1,5 @@
 {
+  "$schema": "..\\..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/integration/graphql-prisma-postgres/docker/src",
   "projectType": "library",
   "targets": {

@@ -34,7 +34,7 @@
     "docker:run": "docker run -it -p 8000:3000 courses/api",
     "api:deploy": "nx deploy api",
     "api:generate:rest": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/shared/data-access-api/src/lib -c openapiconfig.json",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "postinstall": "ngcc --properties es2020 browser module main"
   },
   "dependencies": {
     "@angular/animations": "14.0.1",
@@ -80,7 +80,7 @@
     "@angular-eslint/eslint-plugin": "13.2.1",
     "@angular-eslint/eslint-plugin-template": "13.2.1",
     "@angular-eslint/template-parser": "13.2.1",
-    "@angular/cli": "13.3.3",
+    "@angular/cli": "~14.0.0",
     "@angular/compiler-cli": "14.0.1",
     "@angular/language-service": "14.0.1",
     "@nestjs/common": "^8.3.1",
