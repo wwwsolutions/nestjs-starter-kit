@@ -23,7 +23,7 @@
       }
     },
     "generate": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "cwd": "libs/api/integration/rest-mongoose/docker/src",
@@ -33,7 +33,7 @@
       }
     },
     "up": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -42,7 +42,7 @@
       }
     },
     "down": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -51,7 +51,7 @@
       }
     },
     "clean": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -61,7 +61,7 @@
       }
     },
     "config": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -70,7 +70,7 @@
       }
     },
     "logs": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -79,7 +79,7 @@
       }
     },
     "logs-save": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -88,14 +88,14 @@
       }
     },
     "system-prune": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": ["docker system prune -a --volumes -f"]
       }
     },
     "list-of-commands": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [

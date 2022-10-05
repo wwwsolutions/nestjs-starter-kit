@@ -30,14 +30,14 @@
       }
     },
     "version": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": ["npx prisma version -- --verbose"]
       }
     },
     "migrate-dev": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -48,7 +48,7 @@
       }
     },
     "migrate-dev-no-seed": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -59,7 +59,7 @@
       }
     },
     "migrate-reset": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -70,7 +70,7 @@
       }
     },
     "migrate-reset-no-seed": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -81,7 +81,7 @@
       }
     },
     "migrate-status": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -92,7 +92,7 @@
       }
     },
     "seed": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -103,7 +103,7 @@
       }
     },
     "generate": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -114,7 +114,7 @@
       }
     },
     "generate-watch": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -125,7 +125,7 @@
       }
     },
     "format": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "cwd": "libs/api/data-access/prisma/src/lib/schema",
@@ -137,7 +137,7 @@
       }
     },
     "studio": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -148,7 +148,7 @@
       }
     },
     "introspect": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -159,7 +159,7 @@
       }
     },
     "db-push": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -170,7 +170,7 @@
       }
     },
     "apply": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -182,7 +182,7 @@
       }
     },
     "list-of-all-commands": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
