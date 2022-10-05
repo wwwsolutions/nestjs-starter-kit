@@ -23,7 +23,7 @@
       }
     },
     "resolvers-signature": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -32,7 +32,7 @@
       }
     },
     "apollo-angular-components": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -41,7 +41,7 @@
       }
     },
     "schema-types": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
@@ -50,7 +50,7 @@
       }
     },
     "list-of-commands": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [
