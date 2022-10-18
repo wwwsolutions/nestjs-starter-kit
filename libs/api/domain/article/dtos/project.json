@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/domain/article/dtos"],
+      "outputs": ["{workspaceRoot}/coverage/libs/api/domain/article/dtos"],
       "options": {
         "jestConfig": "libs/api/domain/article/dtos/jest.config.ts",
         "passWithNoTests": true

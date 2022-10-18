@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/shared/data-access-api"],
+      "outputs": ["{workspaceRoot}/dist/libs/shared/data-access-api"],
       "options": {
         "project": "libs/shared/data-access-api/ng-package.json"
       },
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/data-access-api"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/data-access-api"],
       "options": {
         "jestConfig": "libs/shared/data-access-api/jest.config.ts",
         "passWithNoTests": true

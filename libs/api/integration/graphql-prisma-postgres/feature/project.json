@@ -26,7 +26,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/libs/api/integration/graphql-prisma-postgres/feature"
+        "{workspaceRoot}/coverage/libs/api/integration/graphql-prisma-postgres/feature"
       ],
       "options": {
         "jestConfig": "libs/api/integration/graphql-prisma-postgres/feature/jest.config.ts",

@@ -25,7 +25,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/integration/rest-mongoose/feature"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/api/integration/rest-mongoose/feature"
+      ],
       "options": {
         "jestConfig": "libs/api/integration/rest-mongoose/feature/jest.config.ts",
         "passWithNoTests": true

@@ -85,7 +85,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/client-angular"],
+      "outputs": ["{workspaceRoot}/coverage/apps/client-angular"],
       "options": {
         "jestConfig": "apps/client-angular/jest.config.ts",
         "passWithNoTests": true

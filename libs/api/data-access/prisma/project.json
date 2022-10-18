@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/data-access/prisma"],
+      "outputs": ["{workspaceRoot}/coverage/libs/api/data-access/prisma"],
       "options": {
         "jestConfig": "libs/api/data-access/prisma/jest.config.ts",
         "passWithNoTests": true

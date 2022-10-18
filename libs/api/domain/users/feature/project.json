@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/domain/users/feature"],
+      "outputs": ["{workspaceRoot}/coverage/libs/api/domain/users/feature"],
       "options": {
         "jestConfig": "libs/api/domain/users/feature/jest.config.ts",
         "passWithNoTests": true
