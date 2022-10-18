@@ -25,7 +25,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/domain/authentication/data-access"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/api/domain/authentication/data-access"
+      ],
       "options": {
         "jestConfig": "libs/api/domain/authentication/data-access/jest.config.ts",
         "passWithNoTests": true
