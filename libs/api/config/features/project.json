@@ -1,4 +1,5 @@
 {
+  "name": "api-config-features",
   "$schema": "..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/config/features/src",
   "projectType": "library",

@@ -1,4 +1,5 @@
 {
+  "name": "api-integration-graphql-prisma-postgres-feature",
   "$schema": "..\\..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/integration/graphql-prisma-postgres/feature/src",
   "projectType": "library",

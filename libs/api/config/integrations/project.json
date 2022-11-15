@@ -1,4 +1,5 @@
 {
+  "name": "api-config-integrations",
   "$schema": "..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/config/integrations/src",
   "projectType": "library",
