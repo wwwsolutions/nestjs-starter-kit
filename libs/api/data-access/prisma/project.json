@@ -1,4 +1,5 @@
 {
+  "name": "api-data-access-prisma",
   "$schema": "..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/data-access/prisma/src",
   "projectType": "library",

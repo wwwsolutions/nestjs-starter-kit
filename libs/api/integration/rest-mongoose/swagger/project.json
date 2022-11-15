@@ -1,4 +1,5 @@
 {
+  "name": "api-integration-rest-mongoose-swagger",
   "$schema": "..\\..\\..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/api/integration/rest-mongoose/swagger/src",
   "projectType": "library",
